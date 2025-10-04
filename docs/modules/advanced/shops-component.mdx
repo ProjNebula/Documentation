@@ -1,0 +1,84 @@
+---
+layout: module
+title: Shops Component
+permalink: /modules/shops-component
+---
+
+# Shops Component `<shops>`
+
+## Shop `<shop>`
+
+```xml
+
+<!--TODO: Add example for Shop-->
+
+```
+
+##### Shop Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+| `name` | The name of the shop. | `Localized String` |
+| `open-check` | Check that should be ran before the shop can be opened. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+
+### Point Config `<point-config>`
+
+Configuration options regarding to how many points should be earned for performing actions.
+
+```xml
+
+<!--TODO: Add example for Point Config-->
+
+```
+
+##### Point Config Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `player-kill` | The amount of points that should be earned when the performs the player-kill action | `Number (Without Decimal)` | `0` |
+| `join-match` | The amount of points that should be earned when the performs the join-match action | `Number (Without Decimal)` | `0` |
+| `point-earn` | The amount of points that should be earned when the performs the point-earn action | `Number (Without Decimal)` | `0` |
+| `entity-destroy` | The amount of points that should be earned when the performs the entity-destroy action | `Number (Without Decimal)` | `0` |
+| `destroyable-damage` | The amount of points that should be earned when the performs the destroyable-damage action | `Number (Without Decimal)` | `0` |
+| `destroyable-touch` | The amount of points that should be earned when the performs the destroyable-touch action | `Number (Without Decimal)` | `0` |
+| `destroyable-repair` | The amount of points that should be earned when the performs the destroyable-repair action | `Number (Without Decimal)` | `0` |
+| `leakable-leak` | The amount of points that should be earned when the performs the leakable-leak action | `Number (Without Decimal)` | `0` |
+| `monument-destroy` | The amount of points that should be earned when the performs the monument-destroy action | `Number (Without Decimal)` | `0` |
+| `flag-capture` | The amount of points that should be earned when the performs the flag-capture action | `Number (Without Decimal)` | `0` |
+| `flag-pickup` | The amount of points that should be earned when the performs the flag-pickup action | `Number (Without Decimal)` | `0` |
+| `flag-steal` | The amount of points that should be earned when the performs the flag-steal action | `Number (Without Decimal)` | `0` |
+| `hill-capture` | The amount of points that should be earned when the performs the hill-capture action | `Number (Without Decimal)` | `0` |
+| `wool-pickup` | The amount of points that should be earned when the performs the wool-pickup action | `Number (Without Decimal)` | `0` |
+| `wool-place` | The amount of points that should be earned when the performs the wool-place action | `Number (Without Decimal)` | `0` |
+
+### Shop Items `<items>`
+
+These define which items are inside of the shop.
+
+```xml
+
+<!--TODO: Add example for Shop Items-->
+
+```
+
+### Item Stacks `<stack>`
+
+These can be used to give item stacks to players upon purchase.
+
+```xml
+
+<!--TODO: Add example for Item Stacks-->
+
+```
+
+##### Item Stacks Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `price` | The price of the item | `Number (Without Decimal)` | |
+| `name` | The name of the item. | `Localized String` | |
+| `description` | The description of the item. | `Localized String` | |
+| `check` | Check that should be ran before the item can be purchased. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `prestige` | The prestige level required to purchase the item. | `Number (Without Decimal)` | `0` |
+

@@ -1,0 +1,31 @@
+---
+layout: module
+title: Musical Carts
+permalink: /modules/musical-carts
+---
+
+# Musical Carts `<carts>`
+
+The musical carts game mode spawns minecarts around a center that players must enter to survive.
+
+This module can only be used on arcade servers.
+
+This module automatically enables one-life elimination and a win scenario for players.
+
+## Configuration
+
+```xml
+
+<carts center="25, 4, 6" height="30" radius="25" radius-subtract="5" />
+
+```
+
+##### Configuration Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `center` | The center of the spawning circle. | `X,Y,Z Vector` |
+| `radius` | The initial radius to spawn carts in. | `Number (Without Decimal)` |
+| `radius-subtract` | The amount that the radius should be shrank by each round. | `Number (Without Decimal)` |
+| `height` | The Y value that all carts should spawn at. | `Number (Without Decimal)` |
+

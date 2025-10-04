@@ -1,0 +1,43 @@
+---
+layout: module
+title: Custom Projectiles
+permalink: /modules/custom-projectiles
+---
+
+# Custom Projectiles `<projectiles>`
+
+Use this module to create custom projectiles. These can be referenced by id in loadouts.
+
+## Projectile `<projectile>`
+
+This represents a custom projectile that can be shot from bows or items.
+
+```xml
+
+<projectiles>
+  <projectile id="tnt" name="{tnt-bow}" type="primed tnt" cooldown="11s" />
+</projectiles>
+
+<!-- Translate {tnt-bow} -->
+
+<locales>
+  <locale lang="en">
+    <tnt-bow>TNT Bow</tnt-bow>
+  </locale>
+</locales>
+
+```
+
+##### Projectile Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `name` | Name of the custom projectile for use in death messages and cool-down alerts. | `Localized String` | |
+| `type` | The type of entity to shoot out of the player. | `EntityType`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) | |
+| `damage` | Amount of damage the projectile will do when it hits the player. | `Number (With Decimal)` | `1.0` |
+| `velocity` | The velocity of the projectile. | `Number (With Decimal)` | `1.0` |
+| `loadout` | The id of the strike loadout for reference. | `Strike Loadout ID` | |
+| `cooldown` | The time it takes for the projectile item to be used again after use. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | `0` |
+| `mount` | If the player should mount the projectile after it is fired. | `True/False` | `false` |
+

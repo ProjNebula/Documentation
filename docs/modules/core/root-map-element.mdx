@@ -1,0 +1,48 @@
+---
+layout: module
+permalink: /modules/root-map-element
+sidebar: fucked up shit
+---
+
+# Root Map Element `<map>`
+
+This is the main, root element the all maps must provide. Every subsequent element is nested inside the map element. Note that for an XML file to be valid, it must contain the `<?xml version="1.0"?>` header.
+
+## Main Map Configuration
+
+These attributes contain key configuration options about the map.
+
+```xml
+
+<!--<?xml version="1.0" encoding="UTF-8"?> -->
+
+<map name="Chopped" version="1.9.0" spec="1.0.4">...</map>
+
+```
+
+##### Main Map Configuration Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `name` | The name of the map. | `Text` |
+| `slug` | The network identifiable slug for the map. THis is used for things such as ratings and stats. This should usually be left to Atlas, unless you change the name of the map and want to keep ratings data. | `Text` |
+| `spec` | The version of the Atlas XML specification. | `Specification Version`<br />`1.0.0 - 1.0.6` |
+| `version` | The version of the map. | `Semantic Version`<br />[Possible Values](http://semver.org) |
+| `genre` | The genre of the map. Atlas will attempt to determine the genre based on the modules used in the map if this is not provided. | `Map Genre`<br />`nebula`, `koth`, `ctf`, `tdm`, `mix`, `elimination`, `sky wars`, `walls`, `arcade` |
+
+### Game Types `<gametype>`
+
+Game Types are used to group maps with similar objectives together for various UI applications.
+
+```xml
+
+<gametype>dtm</gametype>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The game type of this map. | `Game Type`<br />`ctw`, `dtc`, `dtm`, `elimination`, `hill`, `lcs`, `lts`, `score`, `walls` |
+

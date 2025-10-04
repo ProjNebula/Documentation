@@ -1,0 +1,841 @@
+---
+layout: module
+title: Checks
+permalink: /modules/checks
+---
+
+# Checks `<checks>`
+
+Checks are conditions that must pass in order for an action to happen in a match.
+
+On their own, they do nothing.
+
+## All Check `<all>`
+
+This check will only pass if all of it's children checks pass.
+
+```xml
+
+<checks>
+  <all id="allofthis">
+    <carrying material="iron" amount="12" />
+    <holding material="iron sword" />
+  </all>
+</checks>
+
+```
+
+##### All Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Allow Check `<allow>`
+
+This check will only pass if the child check passes.
+
+```xml
+
+<checks>
+  <allow id="ironsword3">
+    <holding material="iron sword" />
+  </allow>
+</checks>
+
+```
+
+##### Allow Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Always Check `<always>`
+
+This check will always pass.
+
+```xml
+
+<checks>
+  <!-- NOTE: The "always" ID is added by default and cannot be used -->
+  <always id="always-1" />
+</checks>
+
+```
+
+##### Always Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Any Check `<any>`
+
+This check will pass if any of the child checks pass.
+
+```xml
+
+<checks>
+  <any id="why">
+    <carrying material="iron" amount="12" />
+    <holding material="iron sword" />
+  </any>
+</checks>
+
+```
+
+##### Any Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Attacker Check `<attacker>`
+
+This check is a parent check that can be used to query any information about the attacker of a damage event.
+
+```xml
+
+<checks>
+  ...
+  <attacker id="donthurtme">
+    <any>
+      <team>red</team>
+      <team>blue</team>
+    </any>
+  </attacker>
+</checks>
+
+```
+
+##### Attacker Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Carrying Check `<carrying>`
+
+This check can be used to query information about what an entity has in their inventory.
+
+```xml
+
+<checks>
+  ...
+  <carrying material="diamond" amount="3" id="diamond" />
+</checks>
+
+```
+
+##### Carrying Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Damage Check `<damage>`
+
+This check can be used to query information about the cause of a damage event.
+
+```xml
+
+<checks>
+  ...
+  <damage id="falldam">fall</damage>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| Damage cause to look for. | `DamageCause`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/DamageCause.html) |
+
+##### Damage Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Deny Check `<deny>`
+
+This check will only pass if the child check fails.
+
+```xml
+
+<checks>
+  <deny id="ironsword2">
+    <holding material="iron sword" />
+  </deny>
+</checks>
+
+```
+
+##### Deny Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Elimination Check `<elimination>`
+
+This check is used to check if elimination is currently enabled.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | ADDED |
+
+```xml
+
+<checks>
+  <elimination id="eliminated" />
+</checks>
+
+```
+
+##### Elimination Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Entity Check `<entity>`
+
+This check can be used to query information about the type of entity involved in an event.
+
+```xml
+
+<checks>
+  ...
+  <entity id="piggy">pig</entity>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The type of entity to check for. | `EntityType`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) |
+
+##### Entity Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Explosion Check `<explosion>`
+
+This check is used to check if an entity is a explosive.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | ADDED |
+
+```xml
+
+<checks>
+  ...
+  <explosion id="boom" />
+</checks>
+
+```
+
+##### Explosion Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Flying Check `<flying>`
+
+This check is used to check if a player is flying.
+
+```xml
+
+<checks>
+  ...
+  <flying id="fly" />
+</checks>
+
+```
+
+##### Flying Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `state` | | `True/False` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Holding Check `<holding>`
+
+This check is used to query information about what an entity is holding in hand.
+
+```xml
+
+<checks>
+  ...
+  <holding id="stone" material="stone sword" />
+</checks>
+
+```
+
+##### Holding Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Inside Check `<inside>`
+
+This check is used to check if a location is inside of a region.
+
+```xml
+
+<checks>
+  <inside id="insidethis">
+    <region>
+      <sphere origin="41, 15, 0" radius="5" />
+    </region>
+  </inside>
+</checks>
+
+```
+
+##### Inside Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Item Check `<item>`
+
+This check is used to query information about the type of an item.
+
+```xml
+
+<checks>
+  ...
+  <item id="woodcheck" material="wood" damage="1" />
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The material to check against. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
+
+##### Item Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Kill Streak Check `<kill-streak>`
+
+This check is used to query information about the amount of kills a player has gotten in a row.
+
+```xml
+
+<checks>
+  <kill-streak id="hey" scope="life">1-4</kill-streak>
+</checks>
+
+```
+
+##### Kill Streak Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `scope` | Scope to use when checking streak. | `Scope`<br />`life`, `match` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Kit Check `<kit>`
+
+**REQUIREMENT:** This feature requires the [Kits Component](/modules/kits).
+
+This check is used to check which kit a player is using.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.1 | ADDED |
+
+```xml
+
+<checks>
+  ...
+  <kit id="kitcheck">some-kit</kit>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The id of the kit for reference. | `Kit ID` |
+
+##### Kit Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Material Check `<material>`
+
+This check is used to query information about what type of material an item or block is.
+
+```xml
+
+<checks>
+  ...
+  <material id="logfolder">log:1</material>
+</checks>
+
+```
+
+##### Material Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Never Check `<never>`
+
+This check will never pass.
+
+```xml
+
+<checks>
+  <!-- NOTE: The "never" ID is added by default and cannot be used -->
+  <never id="never-1" />
+</checks>
+
+```
+
+##### Never Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Not Check `<not>`
+
+This check will invert the result of the child check.
+
+```xml
+
+<checks>
+  <not id="ironsword">
+    <holding material="iron sword" />
+  </not>
+</checks>
+
+```
+
+##### Not Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Objective Check `<objective>`
+
+**REQUIREMENT:** This feature requires the [Objectives Component](/modules/objectives).
+
+This check is used to query information about the current state of an objective.
+
+```xml
+
+<checks>
+  <objective id="touch" state="touched">some-flag</objective>
+  <!-- STATES: Completed, Captured, Touched. -->
+</checks>
+
+```
+
+##### Objective Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `team` | The id of the team for reference. | `Team ID` |
+| `state` | The score to check for. | `Check Type`<br />`completed`, `captured`, `touched` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## On Ground Check `<on-ground>`
+
+This check is used to check if a player is on ground.
+
+```xml
+
+<checks>
+  ...
+  <on-ground id="walking" />
+</checks>
+
+```
+
+##### On Ground Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `state` | | `True/False` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Participating Check `<participating>`
+
+This check is used to check if a player is currently participating in the match.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | ADDED |
+
+```xml
+
+<checks>
+  <participating id="youplaying" />
+</checks>
+
+```
+
+##### Participating Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Random Check `<random>`
+
+This check will randomly return true based on chance.
+
+```xml
+
+<checks>
+  ...
+  <!-- 10% chance of passing -->
+  <random id="chance">0.1</random>
+</checks>
+
+```
+
+##### Random Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Score Check `<score>`
+
+**REQUIREMENT:** This feature requires the [Objectives Component](/modules/objectives).
+
+This check is used to check the current score of a team.
+
+If no team is specified, the team will be determined contextually.
+
+```xml
+
+<checks>
+  ...
+  <score compare="greater" team="blue">4</score>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The score to compare against. | `Text` |
+
+##### Score Check Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `team` | The id of the team for reference. | `Team ID` | |
+| `compare` | The comparator which is used to compare the supplied value and the score. | `Number Comparator`<br />`equals - Check if numbers are exact match.`, `less than - Check if the supplied value is less than the score.`, `less than equal - Check if the supplied value is less than, or equal, to the score.`, `greater than - Check if the supplied value is greater than the score.`, `greater than equal - Check if the supplied value is greater than, or equal, to the score.` | `equals` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+
+## Sneaking Check `<sneaking>`
+
+This check is used to check if a player is sneaking.
+
+```xml
+
+<checks>
+  ...
+  <sneaking id="sneak" />
+</checks>
+
+```
+
+##### Sneaking Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `state` | | `True/False` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Sometimes Check `<sometimes>`
+
+This is a random check with a 50% value.
+
+```xml
+
+<checks>
+  ...
+  <!-- NOTE: The "sometimes" ID is added by default and cannot be used -->
+  <sometimes id="sometimes-1" />
+</checks>
+
+```
+
+##### Sometimes Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Spawn Reason Check `<spawn>``<spawn-reason>`
+
+This check is used to check the spawn reason of a spawn event.
+
+```xml
+
+<checks>
+  ...
+  <spawn id="spawneggs">spawner egg</spawn>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| Reason to check for. | `SpawnReason`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/SpawnReason.html) |
+
+##### Spawn Reason Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Spectating Check `<spectating>`
+
+This check is used to check if a player is currently spectating the match.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | ADDED |
+
+```xml
+
+<checks>
+  ...
+  <spectating id="spectator" />
+</checks>
+
+```
+
+##### Spectating Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Sprinting Check `<sprinting>`
+
+This check is used to check if a player is sprinting.
+
+```xml
+
+<checks>
+  ...
+  <sprinting id="sprint" />
+</checks>
+
+```
+
+##### Sprinting Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `state` | | `True/False` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## State Check `<state>`
+
+This check is used to check the current state of the match.
+
+Default states are starting, playing, and cycling
+
+```xml
+
+<checks>
+  ...
+  <state id="matchstate">playing</state>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The id of the state for reference. | `State ID` |
+
+##### State Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Team Check `<team>`
+
+This check is used to check what team a player is on.
+
+```xml
+
+<checks>
+  ...
+  <team id="blueteam">blue</team>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The id of the team for reference. | `Team ID` |
+
+##### Team Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Time Check `<time>`
+
+This check is used to check time that the match has been playing.
+
+```xml
+
+<checks>
+  ...
+  <!-- Time equals 5 minutes, 0 seconds -->
+  <time id="5minute">5m</time>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The time to check against. | `Number (Without Decimal)` |
+
+##### Time Check Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `compare` | The comparator which is used to compare the supplied value and the playing time. | `Number Comparator`<br />`equals - Check if numbers are exact match.`, `less than - Check if the supplied value is less than the playing time.`, `less than equal - Check if the supplied value is less than, or equal, to the playing time.`, `greater than - Check if the supplied value is greater than the playing time.`, `greater than equal - Check if the supplied value is greater than, or equal, to the playing time.` | `equals` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+
+## Victim Check `<victim>`
+
+This check is a parent check that can be used to query any information about the victim of a damage event.
+
+```xml
+
+<checks>
+  ...
+  <victim id="victims">
+    <any>
+      <team>green</team>
+      <team>yellow</team>
+    </any>
+  </victim>
+</checks>
+
+```
+
+##### Victim Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Void Check `<void>`
+
+This check is used to check if a location is above the void.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | ADDED |
+
+```xml
+
+<checks>
+  ...
+  <void min="0,0,0" max="1,1,1" id="VOID" />
+</checks>
+
+```
+
+##### Void Check Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `min` | The minimum y coordinate to check. | `Number` | `0` |
+| `max` | The maximum y coordinate to check. | `Number` | `5` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+
+## Wearing Check `<wearing>`
+
+This check can be used to query information about what an entity is wearing.
+
+```xml
+
+<checks>
+  ...
+  <wearing id="chestplate" material="iron chestplate" />
+</checks>
+
+```
+
+##### Wearing Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+
+## Weather Check `<weather>`
+
+This check can be used to query information about what an entity has in their inventory.
+
+```xml
+
+<checks>
+  ...
+  <weather id="norain">clear</weather>
+</checks>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The type of weather to check for. | `Weather Type`<br />`downfall`, `clear` |
+
+##### Weather Check Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+

@@ -1,0 +1,33 @@
+---
+layout: module
+title: Ender Chests
+permalink: /modules/ender-chests
+---
+
+# Ender Chests `<enderchests>`
+
+This module is used to configure the behaviour of ender chests during the current map.
+
+If this module is not defined, ender chests will work as they do in normal Minecraft.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | ADDED |
+
+## Configuration
+
+The main configuration for the enderchest module.
+
+```xml
+
+<enderchests exclusive="false" check="insertcheckhere" />
+
+```
+
+##### Configuration Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `exclusive` | If ender chests should be shared for all matches on this map during the server's lifetime, or only kept as long as the match lasts. | `True/False` | `true` |
+| `check` | Check that should be ran before an ender chest can be opened. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+

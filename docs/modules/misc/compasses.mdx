@@ -1,0 +1,37 @@
+---
+layout: module
+title: Compasses
+permalink: /modules/compasses
+---
+
+# Compasses `<compasses>`
+
+This module is used to customize where a player's compass points based on various conditions.
+
+If multiple compasses are defined, checks will be used to determine which target is assigned to each player.
+
+## Compass `<compass>`
+
+```xml
+
+<compasses>
+  <!-- Sets compass to nearest player who has gold. -->
+  <!-- If no players have gold the compass will point to the location. -->
+  <compass target="enemy" check="has-gold" />
+  s
+  <compass target="1,1,1" />
+</compasses>
+
+<checks>
+  <carrying id="has-gold" material="gold ingot" />
+</checks>
+
+```
+
+##### Compass Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `target` | The targeting mode/point of the compass. If 'enemy' is supplied, the compass will point to the closest enemy If not, the compass will point to the provided x,y,z coordinate. | `Compass Target/Point` |
+| `check` | Check that should be ran when deciding which compass target to choose for each player.. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+

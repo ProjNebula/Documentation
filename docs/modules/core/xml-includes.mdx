@@ -1,0 +1,166 @@
+---
+layout: module
+title: XML Includes
+permalink: /modules/xml-includes
+---
+
+# XML Includes `<include>`
+
+Includes are used to split a large and redundant configuration file into multiple smaller files. `<include>` elements should only be found directly as a child of the main `<map>` element.
+
+##### Shared Includes
+
+| Path | Description |
+| --- | --- |
+| defaults.xml | 
+    Included in every map
+    This loads localization for maps.
+    DON'T DELETE THIS!
+ |
+| Shared/groups.xml | 
+    Shared file loaded for all maps that contains useful groups or "snippets" of code that is used in a lot of maps.
+    This is different from a regular include file because it can contain a wide variety of different feature definitions which can span a
+    variety of gamemodes and that are only loaded by the respective map's XML file directly.
+    Larger things that span multiple modules should generally receive their own include file.
+    The goal of this file if to cut down on excess code duplication and make it easy to change things in Atlas without having to change a lot of XMLs.
+ |
+| Shared/locales/ar_SA.xml |  Localized strings for the english language.  |
+| Shared/locales/de_DE.xml |  Localized strings for the english language.  |
+| Shared/locales/en_US.xml |  Localized strings for the english language.  |
+| Shared/locales/es_ES.xml |  Localized strings for the english language.  |
+| Shared/locales/sv_SE.xml |  Localized strings for the english language.  |
+| Shared/nebula-shop.xml | 
+	
+		
+			
+				1
+				10
+				4
+				10
+			
+			
+				
+					
+						Three grenades to toss out at your enemies!
+					
+					
+				
+				
+					
+						Man, I love (ender) pearls!
+					
+					
+						
+							protection_environmental
+						
+					
+				
+				
+					
+						Shoot your shot, take a ride on the TNT drone!
+					
+					
+						
+							protection_environmental
+						
+					
+				
+				
+					
+						Knockback V on an eleven-use diamond shovel.
+					
+					
+						
+							knockback
+						
+					
+				
+				
+					
+						Three grenades to toss out at your enemies!
+					
+					
+				
+				
+					
+						Gain a Speed I buff for 1 minute.
+					
+					
+						
+							speed
+						
+					
+				
+				
+					
+						Gain a Regeneration II buff for 1 minute.
+					
+					
+						
+							regeneration
+						
+					
+				
+				
+					
+						Heal up on the front lines!
+					
+					
+				
+			
+		
+	
+	
+		^2Use the ^a^lNether Star ^r^2in your inventory to access the ^a^lNebula Shop^r^2 - upgrade your gear to help your team win!
+	
+	
+		
+			
+		
+	
+	
+		
+			
+				0
+				
+			
+		
+	
+	
+		
+		
+	
+	
+		
+			
+				egg
+				nether star
+				glass bottle
+			
+		
+	
+	
+ |
+| Shared/reward-one-gap.xml |  Helper file to reward an arrow on a kill.  |
+
+## Include
+
+```xml
+
+<include src="defaults.xml" />
+
+<!--Default-->
+
+<include src="Shared/reward-one-arrow.xml" />
+
+<!--One arrow on Kill-->
+
+```
+
+##### Include Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `src` | The path to another map configuration file. | `Text` |
+| `local` | If set to to true, it will search for the import in the same directory as the map.xml, otherwise it searches in the shared maps directory. | `True/False` |
+

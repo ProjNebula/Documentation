@@ -1,0 +1,104 @@
+---
+layout: module
+title: Remove, Repair, and Keep
+permalink: /modules/remove-repair-and-keep
+---
+
+# Remove, Repair, and Keep `<items>`
+
+This module is used to modify which items are dropped, kept, and which tools are repaired when picked up.
+
+## Keep Armor `<keep-armor>`
+
+This feature is used to modify which armor are kept by players across lives.
+
+```xml
+
+<items>
+  <!-- keep diamond helmet in inventory after death -->
+  <keep-armor>
+    <any>
+      <material>diamond helmet</material>
+    </any>
+  </keep-armor>
+</items>
+
+```
+
+##### Keep Armor Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `check` | Check that should be ran before armor is kept. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+
+## Keep Items `<keep-items>`
+
+This feature is used to modify which items are kept by players across lives.
+
+```xml
+
+<items>
+  <!-- keep diamond sword in inventory after death -->
+  <keep-items>
+    <any>
+      <material>diamond sword</material>
+    </any>
+  </keep-items>
+</items>
+
+```
+
+##### Keep Items Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `check` | Check that should be ran before an item is kept. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+
+## Remove Drops `<remove-drops>`
+
+This feature is used to modify which items can be dropped by players/blocks.
+
+```xml
+
+<items>
+  <!-- remove all glass and wood when dropped -->
+  <remove-drops>
+    <any>
+      <material>glass</material>
+      <material>wood</material>
+    </any>
+  </remove-drops>
+</items>
+
+```
+
+##### Remove Drops Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `check` | Check that should be ran before an item is allowed to be dropped. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+
+## Repair Tools `<repair-tools>`
+
+This feature is used to modify which tools are repaired when a player picks up a matching tool.
+
+```xml
+
+<items>
+  <repair-tools>
+    <any>
+      <material>stone sword</material>
+      <material>leather helmet</material>
+      <material>leather chestplate</material>
+    </any>
+  </repair-tools>
+</items>
+
+```
+
+##### Repair Tools Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `check` | Check that should be ran before a tool is repaired. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+

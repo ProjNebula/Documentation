@@ -1,0 +1,62 @@
+---
+layout: module
+title: Groups
+permalink: /modules/groups
+---
+
+# Groups `<ffa>``<teams>`
+
+This module is used to define how many and what attributes teams should possess in the match.
+
+Note that the team name is not an attribute but rather is defined as text within the element. Team names should be localized, short, and easy to remember.
+
+## FFA `<ffa>`
+
+When FFA is enabled, players are placed onto their own teams and optionally assigned different colors.
+
+```xml
+
+<ffa min="4" max="32" />
+
+```
+
+##### FFA Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `min` | The minimum number of players playing for the match to start. | `Number (Without Decimal)` | |
+| `max` | The soft maximum number of players allowed in the match. Premium users and staff are able to join beyond this value. | `Number (Without Decimal)` | |
+| `max-overfill` | The maximum number of players allowed in the match. | `Number (Without Decimal)` | `1.25 * max` |
+| `colorize` | If each player should be assigned their own color out of all of the possible team colors. | `True/False` | `true` |
+| `friendly-fire` | If players can hit each other. | `True/False` | `true` |
+
+## Teams `<team>`
+
+Teams represent groups of players in the match with a specific color.
+
+```xml
+
+<teams>
+  <team id="lime-team" color="lime" min="16" max="20">{lime}</team>
+  <team id="purple-team" color="purple" min="16" max="20">{purple}</team>
+</teams>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The name of theam/ | `Localized String` |
+
+##### Teams Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `color` | The color of the team. | `Team Color`<br />`aqua`, `cyan`, `gray`, `dark gray`, `red`, `blue`, `green`, `lime`, `yellow`, `orange`, `purple`, `pink`, `black`, `white` | |
+| `min` | The minimum number of players on the team for the match to start. | `Number (Without Decimal)` | |
+| `max` | The soft maximum number of players allowed on the team. Premium users and staff are able to join beyond this value. | `Number (Without Decimal)` | |
+| `max-overfill` | The maximum number of players allowed on the team. | `Number (Without Decimal)` | `1.25 * max` |
+

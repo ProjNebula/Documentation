@@ -1,0 +1,47 @@
+---
+layout: module
+title: Custom Resource Packs
+permalink: /modules/custom-resource-packs
+---
+
+# Custom Resource Packs `<request-resource-pack>``<resource-packs>`
+
+This module is used to request a custom resource pack during matches.
+
+## Pack `<resource-pack>`
+
+A pack represents a resource pack that can be requested for a player to use.
+
+```xml
+
+<resource-packs>
+  <resource-pack id="l33t-pack" name="Not a Keylogger" url="https://paste.avicus.net/rikukufado" />
+</resource-packs>
+
+```
+
+##### Pack Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+| `name` | The name of the pack when used in UI. | `Localized String` |
+| `url` | The direct URL to a zipped version of the resource pack. | `URL` |
+
+## Resource Pack Request `<request-resource-pack>`
+
+This represents a request that is sent to a player to use a resource pack.
+
+```xml
+
+<request-resource-pack id="l33t-pack" force="true" />
+
+```
+
+##### Resource Pack Request Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The pack to be requested. The id of the resource pack for reference. | `Resource Pack ID` | |
+| `force` | If the pack is required in order for the player to join teams. | `True/False` | `false` |
+

@@ -1,0 +1,582 @@
+---
+layout: module
+title: Executors
+permalink: /modules/executors
+---
+
+# Executors `<executors>`
+
+Executors are used to perform various actions during the match.
+
+## Apply Loadout `<apply-loadout>`
+
+**REQUIREMENT:** This feature requires the [Items & Loadouts Component](/modules/items---loadouts).
+
+An executor that gives a loadout to a player.
+
+```xml
+
+<executors>
+  <executor id="give-items" check="always">
+    <apply-loadout check="oneitem" loadout="randomizer" />
+  </executor>
+</executors>
+
+```
+
+##### Apply Loadout Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `loadout` | The id of the loadout for reference. | `Loadout ID` |
+
+## Change World Time `<change-world-time>`
+
+This executor is used to change the time of match world.
+
+```xml
+
+<executors>
+  <executor id="let-there-be-chaos" check="always">
+    <change-world-time check="always" time="13200" />
+  </executor>
+</executors>
+
+```
+
+##### Change World Time Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `time` | Amount of time (in ticks) to change the time by. | `Number (Without Decimal)` | |
+| `action` | The action which is applied to the world time. | `Number Action`<br />`none - Perform no action and keep the world time the same.`, `set - Set the world time to the supplied number.`, `add - Add the supplied number to the world time.`, `subtract - Subtract the supplied number from the world time.`, `multiply - Multiply the supplied number with the world time.`, `divide - Divide the world time by the supplied number.`, `power - Raise the world time by the supplied number.` | `set` |
+
+## Enchant Item `<enchant-item>`
+
+An executor that enchants items in player inventories based on various criteria.
+
+```xml
+
+<executors>
+  <executor id="anid" check="acheck">
+    <enchant-item only-natural="false" level="41" selector="hand" to-enchant="iron sword">fast digging</enchant-item>
+  </executor>
+</executors>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| Enchantment to be applied. | `Enchantment`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html) |
+
+##### Enchant Item Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `selector` | Part of inventory to look inside of. | `Enchantment Selector`<br />`inventory`, `hotbar`, `armor`, `hand` | |
+| `matcher` | Items to look for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` | |
+| `level` | Level of the enchantment. | `Number (Without Decimal)` | `1` |
+| `only-natural` | Only enchants items that can naturally be enchanted with this type of enchantment. | `True/False` | `false` |
+
+## Modify Lives `<modify-lives>`
+
+**REQUIREMENT:** This feature requires the [Elimination Component](/modules/elimination).
+
+An executor that is used to modify the amount of lives a player has remaining.
+
+```xml
+
+<executors>
+  <executor id="modify" check="putcheck">
+    <modify-lives action="add" amount="69" />
+  </executor>
+</executors>
+
+```
+
+##### Modify Lives Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `action` | The action which is applied to number of lives the player has. | `Number Action`<br />`none - Perform no action and keep number of lives the player has the same.`, `set - Set number of lives the player has to the supplied number.`, `add - Add the supplied number to number of lives the player has.`, `subtract - Subtract the supplied number from number of lives the player has.`, `multiply - Multiply the supplied number with number of lives the player has.`, `divide - Divide number of lives the player has by the supplied number.`, `power - Raise number of lives the player has by the supplied number.` | |
+| `amount` | Amount of lives to modify. | `Number (Without Decimal)` | `1` |
+
+## Perform At Fixed Rate `<loop>`
+
+An executor that is used to perform an executor at a fixed rate that can be dynamically ended based on checks.
+
+```xml
+
+<executors>
+  <executor check="always">
+    <loop id="spawn-loop" check="always" stop="never" interval="20s" execute="spawn-items" />
+  </executor>
+</executors>
+
+```
+
+##### Perform At Fixed Rate Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `execute` | The id of the executor for reference. | `Executor ID` |
+| `stop` | Check that should be ran before the loop is halted. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+| `interval` | Check that will run with each execution to see if it should be ended early. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` |
+| `repetitions` | Number of times to execute. If this is not given, the executor will never stop. | `Number (Without Decimal)` |
+
+## Perform Executor(s) On All Players `<perform-on-everyone>`
+
+An executor that is used to perform executors on an all the players currently on the server, including spectators.
+
+```xml
+
+<executors>
+  <executor id="give-items" check="always">
+    <perform-on-everyone execute="send-alert" />
+  </executor>
+</executors>
+
+```
+
+##### Perform Executor(s) On All Players Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `execute` | The id of the executor for reference. | `Executor ID` |
+
+## Perform Executor(s) On Group `<perform-on-group>`
+
+An executor that is used to perform executors on an entire group of players.
+
+```xml
+
+<executors>
+  <perform-on-group id="xtra-life" group="red" check="always">
+    <execute>
+      <modify-lives amount="1" />
+    </execute>
+  </perform-on-group>
+  <perform-on-group id="xtra-life" group="blue" check="always">
+    <execute>
+      <modify-lives amount="1" />
+    </execute>
+  </perform-on-group>
+</executors>
+
+```
+
+##### Perform Executor(s) On Group Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `group` | The id of the group to perform the executor on for reference. | `Group To Perform The Executor On ID` |
+| `execute` | The id of the executor for reference. | `Executor ID` |
+
+## Play Sound `<play-sound>`
+
+An executor that plays a sound to a player.
+
+```xml
+
+<executors>
+  <executor id="do-this" check="only-coal">
+    <play-sound sound="enderdragon death" volume="1" pitch="1" />
+  </executor>
+</executors>
+
+```
+
+##### Play Sound Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `sound` | Type of sound to be played. | `Sound`<br />`ambience cave`, `ambience rain`, `ambience thunder`, `anvil break`, `anvil land`, `anvil use`, `arrow hit`, `burp`, `chest close`, `chest open`, `click`, `door close`, `door open`, `drink`, `eat`, `explode`, `fall big`, `fall small`, `fire`, `fire ignite`, `fizz`, `fuse`, `glass`, `hurt flesh`, `item break`, `item pickup`, `lava`, `lava pop`, `level up`, `minecart base`, `minecart inside`, `note bass`, `note piano`, `note bass drum`, `note sticks`, `note bass guitar`, `note snare drum`, `note pling`, `orb pickup`, `piston extend`, `piston retract`, `portal`, `portal travel`, `portal trigger`, `shoot arrow`, `splash`, `splash2`, `step grass`, `step gravel`, `step ladder`, `step sand`, `step snow`, `step stone`, `step wood`, `step wool`, `swim`, `water`, `wood click`, `bat death`, `bat hurt`, `bat idle`, `bat loop`, `bat takeoff`, `blaze breath`, `blaze death`, `blaze hit`, `cat hiss`, `cat hit`, `cat meow`, `cat purr`, `cat purreow`, `chicken idle`, `chicken hurt`, `chicken egg pop`, `chicken walk`, `cow idle`, `cow hurt`, `cow walk`, `creeper hiss`, `creeper death`, `enderdragon death`, `enderdragon growl`, `enderdragon hit`, `enderdragon wings`, `enderman death`, `enderman hit`, `enderman idle`, `enderman teleport`, `enderman scream`, `enderman stare`, `ghast scream`, `ghast scream2`, `ghast charge`, `ghast death`, `ghast fireball`, `ghast moan`, `irongolem death`, `irongolem hit`, `irongolem throw`, `irongolem walk`, `magmacube walk`, `magmacube walk2`, `magmacube jump`, `pig idle`, `pig death`, `pig walk`, `sheep idle`, `sheep shear`, `sheep walk`, `silverfish hit`, `silverfish kill`, `silverfish idle`, `silverfish walk`, `skeleton idle`, `skeleton death`, `skeleton hurt`, `skeleton walk`, `slime attack`, `slime walk`, `slime walk2`, `spider idle`, `spider death`, `spider walk`, `wither death`, `wither hurt`, `wither idle`, `wither shoot`, `wither spawn`, `wolf bark`, `wolf death`, `wolf growl`, `wolf howl`, `wolf hurt`, `wolf pant`, `wolf shake`, `wolf walk`, `wolf whine`, `zombie metal`, `zombie wood`, `zombie woodbreak`, `zombie idle`, `zombie death`, `zombie hurt`, `zombie infect`, `zombie unfect`, `zombie remedy`, `zombie walk`, `zombie pig idle`, `zombie pig angry`, `zombie pig death`, `zombie pig hurt`, `dig wool`, `dig grass`, `dig gravel`, `dig sand`, `dig snow`, `dig stone`, `dig wood`, `firework blast`, `firework blast2`, `firework large blast`, `firework large blast2`, `firework twinkle`, `firework twinkle2`, `firework launch`, `successful hit`, `horse angry`, `horse armor`, `horse breathe`, `horse death`, `horse gallop`, `horse hit`, `horse idle`, `horse jump`, `horse land`, `horse saddle`, `horse soft`, `horse wood`, `donkey angry`, `donkey death`, `donkey hit`, `donkey idle`, `horse skeleton death`, `horse skeleton hit`, `horse skeleton idle`, `horse zombie death`, `horse zombie hit`, `horse zombie idle`, `villager death`, `villager haggle`, `villager hit`, `villager idle`, `villager no`, `villager yes` |
+| `volume` | Volume of the sound. | `Integer Range`<br />`0-2.0` |
+| `pitch` | Pitch of the sound. | `Integer Range`<br />`0-2.0` |
+| `region` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` |
+
+## Replace Blocks `<replace-block>`
+
+An executor that will rapidly replace blocks inside of a region.
+
+```xml
+
+<executors>
+  <executor id="help" check="always">
+    <replace-block find="air" replace="enchantment table" region="enchantment-station-enchantment-tables" />
+  </executor>
+</executors>
+
+```
+
+##### Replace Blocks Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `find` | Material to search for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
+| `replace` | Material to replace found blocks with. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
+
+## Send Message `<send-message>`
+
+An executor that is used to send messages to players.
+
+The message supports contextual attributes based on the actor which are surrounded with [] (square brackets)
+
+```xml
+
+<executors>
+  <executor id="send-alert" check="always">
+    <send-message location="chat">onion</send-message>
+  </executor>
+</executors>
+
+```
+
+##### Send Message Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `location` | Location on the screen to send the message. | `Message Location`<br />`chat`, `title`, `subtitle` | |
+| `message` | Message to send. | `Text` | |
+| `fade-in` | If the title location is used, The time if takes the title to fade in. | `Number (Without Decimal)` | `20` |
+| `hold` | If the title location is used, The time if takes the title to stay on screen. | `Number (Without Decimal)` | `40` |
+| `fade-out` | If the title location is used, The time if takes the title to fade out. | `Number (Without Decimal)` | `20` |
+
+##### Attributes that apply to entities
+
+| Name | Description |
+| --- | --- |
+| name | Name of the entity. |
+| type | Type of the entity |
+| velocity | Base prefix for the velocity of the entity that is used to access the vector attributes. |
+| location | Base prefix for the location of the entity that is used to access the vector attributes. |
+
+##### Attributes that apply to groups
+
+| Name | Description |
+| --- | --- |
+| name | Name of the group. |
+| color | Color of the group. |
+| min | Minimum number of players for the group. |
+| max | Maximum number of players for the group. |
+| overfill | Maximum overfill of players for the group. |
+| size | Number of players in the group. |
+
+##### Attributes that apply to items
+
+| Name | Description |
+| --- | --- |
+| type | Type of the item. |
+| amount | Amount of the item. |
+| damage | Damage value of the item. |
+| name | Custom name of the item. |
+| lore | Lore of the item. |
+
+##### Attributes that apply to players
+
+| Name | Description |
+| --- | --- |
+| name | Name of the player. |
+| velocity | Base prefix for the velocity of the player that is used to access the vector attributes. |
+| location | Base prefix for the location of the player that is used to access the vector attributes. |
+| holding | Base prefix for item the player player is holding that is used to access the item attributes. |
+| health | Health of the player. |
+| max-health | Max health of the player. |
+| food | Food level of the player. |
+| saturation | Saturation level of the player. |
+| exp | Experience level of the player. |
+| walk-speed | Walk speed of the player. |
+| fly-speed | Fly speed of the player. |
+
+##### Attributes that apply to vectors (velocities, locations)
+
+| Name | Description |
+| --- | --- |
+| X | X coordinate of the vector with no decimals. |
+| Y | Y coordinate of the vector with no decimals. |
+| Z | Z coordinate of the vector with no decimals. |
+| X-precise | X coordinate of the vector with decimals. |
+| Y-precise | Y coordinate of the vector with decimals. |
+| Z-precise | Z coordinate of the vector with decimals. |
+| full | X, Y, Z coordinates of the vector with no decimals. |
+| full-precise | X, Y, Z coordinates of the vector with decimals. |
+
+##### Base prefixes and definitions
+
+| name | description |
+| --- | --- |
+| attacker | Prefix used to identify the attacker in the context. This is effectively a sub-context which can contain any below variables. |
+| victim | Prefix used to identify the victim in the context. This is effectively a sub-context which can contain any below variables. |
+| entity | Prefix used to identify the entity in the context. |
+| group | Prefix used to identify the group in the context. |
+| item | Prefix used to identify the item in the context. |
+| location | Prefix used to identify the location in the context. |
+| material | Prefix used to identify the material in the context. |
+| player | Prefix used to identify the player in the context. |
+| spawn-reason | Prefix used to identify the spawn-reason in the context. |
+
+## Shared Executor Attributes
+
+These attributes are shared across all executors/
+
+```xml
+
+<!-- Plays the sound of an ender dragon dying. -->
+
+<executors>
+  <executor id="do-this" check="only-coal">
+    <play-sound sound="enderdragon death" volume="1" pitch="1" />
+  </executor>
+</executors>
+
+<checks>
+  <material id="only-coal">coal block</material>
+</checks>
+
+<!-- When a player breaks a coal block, the executor will run. -->
+
+<triggers>
+  <trigger on="block-break" execute="do-this" />
+</triggers>
+
+```
+
+##### Shared Executor Attributes Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+| `check` | Check that should be ran before the executor is executed. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+
+## Summon Entity `<summon-entity>`
+
+An executor that summons entities into the world with specified attributes.
+
+```xml
+
+<executors>
+  <executor id="give-items" check="always">
+    <execution-group>
+      <summon-entity type="lightning" region="portdest" />
+      <perform-on-everyone execute="send-alert" />
+    </execution-group>
+  </executor>
+</executors>
+
+```
+
+##### Summon Entity Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `type` | Type of entity to be spawned. | `EntityType`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) | |
+| `name` | Custom name for the entity. | `Text` | |
+| `effects` | Potion effects to apply to the entity. This should be written like effects would be configured in a loadout. | `Effects Loadout Tag` | |
+| `count` | Number of entities that should be spawned. | `Number (Without Decimal)` | `1` |
+| `region` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+
+### Equipment Attributes `<equipment>`
+
+Attributes used to configure entity equipment.
+
+```xml
+
+<executors>
+  <executor id="spawn-zombie" check="always">
+    <summon-entity type="zombie" region="zombiespawn">
+      <equipment>
+        <item slot="hand">diamond sword</item>
+      </equipment>
+    </summon-entity>
+  </executor>
+</executors>
+
+```
+
+##### Equipment Attributes Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `slot` | Slot to place the item in. | `Equipment Slot`<br />`hand`, `feet`, `legs`, `chest`, `head` |
+| `item` | This should be written like an item would be configured in a loadout. | `An Item Loadout Tag` |
+
+### Firework Attributes `<effects>`
+
+Attributes used to configure fireworks which are spawned.
+
+```xml
+
+<executors>
+  <executor id="spawnfirework" check="always">
+    <summon-entity type="firework" region="fireworkspawn">
+      <firework power="4" team-color="false" team-color-fade="true">...</firework>
+    </summon-entity>
+  </executor>
+</executors>
+
+```
+
+##### Firework Attributes Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `power` | The power of the firework. | `Number` | `1` |
+| `team-color` | If the team color (if it can be inferred) should be a part of the firework. | `True/False` | `false` |
+| `team-color-fade` | If the team color (if it can be inferred) should be a part of the firework's fade. | `True/False` | `false` |
+
+### Firework Effect Attributes `<effect>`
+
+Attributes used to configure firework effects for fireworks which are spawned.
+
+```xml
+
+<executors>
+  <executor id="spawnfirework" check="always">
+    <summon-entity type="firework" region="fireworkspawn">
+      <firework power="4" team-color="false" team-color-fade="true">
+        <effect effect="ball" flicker="true" color="red" />
+        <effect effect="star" flicker="false" color="white" fade="true" />
+        <effect effect="ball" flicker="true" color="blue" />
+      </firework>
+    </summon-entity>
+  </executor>
+</executors>
+
+```
+
+##### Firework Effect Attributes Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `effect` | Type of effect to be applied. | `Type`<br />`ball`, `ball large`, `star`, `burst`, `creeper` | |
+| `flicker` | If the effect should flicker. | `True/False` | `false` |
+| `trail` | If the effect should have a trail. | `True/False` | `false` |
+| `color` | The color of the effect. Colors can be defined in 2 different ways. If the color starts with a '#', the hex of the color will be parsed (use this for exact colors) If not, a generic color (red, green, blue, etc) should be used. | `Color` | |
+| `fade` | If the effect should fade. | `True/False` | `false` |
+
+## Take Items `<take-item>`
+
+An executor that takes items from player inventories based on criteria.
+
+```xml
+
+<executors>
+  <executor id="playerhelp" check="execute">
+    <take-item take="stone;dirt" />
+  </executor>
+</executors>
+
+```
+
+##### Take Items Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `take` | Items to take. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` |
+
+## Teleport Player `<teleport-player>`
+
+An executor that teleports a player to a location inside of a region.
+
+```xml
+
+<executors>
+  <executor id="player-tp" check="always">
+    <teleport-player check="fire" to="water" />
+  </executor>
+</executors>
+
+```
+
+##### Teleport Player Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `to` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` |
+
+## Toggle Elimination `<toggle-elimination>`
+
+**REQUIREMENT:** This feature requires the [Elimination Component](/modules/elimination).
+
+An executor used to toggle elimination on/off for a match.
+
+```xml
+
+<executors>
+  <executor id="toggle-elim" check="never">
+    <toggle-elimination to="true" />
+  </executor>
+</executors>
+
+```
+
+##### Toggle Elimination Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `toggle` | What elimination should be set to. If this is not specified, it will just be toggled. | `True/False` |
+
+## Triggers `<triggers>`
+
+Triggers are a way to perform an executor based on an event in Minecraft.
+
+Below are a list of triggers that can be used to trigger executors.
+
+```xml
+
+<triggers>
+  <trigger on="block-break" execute="do-this" />
+</triggers>
+
+```
+
+##### Triggers Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `on` | ID of the event that should trigger this executor. | `Text` |
+| `execute` | The id of the executor for reference. | `Executor ID` |
+
+##### Events
+
+| Identifier | Event Name |
+| --- | --- |
+| flag-capture | Flag Capture |
+| flag-steal | Flag Steal |
+| state-change | Match State Change |
+| point-earn | Point Earn |
+| wool-pickup | Wool Pickup |
+| leakable-leak | Leakable Leak |
+| weather-change | Weather Change |
+| flag-pickup | Flag Pickup |
+| toggle-on-ground | Player On Ground |
+| wool-place | Wool Place |
+| block-break | Block Break |
+| destroyable-repair | Destroyable Repair |
+| toggle-flight | Player Toggle Flight |
+| flag-drop | Flag Drop |
+| projectile-hit | Projectile Hit |
+| player-spawn | Player Spawn Complete |
+| item-break | Player Item Break |
+| item-consume | Player Item Consume |
+| destroyable-damage | Destroyable Damage |
+| lighting-strike | Lightning Strike |
+| block-place | Block Place |
+| hill-capture | Hill Capture |
+| destroyable-touch | Destroyable Touch |
+| player-eliminate | Player Eliminate |
+| hill-owner-change | Hill Owner Change |
+| block-explode | Block Explode |
+| firework-explode | Firework Explode |
+| monument-destroy | Monument Destroy |
+| item-drop | Player Drop Item |
+| toggle-sprint | Player Toggle Sprint |
+| creature-spawn | Creature Spawn |
+| item-pickup | Player Pickup Item |
+| match-open | Match Open |
+| match-start | Match State Change |
+| toggle-sneak | Player Toggle Sneak |
+| player-death | Player On Ground |
+

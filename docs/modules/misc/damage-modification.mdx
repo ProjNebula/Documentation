@@ -1,0 +1,39 @@
+---
+layout: module
+title: Damage Modification
+permalink: /modules/damage-modification
+---
+
+# Damage Modification `<modify-damage>`
+
+This module is used to modify the amount of damage caused by an action based on a check.
+
+## Modifier `<mod>`
+
+This represents a check in relation to a damage type with a modifer and number action.
+
+A specific damage type or `all` can be used to match all damage events.
+
+```xml
+
+<modify-damage>
+  <mod mod="300" action="set">fall</mod>
+  <!-- Fall damage is always deadly -->
+</modify-damage>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The damage type to modify. | `DamageCause`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/DamageCause.html) |
+
+##### Modifier Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `mod` | The amount of damage that should be used with the number action. | `Number (With Decimal)` |
+| `action` | The action which is applied to damage caused by the event. | `Number Action`<br />`none - Perform no action and keep damage caused by the event the same.`, `set - Set damage caused by the event to the supplied number.`, `add - Add the supplied number to damage caused by the event.`, `subtract - Subtract the supplied number from damage caused by the event.`, `multiply - Multiply the supplied number with damage caused by the event.`, `divide - Divide damage caused by the event by the supplied number.`, `power - Raise damage caused by the event by the supplied number.` |
+| `check` | Check that should be ran before the damage is modified. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+

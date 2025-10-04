@@ -1,0 +1,494 @@
+---
+layout: module
+title: Zones
+permalink: /modules/zones
+---
+
+# Zones `<zones>`
+
+Zones are representations of locations in the match world that have special attributes and conditions that happen inside of them.
+
+## Root Zone `<zone>`
+
+All zones should be wrapped inside of this tag.
+
+```xml
+
+<zones>...</zones>
+
+```
+
+##### Root Zone Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+| `loadout` | The id of the loadout for reference. | `Loadout ID` |
+| `velocity` | Velocity that should be applied to the player when they enter the zone. | `X,Y,Z Vector` |
+| `push` | How far forward the player should go. | `Number (With Decimal)` |
+| `icarus` | How high the player should go. | `Number (With Decimal)` |
+
+### Checks `<break>``<enter>``<leave>``<modify>``<place>``<use>`
+
+Checks can be applied to various action in the zone.
+
+These can either be defined as IDs in the parent tag or as sub tags with the same name.
+
+```xml
+
+<checks>
+  <team id="redteam">red</team>
+  <!--Checks if the player is on Red Team-->
+</checks>
+
+```
+
+### Block Break Check `<break>`
+
+This check is applied to all players before they are allowed to break blocks in the zone
+
+```xml
+
+<zone break="redteam">
+  <!--Only Red Team can break blocks-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+
+```
+
+### Block Place Check `<place>`
+
+This check is applied to all players before they are allowed to place blocks in the zone.
+
+```xml
+
+<zone place="redteam">
+  <!--Only Red Team can place blocks-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+
+```
+
+### Enter Check `<enter>`
+
+This check is applied to all players before they are allowed to enter the zone.
+
+```xml
+
+<zone enter="redteam">
+  <!--Only Red Team can enter-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+
+```
+
+### Leave Check `<leave>`
+
+This check is applied to all players before they are allowed to leave the zone..
+
+```xml
+
+<zone leave="redteam">
+  <!--Only Red Team can leave-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+
+```
+
+### Modify Check `<modify>`
+
+This check is applied to all players before they are allowed to place/break blocks and use items in the zone.
+
+```xml
+
+<zone modify="redteam">
+  <!--Only Red Team can modify-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+
+```
+
+### Use Check `<use>`
+
+This check is applied to all players before they are allowed to use items (such as buckets) in the zone.
+
+```xml
+
+<zone use="redteam">
+  <!--Only Red Team can use items-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+
+```
+
+### Executor Triggers `<triggers>`
+
+This can be used to run specific executors based on actions that happen in relation to the zone.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | ADDED |
+
+```xml
+
+<zone>
+  <region>
+    <cuboid id="middle" min="50,117,-768" max="52,120,-766" />
+  </region>
+  <portal>
+    <destination>
+      <point>138, 69, -290</point>
+    </destination>
+  </portal>
+  <triggers enter="give-items" />
+  <!--Once you enter the Region, the entry check is triggered and give-items is registered-->
+</zone>
+
+```
+
+##### Executor Triggers Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `enter` | Runs when a player enters the zone region. Checks can use anything related to players. The id of the executor for reference. | `Executor ID` |
+| `exit` | Runs when a player exits the zone region. Checks can use anything related to players. The id of the executor for reference. | `Executor ID` |
+| `break` | Runs when a block is broken in the zone region. If a player broke a block, checks can use it. If an entity broke the block, checks have access to the entity. Checks also have access to the material of the block broken The id of the executor for reference. | `Executor ID` |
+| `place` | Runs when a block is placed in the zone region. Checks can use anything related to players and materials. The id of the executor for reference. | `Executor ID` |
+| `use` | Runs when a bucket is used in the zone region. Checks can use anything related to players and materials. The id of the executor for reference. | `Executor ID` |
+| `modify` | Runs when a block is modified in the zone region. Checks can use the same things as with the break/place triggers. The id of the executor for reference. | `Executor ID` |
+
+### Failure Message `<message>`
+
+This defines the message that is displayed if a player tries to do something they cannot.
+
+```xml
+
+<message format="warning">{errors.outside-map}</message>
+
+```
+
+##### Format Types
+
+| Name | Format |
+| --- | --- |
+| info | ✳ MESSAGE |
+| warning [default] | ⚠ MESSAGE |
+| none | MESSAGE |
+
+### Flag Capture Net `<net>`
+
+**REQUIREMENT:** This feature requires the [Objectives Component](/modules/objectives).
+
+Nets are locations that flags can be captured at. A flag can have multiple net possibilities, and nets do not have to be bound to teams.
+
+```xml
+
+<net owner="blue" points="1" respawn-togather="true">
+  <!-- Flag IDs -->
+  <flag>red-1</flag>
+  <flag>red-2</flag>
+</net>
+
+```
+
+##### Flag Capture Net Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `owner` | The id of the flag owner for reference. | `Flag Owner ID` | |
+| `points` | Points to be rewarded to the player who captures the flag. | `Number` | |
+| `check` | Check that should be ran to determine if the player can capture the flag at this net. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `respawn-together` | If all of the flags enclosed by the flags element should wait until all are captured to respawn, or respawn directly after capture. | `True/False` | `false` |
+| `respawn-post` | The id of the flag post for reference. | `Flag Post ID` | |
+
+### Flag Post `<post>`
+
+**REQUIREMENT:** This feature requires the [Objectives Component](/modules/objectives).
+
+These define where flags should be placed.
+
+```xml
+
+<post yaw="90" />
+
+```
+
+##### Flag Post Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `yaw` | Yaw of the flag. | `Number (With Decimal)` |
+| `check` | Check that should be ran before a player can pick up the flag. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+
+### Liquid Rules
+
+Liquid rules are used to modify how liquids behave in this zone.
+
+```xml
+
+<zone water-rule="no-flow" />
+
+<zone lava-rule="no-flow" />
+
+```
+
+### Lava Rule
+
+This rule is used to change how lava flows
+
+```xml
+
+<zone lava-rule="no-flow" modify="never">
+  <region>
+    <join>
+      <cuboid min="-368, 13, 170" max="-368, 14, 171" />
+    </join>
+  </region>
+  <message>{errors.cannot-build}</message>
+</zone>
+
+```
+
+##### Lava Rule Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `lava-rule` | The liquid rule that should be used. | `Liquid Rule`<br />`only enter`, `only exit`, `no flow` |
+
+### Water Rule
+
+This rule is used to change how water flows
+
+```xml
+
+<zone water-rule="no-flow" modify="never">
+  <region>
+    <join>
+      <cuboid min="-368, 13, 170" max="-368, 14, 171" />
+    </join>
+  </region>
+  <message>{errors.cannot-build}</message>
+</zone>
+
+```
+
+##### Water Rule Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `water-rule` | The liquid rule that should be used. | `Liquid Rule`<br />`only enter`, `only exit`, `no flow` |
+
+### Portals `<portal>`
+
+Portals teleport players to locations on the map when they are entered.
+
+```xml
+
+<portal yaw="-90">
+  <destination>
+    <point>-29, 67, -31</point>
+  </destination>
+</portal>
+
+```
+
+##### Portals Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `destination` | The destination of the portal. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `check` | Check that should be ran to determine if the player should be teleported. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `sound` | If the enderman teleport sound should be played on teleport. | `True/False` | `true` |
+| `reset-velocity` | If the player's velocity should be reset when they are teleported. | `True/False` | `true` |
+| `heal` | If the player should be healed to max health after they are teleported. | `True/False` | `false` |
+| `feed` | If the player should be fed after they are teleported. | `True/False` | `false` |
+| `look` | Location the player should be facing when they leave the portal. | `X,Y,Z Vector` | |
+| `yaw` | Yaw of the player when they are teleported. | `Number (With Decimal)` | |
+| `pitch` | Pitch of the player when they are teleported. | `Number (With Decimal)` | |
+
+### Score Box `<scorebox>`
+
+**REQUIREMENT:** This feature requires the [Objectives Component](/modules/objectives).
+
+Score boxes are areas in which players enter to earn points.
+
+```xml
+
+<scorebox points="2" />
+
+```
+
+##### Score Box Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `points` | The amount of points that this score box rewards. | `Number (Without Decimal)` | |
+| `action` | The action which is applied to the player's score. | `Number Action`<br />`none - Perform no action and keep the player's score the same.`, `set - Set the player's score to the supplied number.`, `add - Add the supplied number to the player's score.`, `subtract - Subtract the supplied number from the player's score.`, `multiply - Multiply the supplied number with the player's score.`, `divide - Divide the player's score by the supplied number.`, `power - Raise the player's score by the supplied number.` | `set` |
+| `points-growth` | The multiplier used for points each time this score box is entered. | `Number (With Decimal)` | |
+| `check` | Check that should be ran before points are rewarded. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+
+### Item Rewards `<item-rewards>`
+
+Item rewards allow score boxes to be configured to reward more points based on items in the player's inventory.
+
+```xml
+
+<item-rewards>
+  <item points="1">cooked beef</item>
+</item-rewards>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The type of item that this matcher applies for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
+
+##### Item Rewards Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `points` | The amount of points that should be rewarded for this item. | `Number (Without Decimal)` |
+
+### TNT Customization `<tnt>`
+
+These elements allow various TNT mechanics to be customized within the zone.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.2 | ADDED |
+
+```xml
+
+<zone region="playable">
+  <tnt>
+    <yield>0</yield>
+    <!-- TNT drops nothing -->
+    <dispenser nuke-limit="70" nuke-multiplier="2.5" />
+  </tnt>
+</zone>
+
+```
+
+### Dispenser Properties `<dispenser>`
+
+Options for dispensers when they are blown up.
+
+```xml
+
+<dispenser nuke-limit="70" nuke-multiplier="2.5" />
+
+<!--When a dispenser full of TNT blows up, the TNT inside of the dispenser (limit of 70) blows up-->
+
+```
+
+##### Dispenser Properties Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `nuke-limit` | Max amount of TNT a dispenser ignites when blown up. | `Number (Without Decimal)` |
+| `nuke-multiplier` | Multiplier for the amount of TNT ignited when a dispenser is blown up. | `Number` |
+
+### Instant Ignite `<instant-ignite>`
+
+If tha when TNT is placed, that it should instantly become primed.
+
+```xml
+
+<instant-ignite />
+
+<!--Immediately becomes primed once placed-->
+
+```
+
+#### Element Text
+
+| Description | Type | Default |
+| --- | --- | --- |
+| If instant ignite is enabled | `True/False` | `false` |
+
+### TNT Fuse `<fuse>`
+
+Time until the TNT explodes once it is ignited.
+
+```xml
+
+<fuse>1m</fuse>
+
+<!--One Minute till TNT explodes-->
+
+```
+
+#### Element Text
+
+| Description | Type | Default |
+| --- | --- | --- |
+| fuse This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | `10s` |
+
+### TNT Power `<power>`
+
+Modify the explosion's block radius.
+
+```xml
+
+<power>70</power>
+
+<!--Explosion radius of 70-->
+
+```
+
+#### Element Text
+
+| Description | Type | Default |
+| --- | --- | --- |
+| explosion's block radius | `Number (With Decimal)` | `The default minecraft logic` |
+
+### TNT Yield `<yield>`
+
+The amount of items dropped by the explosion as a percentage
+
+```xml
+
+<yield>0</yield>
+
+<!-- TNT drops nothing -->
+
+```
+
+#### Element Text
+
+| Description | Type | Default |
+| --- | --- | --- |
+| Yield of the TNT | `Number (With Decimal)` | `0.25` |
+

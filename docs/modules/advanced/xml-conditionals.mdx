@@ -1,0 +1,56 @@
+---
+layout: module
+title: XML Conditionals
+permalink: /modules/xml-conditionals
+---
+
+# XML Conditionals `<conditional>`
+
+Conditionals are elements which can go anywhere in the XML that will load the enclosed modules if the condition passes.
+
+## Conditional
+
+```xml
+
+<loadouts>
+  <loadout id="default">
+    <!-- Speed 4 on April Fools Day -->
+    <conditional>
+      <if holiday="april-fools">
+        <effect duration="45s" amplifier="3">speed</effect>
+      </if>
+      <else>
+        <effect duration="45s">speed</effect>
+      </else>
+    </conditional>
+  </loadout>
+</loadouts>
+
+```
+
+##### Conditional Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `season` | The current season of the year. | `Season`<br />`winter`, `spring`, `summer`, `fall` |
+| `month` | The current month of the year. | `Month`<br />`january`, `february`, `march`, `april`, `may`, `june`, `july`, `august`, `september`, `october`, `november`, `december` |
+| `holiday` | The current holiday. | `Holiday`<br />`christmas`, `independence-day`, `april-fools`, `new-years` |
+
+##### Holidays
+
+| Holiday | Dates |
+| --- | --- |
+| christmas | December 15-26 |
+| independence-day | July 4 |
+| april-fools | April 1 |
+| new-years | Last Day of December - Jan 1 |
+
+##### Seasons
+
+| Season | Dates |
+| --- | --- |
+| winter | December, January, February, March |
+| spring | April, May |
+| summer | June, July, August, September |
+| fall | October, November |
+

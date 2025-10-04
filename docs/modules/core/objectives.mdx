@@ -1,0 +1,368 @@
+---
+layout: module
+title: Objectives
+permalink: /modules/objectives
+---
+
+# Objectives `<objectives>`
+
+Objectives are the main way that a match winner is decided. They must be completed by a team to win, and sometimes have an owner who must protect the objective from other competitors.
+
+## Destroyables and Leakables `<leakable>``<leakables>``<monument>``<monuments>`
+
+Destroyable objectives count as any objective that must be completed by breaking blocks in a specified region.
+
+Leakable objectives count as any container of blocks that contain a liquid that must be leaked out of the bottom in order for the objective to be marked as completed.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.2 | Objective repair rules are now ignored by default. |
+
+```xml
+
+<leakables>
+  <!--Cores/Leakables-->
+  <leakables owner="red">
+    <leakable name="Dojo" leak-distance="1" repairable="true">
+      <region>
+        <cuboid min="-93, 51, 174" max="-89, 57, 170" />
+      </region>
+    </leakable>
+  </leakables>
+</leakables>
+
+<monuments materials="emerald block" destroyable="true" repairable="true">
+  <!--Monuments/Destroyables-->
+  <monuments owner="red">
+    <monument name="Left">
+      <region>
+        <cuboid min="-56, 47, 180" max="-54, 51, 178" />
+      </region>
+    </monument>
+  </monuments>
+</monuments>
+
+```
+
+##### Destroyables and Leakables Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `name` | The name of the objective (for the UI). | `Localized String` | |
+| `owner` | The owner of the objective. (This will cause the objective to not be able to be completed by this team and the objective to be grouped under this team in the sidebar.) The id of the team for reference. | `Team ID` | |
+| `region` | The region that contains this objective. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `materials` | The materials that can be broken of this objective. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` | |
+| `points` | How many points to award to the team who completes this objective. | `Number (Without Decimal)` | |
+| `points-per-block` | How many points to award to the team who damages this objective. | `Number (Without Decimal)` | |
+| `show` | If the objective should be shown in the UI, count towards match results, and count for stats. | `True/False` | `true` |
+| `completion` | The percentage of this objective that must be broken in order for it to be considered completed. | `Integer Range`<br />`0-1.0` | `1.0` |
+| `destroyable` | If the blocks of the objective can be destroyed using means other than by hand (TNT, fireballs, etc). | `True/False` | `false` |
+| `repairable` | If the objective can be repaired by the owning team using any of the specified materials. | `True/False` | `false` |
+| `any-repair` | If any material can be used to repair this objective. | `True/False` | `false` |
+| `enforce-anti-repair` | If blocks can be placed in the objective region that do not match the materials specified. It should be noted that these materials do not repair the objective and the repair check is not called. | `True/False` | `false` |
+| `fireworks` | If fireworks should shoot off of the objective when it is completed. | `True/False` | `true` |
+| `break-check` | Check that should be ran before the objective can be damaged. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `repair-check` | Check that should be ran before the objective can be repaired. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `pre-touch-dist-metric` | Calculation metric used to calculate distance from objective before the objective is touched. | `Type`<br />`player`, `block`, `kill`, `static` | `PLAYER` |
+| `pre-touch-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `true` |
+| `post-touch-dist-metric` | Calculation metric used to calculate distance from objective after the objective is touched. | `Type`<br />`player`, `block`, `kill`, `static` | `PLAYER` |
+| `post-touch-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `true` |
+| `post-complete-dist-metric` | Calculation metric used to calculate distance from objective after the objective is completed. | `Type`<br />`player`, `block`, `kill`, `static` | |
+| `post-complete-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `false` |
+| `first-phase` | The first phase that should be applied to this objective when the match starts. The id of the destroyable phase for reference. | `Destroyable Phase ID` | |
+
+### Leakables `<leakable>``<leakables>`
+
+Leakables count as any container of blocks that contain a liquid that must be leaked out of the bottom in order for the objective to be marked as completed.
+
+```xml
+
+<leakables>
+  <!--Cores/Leakables-->
+  <leakables owner="red">
+    <leakable name="Dojo" leak-distance="1" repairable="true">
+      <region>
+        <cuboid min="-93, 51, 174" max="-89, 57, 170" />
+      </region>
+    </leakable>
+  </leakables>
+</leakables>
+
+```
+
+##### Leakables Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `leak-distance` | The number of blocks below the objective region that the liquid must travel in order to complete this objective. | `Number (Without Decimal)` | `7` |
+
+### Monuments `<monument>``<monuments>`
+
+Monuments count as any objective that must be completed by breaking blocks in a specified region.
+
+```xml
+
+<monuments materials="emerald block" destroyable="true" repairable="true">
+  <monuments owner="red">
+    <!--Defending Team-->
+    <monument name="Left">
+      <!--Scoreboard Name-->
+      <region>
+        <cuboid min="-56, 47, 180" max="-54, 51, 178" />
+      </region>
+    </monument>
+  </monuments>
+</monuments>
+
+```
+
+##### Monuments Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `completed-state` | The material that the blocks inside of the objective region should change to when the objective is completed. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
+
+## Entity `<entity>`
+
+The entity objective is used to track the health of entities in a region and use the combined health to determine completion.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.3 | ADDED |
+
+```xml
+
+<objectives>
+  <entites>
+    <entity type="pig" points="1" name="Pigs" show="false">
+      <!--Pigs Count for Scoring -->
+      <region>
+        <cylinder radius="90" height="12" base="0, 0, 0" />
+      </region>
+    </entity>
+  </entites>
+</objectives>
+
+```
+
+##### Entity Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `name` | The name of the objective (for the UI). | `Localized String` | |
+| `owner` | The owner of the objective. (This will cause the objective to not be able to be completed by this team and the objective to be grouped under this team in the sidebar.) The id of the team for reference. | `Team ID` | |
+| `pre-complete-dist-metric` | Calculation metric used to calculate distance from objective before the objective is completed. | `Type`<br />`player`, `block`, `kill`, `static` | `PLAYER` |
+| `pre-complete-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `true` |
+| `post-complete-dist-metric` | Calculation metric used to calculate distance from objective after the objective is completed. | `Type`<br />`player`, `block`, `kill`, `static` | |
+| `post-complete-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `false` |
+| `damage-check` | Check that should be ran before the objective can be damaged. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `points` | How many points to award to the team who damages this objective. | `Number` | |
+| `show` | If the objective should be shown in the UI, count towards match results, and count for stats. | `True/False` | `true` |
+| `region` | The region that contains all entities that should be counted as this objective. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `type` | The type of entity that this objective is. | `EntityType`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) | |
+
+## Flags `<flag>``<flags>`
+
+**REQUIREMENT:** This feature requires the [Zones Component](/modules/zones).
+
+Players must retrieve flags and return them to a net region.
+
+```xml
+
+<flag owner="red" post="red-post" color="red" />
+
+<!--Owner = Defending Team / Post = Flag Location / Color=Flag Color-->
+
+<zone id="red-post">
+  <!--Flag spawn location-->
+  <region>
+    <block>108, 13, -1</block>
+  </region>
+  <post yaw="90" />
+</zone>
+
+<zone>
+  <!--Capture Location and Amount of Points Rewarded-->
+  <region>
+    <cuboid min="-8, 14, 1" max="-11, 16, -3" />
+  </region>
+  <net points="1">
+    <capture-check>
+      <team>blue</team>
+    </capture-check>
+  </net>
+</zone>
+
+```
+
+##### Flags Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `post` | The location that this flag will spawn at. The id of the post for reference. | `Post ID` | |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `owner` | The owner of the objective. (This will cause the objective to not be able to be completed by this team and the objective to be grouped under this team in the sidebar.) The id of the team for reference. | `Team ID` | |
+| `color` | Color of the flag. | `DyeColor`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/DyeColor.html) | |
+| `banner` | The banner design of the flag. If none is specified, the flag in the match world will be used. This should be written like banner would be configured in a loadout. | `Banner Loadout Tag` | |
+| `carry-check` | Check that should be ran before the flag can be picked up. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `recover-time` | The time after the flag is dropped before it is returned to the previous post. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | `30` |
+| `highlight-holder` | If the flag holder should have a particle stream shooting up from their location. | `True/False` | `true` |
+| `highlight-delay` | The delay before a particle stream is shown above the player who is holding the flag. This attribute denotes a period of time and can either be in seconds or in a period format. | `Duration` | |
+| `permanent` | If the flag can only be captured once. If this is true and the flag is captured, it will be marked as completed. | `True/False` | `false` |
+| `flag-dist-metric` | Calculation metric used to calculate distance from objective before the objective is carried. | `Type`<br />`player`, `block`, `kill`, `static` | `PLAYER` |
+| `flag-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `true` |
+| `net-dist-metric` | Calculation metric used to calculate distance from objective after the objective is carried. | `Type`<br />`player`, `block`, `kill`, `static` | `PLAYER` |
+| `net-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `true` |
+| `carrying-points` | Number of points the carrier should receive while holding the flag. | `Number (Without Decimal)` | `0` |
+| `carrying-points-delay` | Delay before points should be earned. This attribute denotes a period of time and can either be in seconds or in a period format. | `Duration` | |
+| `carrying-points-growth` | Delay before amount of points earned should be doubled. This attribute denotes a period of time and can either be in seconds or in a period format. | `Duration` | |
+| `pickup-method` | Method that can be used to pickup the flag. | `Flag Pickup Method`<br />`any`, `move`, `interact` | `ANY` |
+
+## Hill `<hill>``<hills>`
+
+Hills are areas that teams fight over for control.
+
+```xml
+
+<objectives>
+  <hills capture-time="45s">
+    <hill name="Left Mountain">
+      <capture>
+        <cuboid min="50, 23, 50" max="75, 40, 75" />
+      </capture>
+      <progress>
+        <circle center="62, 22, 62" radius="13" />
+      </progress>
+    </hill>
+    <hill name="Right Mountain">
+      <capture>
+        <cuboid min="27, 23, 77" max="50, 40, 100" />
+      </capture>
+      <progress>
+        <circle center="39, 27, 87" radius="13" />
+      </progress>
+    </hill>
+  </hills>
+</objectives>
+
+```
+
+##### Hill Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `name` | The name of the objective (for the UI). | `Localized String` | |
+| `initial-owner` | The owner of the objective when the match starts. The id of the team for reference. | `Team ID` | |
+| `capture` | The region that contains the area that must be captured. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `progress` | The region that contains where progress should be displayed. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `capture-rule` | Rule used to determine which team is currently capturing the hill. | `Hill Capture Rule`<br />`exclusive`, `majority`, `most` | `EXCLUSIVE` |
+| `capture-time` | The time required for a team to capture the hill completely. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | |
+| `capture-check` | Check that should be ran before the hill can be captured by a player. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `points` | Number of points the owning team should score every second. | `Number (Without Decimal)` | |
+| `points-growth` | Time during point earn before points should be doubled. This attribute denotes a period of time and can either be in seconds or in a period format. | `Duration` | |
+| `fireworks` | If fireworks should shoot off of the objective when it is captured. | `True/False` | `true` |
+| `permanent` | Hill can only be captured once during a match. | `True/False` | `false` |
+| `depreciate` | If a hill is controlled and no team is capturing it, the completion will depreciate over time. | `True/False` | `false` |
+| `ignored-blocks` | Specific types of blocks that should be ignored during progress indication. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` | |
+| `earn-points` | Rule used to determine when teams should earn points from owning hills. | `Point Earn Rule`<br />`always`, `standing on`, `standing off` | `STANDING_ON` |
+
+## Last Competitor Standing `<last-competitor-standing>`
+
+The last competitor standing objective is used to mark the winner of the match as the competitor (team for normal, player for FFA) with any players on it after all others are empty.
+
+```xml
+
+<objectives>
+  <last-competitor-standing />
+</objectives>
+
+```
+
+## Last Team Standing `<last-team-standing>`
+
+The last team standing objective is used to mark the winner of the match as the team with any players on it after all others are empty.
+
+These should be declared for every team if every team is allowed to win.
+
+```xml
+
+<objectives>
+  <last-team-standing team="blue" />
+  <last-team-standing team="red" />
+</objectives>
+
+```
+
+##### Last Team Standing Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
+| `team` | Team that would win if all others are empty. The id of the team for reference. | `Team ID` |
+
+## Score `<score>``<scores>`
+
+The score objective requires a team to reach a certain amount of points in order to be marked as completed.
+
+```xml
+
+<scores kills="1">
+  <!--One Kill = One Point -->
+  <score team="yellow" />
+  <score team="cyan" />
+</scores>
+
+```
+
+##### Score Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `team` | The owner of the objective. (This will cause the objective to not be able to be completed by this team and the objective to be grouped under this team in the sidebar.) The id of the team for reference. | `Team ID` |
+| `kills` | The amount of points that should be rewarded for a kill. | `Number (Without Decimal)` |
+| `deaths` | The amount of points that should be deducted for a death. | `Number (Without Decimal)` |
+
+## Wool `<wool>``<wools>`
+
+Players must retrieve wool blocks and place them within a region.
+
+```xml
+
+<wools>
+  <wool color="blue">
+    <source>
+      <block>-138,32,87</block>
+      <!--Wool Chest Location-->
+    </source>
+    <destination>
+      <block>149,30,4</block>
+      <!--Capture Location-->
+    </destination>
+  </wool>
+</wools>
+
+```
+
+##### Wool Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `team` | The owner of the objective. (This will cause the objective to not be able to be completed by this team and the objective to be grouped under this team in the sidebar.) The id of the team for reference. | `Team ID` | |
+| `color` | Color of the wool. | `DyeColor`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/DyeColor.html) | |
+| `source` | The region that contains the location where the wool can be picked up. This is used for chest refill and proximity. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `destination` | The region that contains the location where the wool must be placed. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `pickup` | If the wool can be picked up off of the ground. | `True/False` | `true` |
+| `refill` | If the chests in the source region should automatically refill with wool. | `True/False` | `true` |
+| `max-refill` | The maximum amount of wool that should be refilled. | `Number (Without Decimal)` | `oo` |
+| `refill-delay` | The amount of time before wools are refilled. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | `0` |
+| `craftable` | If the wool can be crafted in a work bench. | `True/False` | `false` |
+| `fireworks` | If fireworks should be spawned at the destination when the wool is placed. | `True/False` | `true` |
+| `source-dist-metric` | Calculation metric used to calculate distance from objective before the objective is touched. | `Type`<br />`player`, `block`, `kill`, `static` | `PLAYER` |
+| `source-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `true` |
+| `dest-dist-metric` | Calculation metric used to calculate distance from objective after the objective is touched. | `Type`<br />`player`, `block`, `kill`, `static` | `PLAYER` |
+| `dest-dist-horiz` | If only horizontal distance should be used for calculation. | `True/False` | `true` |
+

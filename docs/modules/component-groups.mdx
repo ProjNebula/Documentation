@@ -1,0 +1,27 @@
+---
+layout: module
+title: Component Groups
+permalink: /modules/component-groups
+---
+
+# Component Groups `<load-group>``<module-group>`
+
+Component groups allow groups of modules to be referenced by an ID and then loaded later based on various circumstances. The group ident elements must be at the top level but the load elements can be anywhere. These can be combined with conditionals.
+
+An example use-case of this would be having a lot of different groups in an include file and then loading them in the XML.
+
+## Group
+
+```xml
+
+<!--TODO: Add example for Group-->
+
+```
+
+##### Group Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `chance` | The chance of this group being loaded when the load tag is called. | `Integer Range`<br />`0-1` | `1` |
+

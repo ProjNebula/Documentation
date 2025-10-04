@@ -1,0 +1,50 @@
+---
+layout: module
+title: Localization
+permalink: /modules/localization
+---
+
+# Localization `<locales>`
+
+Localization is a requirement for all maps to accepted, we ask that you DO NOT simply google translate the localizations and if you need assistance translating your messages, to ask the translation team.
+
+Localizations are defined inside of this tag and can be as deeply nested as need be.
+
+Each new nesting is denoted by a . when referencing the locale in other parts of the XML.
+
+## Locale Entry `<locale>`
+
+This represents a single localized string.
+
+```xml
+
+<locales>
+  <locale lang="en">
+    <errors>
+      <build-north>You cannot build in the North.</build-north>
+    </errors>
+  </locale>
+  <locale lang="es">
+    <errors>
+      <build-north>No puedes construir en el norte.</build-north>
+    </errors>
+  </locale>
+</locales>
+
+<!-- then you can do -->
+
+<zones>
+  <zone build="never" region="the-north">
+    <build-message>{errors.build-north}</build-message>
+  </zone>
+</zones>
+
+```
+
+##### Locale Entry Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `lang` | The identifier for the language. | `Language`<br />[Possible Values](http://www.oracle.com/technetwork/java/javase/java8locales-2095355.html) |
+| `country` | The country of the translated text (For example, to use Canadian English, you would define the lang as en and the country as ca). | `Country`<br />[Possible Values](http://www.oracle.com/technetwork/java/javase/java8locales-2095355.html) |
+

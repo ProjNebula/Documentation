@@ -1,0 +1,32 @@
+---
+layout: module
+title: Broadcasts
+permalink: /modules/broadcasts
+---
+
+# Broadcasts
+
+Broadcasts are used to display messages in game.
+
+## Broadcast
+
+```xml
+
+<broadcasts>
+  <broadcast format="alert" interval="2m">{broadcasts.some-broadcast}</broadcast>
+  <broadcast format="alert" interval="2m">{broadcasts.some-broadcast-2}</broadcast>
+</broadcasts>
+
+```
+
+##### Broadcast Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `message` | The content of the broadcast. | `Text` | |
+| `format` | The format of the broadcast | `Broadcast Format`<br />`default`, `tip`, `alert` | `DEFAULT` |
+| `check` | Check that should be ran before the broadcast is displayed. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `interval` | The time between broadcasts. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | |
+| `repetition-count` | Amount of times the broadcast should repeat. If this is not included, the broadcast will repeat infinitely. | `Number (Without Decimal)` | |
+

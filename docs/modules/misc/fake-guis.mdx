@@ -1,0 +1,32 @@
+---
+layout: module
+title: Fake GUIs
+permalink: /modules/fake-guis
+---
+
+# Fake GUIs `<fake-guis>`
+
+This module is used to open fake GUIs for players in place of real ones. These GUIs are fully functional and stay open when the source block is broken. This is a useful tool to prevent griefing.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | ADDED |
+
+## Configuration
+
+Configuration options for the fake GUIs module.
+
+```xml
+
+<fake-guis fake-anvils="true" />
+
+```
+
+##### Configuration Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `fake-benches` | If a fake crafting inventory should be displayed to players when they open crafting tables. | `True/False` | `true` |
+| `fake-anvils` | If a fake crafting inventory should be displayed to players when they open anvils. | `True/False` | `false` |
+| `fake-enchant-tables` | If a fake crafting inventory should be displayed to players when they open enchantment tables. | `True/False` | `true` |
+

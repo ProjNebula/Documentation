@@ -1,0 +1,63 @@
+---
+layout: module
+title: Kills/Deaths
+permalink: /modules/kills-deaths
+---
+
+# Kills/Deaths `<kills>`
+
+This module can be used to apply checks to kills and deaths and to give out kill rewards.
+
+## Kill Rewards `<rewards>`
+
+This is used to reward loadouts to players upon successful kills.
+
+```xml
+
+<loadouts>
+  ...
+  <loadout id="kill-reward">
+    <item material="golden apple" />
+  </loadout>
+</loadouts>
+
+<kills>
+  <rewards>
+    <reward loadout="kill-reward" />
+  </rewards>
+</kills>
+
+```
+
+##### Kill Rewards Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `loadout` | Loadout that should be given to the player upon a kill. The id of the loadout for reference. | `Loadout ID` |
+| `check` | Check that should be ran before the loadout is rewarded to the killer. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+
+## Kill/Death Checks `<death-check>``<kill-check>`
+
+Checks that should run before players can get a kills/deaths.
+
+```xml
+
+<kills>
+  <kill-check id="only-red" />
+  <death-check id="in-mid" />
+</kills>
+
+<checks>
+  <holding material="diamond sword" id="only-red" />
+  <on-ground id="in-mid" />
+</checks>
+
+```
+
+##### Kill/Death Checks Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `kill-check` | Check that should be ran before a player can get a kill. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+| `death-check` | Check that should be ran before a player can die. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+

@@ -1,0 +1,418 @@
+---
+layout: module
+title: Regions
+permalink: /modules/regions
+---
+
+# Regions `<regions>`
+
+The regions element is used to store a collection of regions that can be referenced elsewhere by their ID.
+
+## Above `<above>`
+
+The above region select any coordinates above the supplied x, y, or z values.
+
+```xml
+
+<above y="25" />
+
+<!-- everything above y=25 -->
+
+<above x="25" z="21" />
+
+<!-- any block in below x=25, z=21 -->
+
+```
+
+##### Above Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `x` | The base block to select above on the X-axis | `Number (Without Decimal)` |
+| `y` | The base block to select above on the Y-axis | `Number (Without Decimal)` |
+| `z` | The base block to select above on the Z-axis | `Number (Without Decimal)` |
+
+## Below `<below>`
+
+The below region select any coordinates below the supplied x, y, or z values.
+
+```xml
+
+<below x="32" y="18" z="52" />
+
+<!-- you get the idea -->
+
+```
+
+##### Below Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `x` | The base block to select below on the X-axis | `Number (Without Decimal)` |
+| `y` | The base block to select below on the Y-axis | `Number (Without Decimal)` |
+| `z` | The base block to select below on the Z-axis | `Number (Without Decimal)` |
+
+## Block `<block>`
+
+The block region represents a single block in the world.
+
+```xml
+
+<block>-138,32,87</block>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The location of the block. | `X,Y,Z Vector` |
+
+## Bounds `<bounds>`
+
+The bounds region selects the area around the region specified. Similar to the WorldEdit //walls command.
+
+```xml
+
+<bounds id="bound" y-axis="false">
+  <region>
+    <cuboid min="11, 10, -13" max="2, 10, -5" />
+  </region>
+</bounds>
+
+```
+
+##### Bounds Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `region` | The region that should be bounded This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `x-axis` | If the bounds on the X-axis should be selected. | `True/False` | `true` |
+| `y-axis` | If the bounds on the Y-axis should be selected. | `True/False` | `true` |
+| `z-axis` | If the bounds on the Z-axis should be selected. | `True/False` | `true` |
+
+## Box `<box>`
+
+A box is a helper region that will return a cuboid region based on supplied coordinate modifiers and a center.
+
+```xml
+
+<box center="4,3,1" x="4" y="5" z="11" />
+
+<!-- A cuboid that centers at 4,3,1 spreads out above and below the supplied coordinates. -->
+
+<!-- If x,y, or z isn't supplied, 0 will be used for the value -->
+
+```
+
+##### Box Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `center` | The center of the box. | `X,Y,Z Vector` | |
+| `x` | Amount of blocks to expand the box on the X-axis | `Number (Without Decimal)` | `0` |
+| `y` | Amount of blocks to expand the box on the Y-axis | `Number (Without Decimal)` | `0` |
+| `z` | Amount of blocks to expand the box on the Z-axis | `Number (Without Decimal)` | `0` |
+
+## Cuboid `<cuboid>`
+
+A cuboid is a three-dimensional box.
+
+```xml
+
+<cuboid min="23, 50, 15" max="40, 62, 31" />
+
+<cuboid min="50, 30, 30" max="25, 18, 25" />
+
+<!-- min doesn't strictly require to be below max -->
+
+```
+
+##### Cuboid Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `min` | The minimum location of the region. | `X,Y,Z Vector` |
+| `max` | The maximum location of the region. | `X,Y,Z Vector` |
+
+## Cylinder `<cylinder>`
+
+A cylinder is a 3-dimensional circle region.
+
+```xml
+
+<cylinder base="23, 50, 15" radius="5" height="10" />
+
+```
+
+##### Cylinder Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `base` | The base of the cylinder. | `X,Y,Z Vector` |
+| `radius` | The height of the cylinder. | `Number (Without Decimal)` |
+
+## Everywhere `<everywhere>`
+
+This represents every coordinate in the world.
+
+```xml
+
+<everywhere />
+
+<!-- every block -->
+
+```
+
+## Fill `<fill>`
+
+The fill region represents the coordinates of each block matching the defined material within the bounds supplied.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.6 | Connected now defaults to false. |
+
+```xml
+
+<fill bounds="a-cuboid" materials="dirt;grass" start="3,2,1" />
+
+<!-- every block that is either dirt or grass within the bounds -->
+
+```
+
+##### Fill Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `bounds` | The region that contains the blocks to search for. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `materials` | The blocks to search for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` | |
+| `start` | Location to start the search from. (Defaults to center of boundary) | `X,Y,Z Vector` | |
+| `connect` | If only connected blocks from the start should be matched. If false, all blocks, regardless of connection, inside of the region will be checked. | `True/False` | `false` |
+
+## Intersect `<intersect>`
+
+This region is comprised of points that are shared by all of the nested regions.
+
+```xml
+
+<intersect>
+  <cuboid min="0, 5, 0" max="5, 10, 5" />
+  <cuboid min="0, 5, 0" max="5, 7, 5" />
+</intersect>
+
+```
+
+## Invert `<invert>`
+
+The invert region takes the inverse of the regions provided within the element. For example, if a single point is provided, the inverted version of that region would be every point in the world excluding that point.
+
+```xml
+
+<invert>
+  <cuboid min="32, 112, 52" max="52, 12, 5" />
+  <translate offset="-25, -10, 0">
+    <cuboid min="-5, 90, -5" max="5, 100, 5" />
+    <sphere origin="0, 100, 0" radius="5" />
+  </translate>
+</invert>
+
+```
+
+## Join `<join>`
+
+Provide any number of regions within this region type to create a region that combines all the points of the nested regions.
+
+```xml
+
+<join>
+  <cuboid min="-5, 90, -5" max="5, 100, 5" />
+  <sphere origin="0, 100, 0" radius="5" />
+</join>
+
+```
+
+## Nowhere `<nowhere>`
+
+This represents no coordinate in the world.
+
+```xml
+
+<nowhere />
+
+<!-- no blocks at any location -->
+
+```
+
+## Point `<point>`
+
+A point represents a location in the world.
+
+```xml
+
+<point>24, 15.5, 60</point>
+
+```
+
+#### Element Text
+
+| Description | Type |
+| --- | --- |
+| The location. | `X,Y,Z Vector` |
+
+## Rectangle `<rectangle>`
+
+A rectangle is a cuboid region that encompasses all y coordinates.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.6 | Rectangles now require min/max values. |
+
+```xml
+
+<rectangle min="50, 40" max="-50, -40" />
+
+```
+
+##### Rectangle Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `min` | Min location of the rectangle. | `Number (Without Decimal)` |
+| `max` | Max location of the rectangle. | `Number (Without Decimal)` |
+
+## Region Reference `<region>`
+
+You may use the `<region>` type to reference regions that are listed in the `<regions>` element by their id.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.6 | All vectors now support decimals. |
+
+```xml
+
+<point id="a-point">24, 15, 60</point>
+
+<join id="reference-example">
+  <region id="a-point" />
+</join>
+
+```
+
+##### Region Reference Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `id` | The id of the region for reference. | `Region ID` |
+
+## Sector `<sector>`
+
+The sector region represents a sector of a circle that covers all Y values.
+
+```xml
+
+<sector x="11" z="22" start="120.0" end="130.0" />
+
+<!-- everything between angle 120 and 130 in a circle that has a base at the supplied coords. -->
+
+```
+
+##### Sector Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `x` | The base of the circle on the X-axis | `Number (Without Decimal)` |
+| `z` | The base of the circle on the Z-axis | `Number (Without Decimal)` |
+| `start` | The angle that the sector should begin. | `Number (With Decimal)` |
+| `end` | The angle that the sector should end. | `Number (With Decimal)` |
+
+## Sphere `<sphere>`
+
+A sphere is a perfectly round geometrical object in three-dimensional space that is the surface of a completely round ball
+
+```xml
+
+<sphere origin="50, 18, 30" radius="12" />
+
+```
+
+##### Sphere Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `origin` | The origin of the sphere. | `X,Y,Z Vector` |
+| `radius` | The radius of the sphere. | `Number (Without Decimal)` |
+
+## Subtract `<subtract>`
+
+The subtract region takes the first listed region and for each successive region listed, removes points from it.
+
+```xml
+
+<subtract>
+  <!-- these region includes all points in the cuboid, except 60, 40, 60 -->
+  <cuboid min="45, 32, 45" max="90, 64, 90" />
+  <point>60, 40, 60</point>
+</subtract>
+
+```
+
+## Translate `<translate>`
+
+This translates all the regions nested within it by an offset.
+
+```xml
+
+<translate offset="-25, -10, 0">
+  <cuboid min="-5, 90, -5" max="5, 100, 5" />
+  <sphere origin="0, 100, 0" radius="5" />
+</translate>
+
+```
+
+##### Translate Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `offset` | Amount of blocks to offset the nested regions by. | `X,Y,Z Vector` |
+
+## Void `<void>`
+
+The void region selects all blocks that have only air under it.
+
+| Specification | Changes |
+| --- | --- |
+| 1.0.4 | Void regions now have configurable min/max/ignored-blocks |
+
+```xml
+
+<void />
+
+<!-- everything that has void under it. -->
+
+```
+
+##### Void Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `min` | The y-coordinate to start looking for air at | `Number (Without Decimal)` | `0` |
+| `max` | The y-coordinate to stop looking for air at | `Number (Without Decimal)` | `5` |
+| `ignored-blocks` | Blocks which should be counted as air. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` | |
+
+## circle `<circle>`
+
+A circle is essentially a cylinder with a height of 1.
+
+```xml
+
+<circle center="23, 50, 15" radius="5" />
+
+```
+
+##### circle Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `center` | The center of the circle. | `X,Y,Z Vector` |
+| `radius` | The radius of the circle. | `Number (Without Decimal)` |
+

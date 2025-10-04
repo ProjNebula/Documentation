@@ -1,0 +1,54 @@
+---
+layout: module
+title: Authors and Contributors
+permalink: /modules/authors-and-contributors
+---
+
+# Authors and Contributors `<authors>`
+
+The authors element is provided to give credit to the people that made contributions to the creation of a map. Their minecraft usernames are listed in a variety of locations while the map is being played.
+
+## Author `<author>`
+
+An author is a person who contributed to the map in some way.
+
+```xml
+
+<authors>
+  <author uuid="069a79f444e94726a5befca90e38aaf5" />
+  <!-- Notch -->
+  <author uuid="8242e55ecc6a458ab272a2b34918045f" role="Assistance with map design." />
+  <!-- funkystudios -->
+</authors>
+
+```
+
+##### Author Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `contributor` | If a player should be counted as a main author or as a contributor. | `True/False` | `false` |
+| `uuid` | The UUID of the player that should be credited. | `Minecraft UUID` | |
+| `role` | The specific task that the user performed. | `Text` | |
+| `promo` | A link to the player's website. | `URL` | |
+
+## Organisation  `<organization>`
+
+An organisation represents a group of people who helped with the map.
+
+```xml
+
+<authors>
+  <organization name="The Avicus Network" role="Server" promo="https://avicus.net" />
+</authors>
+
+```
+
+##### Organisation  Attributes
+
+| Attribute | Description | Type |
+| --- | --- | --- |
+| `name` | The name of the organisation. | `Text` |
+| `role` | The specific task that the group performed. | `Text` |
+| `promo` | A link to the group's website. | `URL` |
+

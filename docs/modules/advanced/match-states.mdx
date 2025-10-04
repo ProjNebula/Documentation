@@ -1,0 +1,29 @@
+---
+layout: module
+title: Match States
+permalink: /modules/match-states
+---
+
+# Match States `<states>`
+
+This module can be used to modify states that the match goes through.
+
+## State `<state>`
+
+A state that will be reached in the lifetime of the match.
+
+```xml
+
+<states>
+  <state id="play" playing="true" />
+</states>
+
+```
+
+##### State Attributes
+
+| Attribute | Description | Type | Default |
+| --- | --- | --- | --- |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
+| `playing` | If the match should be marked as playing during this state. | `True/False` | `true` |
+
