@@ -1,7 +1,7 @@
 ---
-layout: module
+id: results
 title: Results
-permalink: /modules/results
+description: The results module can be used to determine how and when a match should end, and how the winner should be decided.
 ---
 
 # Results `<results>`
@@ -48,7 +48,7 @@ The win element is used to specify when and how a competitor should win the matc
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `scenario` | The scenario that should be executed if the check passes. | `End Scenario`<br />`team`, `objectives` | `objectives` |
+| `scenario` | The scenario that should be executed if the check passes. | <span class="badge badge--primary">End Scenario</span><br />`team`, `objectives` | `objectives` |
 | `check` | Check that should be ran in order for the result to execute. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
 | `places` | This attribute determines how many win places will be displayed and how many places of winners will receive some type of reward. This only works with the objectives result type and it is possible for multiple teams to score in the same place. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
 

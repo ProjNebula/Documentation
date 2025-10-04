@@ -1,7 +1,7 @@
 ---
-layout: module
+id: custom-projectiles
 title: Custom Projectiles
-permalink: /modules/custom-projectiles
+description: Use this module to create custom projectiles. These can be referenced by id in loadouts.
 ---
 
 # Custom Projectiles `<projectiles>`
@@ -37,7 +37,7 @@ This represents a custom projectile that can be shot from bows or items.
 | `type` | The type of entity to shoot out of the player. | <span class="badge badge--primary">EntityType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) | |
 | `damage` | Amount of damage the projectile will do when it hits the player. | <span class="badge badge--primary">Number (With Decimal)</span> | `1.0` |
 | `velocity` | The velocity of the projectile. | <span class="badge badge--primary">Number (With Decimal)</span> | `1.0` |
-| `loadout` | The id of the strike loadout for reference. | `Strike Loadout ID` | |
+| `loadout` | The id of the strike loadout for reference. | <span class="badge badge--primary">Strike Loadout ID</span> | |
 | `cooldown` | The time it takes for the projectile item to be used again after use. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | `0` |
 | `mount` | If the player should mount the projectile after it is fired. | <span class="badge badge--primary">True/False</span> | `false` |
 

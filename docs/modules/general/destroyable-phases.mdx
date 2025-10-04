@@ -1,7 +1,7 @@
 ---
-layout: module
+id: destroyable-phases
 title: Destroyable Phases
-permalink: /modules/destroyable-phases
+description: This module is used to automatically change the blocks of (and needed to repair) Destroyable objectives based on a delay and check.
 ---
 
 # Destroyable Phases `<phases>`
@@ -34,8 +34,8 @@ A phase is a step in the progession of different materials for a destroyable obj
 | `check` | Check that should be ran before the phase is applied.. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
 | `retry-attempts` | Number of times the phase should be attempted to be re-applied if the check fails. | <span class="badge badge--primary">Number (Without Decimal)</span> | `0` |
 | `retry-delay` | Delay between retry attempts. This attribute denotes a period of time and can either be in seconds or in a period format. | <span class="badge badge--primary">Duration</span> | |
-| `pass-phase` | Phase that will be applied if the check passes. The id of the phase for reference. | `Phase ID` | |
-| `fail-phase` | Phase that will be applied if the check fails and there are no retry attempts remaining. The id of the phase for reference. | `Phase ID` | |
+| `pass-phase` | Phase that will be applied if the check passes. The id of the phase for reference. | <span class="badge badge--primary">Phase ID</span> | |
+| `fail-phase` | Phase that will be applied if the check fails and there are no retry attempts remaining. The id of the phase for reference. | <span class="badge badge--primary">Phase ID</span> | |
 
 ### Find/Replace `<materials>`
 

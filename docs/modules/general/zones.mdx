@@ -1,7 +1,7 @@
 ---
-layout: module
+id: zones
 title: Zones
-permalink: /modules/zones
+description: Zones are representations of locations in the match world that have special attributes and conditions that happen inside of them.
 ---
 
 # Zones `<zones>`
@@ -180,12 +180,12 @@ This can be used to run specific executors based on actions that happen in relat
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `enter` | Runs when a player enters the zone region. Checks can use anything related to players. The id of the executor for reference. | `Executor ID` |
-| `exit` | Runs when a player exits the zone region. Checks can use anything related to players. The id of the executor for reference. | `Executor ID` |
-| `break` | Runs when a block is broken in the zone region. If a player broke a block, checks can use it. If an entity broke the block, checks have access to the entity. Checks also have access to the material of the block broken The id of the executor for reference. | `Executor ID` |
-| `place` | Runs when a block is placed in the zone region. Checks can use anything related to players and materials. The id of the executor for reference. | `Executor ID` |
-| `use` | Runs when a bucket is used in the zone region. Checks can use anything related to players and materials. The id of the executor for reference. | `Executor ID` |
-| `modify` | Runs when a block is modified in the zone region. Checks can use the same things as with the break/place triggers. The id of the executor for reference. | `Executor ID` |
+| `enter` | Runs when a player enters the zone region. Checks can use anything related to players. The id of the executor for reference. | <span class="badge badge--primary">Executor ID</span> |
+| `exit` | Runs when a player exits the zone region. Checks can use anything related to players. The id of the executor for reference. | <span class="badge badge--primary">Executor ID</span> |
+| `break` | Runs when a block is broken in the zone region. If a player broke a block, checks can use it. If an entity broke the block, checks have access to the entity. Checks also have access to the material of the block broken The id of the executor for reference. | <span class="badge badge--primary">Executor ID</span> |
+| `place` | Runs when a block is placed in the zone region. Checks can use anything related to players and materials. The id of the executor for reference. | <span class="badge badge--primary">Executor ID</span> |
+| `use` | Runs when a bucket is used in the zone region. Checks can use anything related to players and materials. The id of the executor for reference. | <span class="badge badge--primary">Executor ID</span> |
+| `modify` | Runs when a block is modified in the zone region. Checks can use the same things as with the break/place triggers. The id of the executor for reference. | <span class="badge badge--primary">Executor ID</span> |
 
 ### Failure Message `<message>`
 
@@ -225,11 +225,11 @@ Nets are locations that flags can be captured at. A flag can have multiple net p
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `owner` | The id of the flag owner for reference. | `Flag Owner ID` | |
+| `owner` | The id of the flag owner for reference. | <span class="badge badge--primary">Flag Owner ID</span> | |
 | `points` | Points to be rewarded to the player who captures the flag. | <span class="badge badge--primary">Number</span> | |
 | `check` | Check that should be ran to determine if the player can capture the flag at this net. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
 | `respawn-together` | If all of the flags enclosed by the flags element should wait until all are captured to respawn, or respawn directly after capture. | <span class="badge badge--primary">True/False</span> | `false` |
-| `respawn-post` | The id of the flag post for reference. | `Flag Post ID` | |
+| `respawn-post` | The id of the flag post for reference. | <span class="badge badge--primary">Flag Post ID</span> | |
 
 ### Flag Post `<post>`
 
@@ -283,7 +283,7 @@ This rule is used to change how lava flows
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `lava-rule` | The liquid rule that should be used. | `Liquid Rule`<br />`only enter`, `only exit`, `no flow` |
+| `lava-rule` | The liquid rule that should be used. | <span class="badge badge--primary">Liquid Rule</span><br />`only enter`, `only exit`, `no flow` |
 
 ### Water Rule
 
@@ -306,7 +306,7 @@ This rule is used to change how water flows
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `water-rule` | The liquid rule that should be used. | `Liquid Rule`<br />`only enter`, `only exit`, `no flow` |
+| `water-rule` | The liquid rule that should be used. | <span class="badge badge--primary">Liquid Rule</span><br />`only enter`, `only exit`, `no flow` |
 
 ### Portals `<portal>`
 
