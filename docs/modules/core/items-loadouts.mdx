@@ -22,11 +22,11 @@ The root loadout element is used to define basic information about the loadout.
 
 ##### Root Loadout Element Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> | |
-| `parent` | The id of the parent loadout for reference. | <span class="badge badge--primary">Parent Loadout ID</span> | |
-| `force` | If the items should be forced into already occupied item slots. | <span class="badge badge--primary">True/False</span> | `false` |
+| Attribute | Description                                                                                                     | Type                                                        | Default |
+| --------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------- |
+| `id`      | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span>        |         |
+| `parent`  | The id of the parent loadout for reference.                                                                     | <span class="badge badge--primary">Parent Loadout ID</span> |         |
+| `force`   | If the items should be forced into already occupied item slots.                                                 | <span class="badge badge--primary">True/False</span>        | `false` |
 
 ### Compass `<compass>`
 
@@ -43,8 +43,8 @@ Set the player's compass target to a fixed position. (The compass module will ov
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                | Type                                                   |
+| -------------------------- | ------------------------------------------------------ |
 | The target of the compass. | <span class="badge badge--primary">X,Y,Z Vector</span> |
 
 ### Effects `<effects>`
@@ -64,16 +64,16 @@ Use this to apply potion effects directly to the player.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                        | Type                                                                                                                                                                |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | The type of the effect that the potion will cause. | <span class="badge badge--primary">PotionEffectType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html) |
 
 ##### Effects Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `amplifier` | The amplifier of the potion effect. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
-| `duration` | The duration of the effect. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | `1` |
+| Attribute   | Description                                                                                                                                                                                                                                                   | Type                                                               | Default |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
+| `amplifier` | The amplifier of the potion effect.                                                                                                                                                                                                                           | <span class="badge badge--primary">Number (Without Decimal)</span> | `1`     |
+| `duration`  | The duration of the effect. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows: d - days h - hours m - minutes s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span>                 | `1`     |
 
 ### Exhaustion `<exhaustion>`
 
@@ -90,15 +90,15 @@ Set the player's level of exhaustion (This ranges from 0.0 to 4.0. When the exha
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                                | Type                                                               |
+| ---------------------------------------------------------- | ------------------------------------------------------------------ |
 | The exhaustion modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Exhaustion Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's exhaustion level. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's exhaustion level the same.`, `set - Set the player's exhaustion level to the supplied number.`, `add - Add the supplied number to the player's exhaustion level.`, `subtract - Subtract the supplied number from the player's exhaustion level.`, `multiply - Multiply the supplied number with the player's exhaustion level.`, `divide - Divide the player's exhaustion level by the supplied number.`, `power - Raise the player's exhaustion level by the supplied number.` | `set` |
+| Attribute | Description                                                   | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
+| --------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's exhaustion level. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's exhaustion level the same.`, `set - Set the player's exhaustion level to the supplied number.`, `add - Add the supplied number to the player's exhaustion level.`, `subtract - Subtract the supplied number from the player's exhaustion level.`, `multiply - Multiply the supplied number with the player's exhaustion level.`, `divide - Divide the player's exhaustion level by the supplied number.`, `power - Raise the player's exhaustion level by the supplied number.` | `set`   |
 
 ### Experience Level `<exp-level>`
 
@@ -115,15 +115,15 @@ Set the player's experience level. (This is the number above the bar)
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                        | Type                                                               |
+| -------------------------------------------------- | ------------------------------------------------------------------ |
 | The XP modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Experience Level Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's XP level. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's XP level the same.`, `set - Set the player's XP level to the supplied number.`, `add - Add the supplied number to the player's XP level.`, `subtract - Subtract the supplied number from the player's XP level.`, `multiply - Multiply the supplied number with the player's XP level.`, `divide - Divide the player's XP level by the supplied number.`, `power - Raise the player's XP level by the supplied number.` | `set` |
+| Attribute | Description                                           | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Default |
+| --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| `action`  | The action which is applied to the player's XP level. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's XP level the same.`, `set - Set the player's XP level to the supplied number.`, `add - Add the supplied number to the player's XP level.`, `subtract - Subtract the supplied number from the player's XP level.`, `multiply - Multiply the supplied number with the player's XP level.`, `divide - Divide the player's XP level by the supplied number.`, `power - Raise the player's XP level by the supplied number.` | `set`   |
 
 ### Experience Points `<exp-points>`
 
@@ -140,15 +140,15 @@ Set the player's experience points. (This is the value on the bar)
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                        | Type                                                               |
+| -------------------------------------------------- | ------------------------------------------------------------------ |
 | The XP modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Experience Points Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's XP points. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's XP points the same.`, `set - Set the player's XP points to the supplied number.`, `add - Add the supplied number to the player's XP points.`, `subtract - Subtract the supplied number from the player's XP points.`, `multiply - Multiply the supplied number with the player's XP points.`, `divide - Divide the player's XP points by the supplied number.`, `power - Raise the player's XP points by the supplied number.` | `set` |
+| Attribute | Description                                            | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Default |
+| --------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's XP points. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's XP points the same.`, `set - Set the player's XP points to the supplied number.`, `add - Add the supplied number to the player's XP points.`, `subtract - Subtract the supplied number from the player's XP points.`, `multiply - Multiply the supplied number with the player's XP points.`, `divide - Divide the player's XP points by the supplied number.`, `power - Raise the player's XP points by the supplied number.` | `set`   |
 
 ### Fly Speed `<fly-speed>`
 
@@ -165,15 +165,15 @@ Set the player's fly speed.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                           | Type                                                               |
+| ----------------------------------------------------- | ------------------------------------------------------------------ |
 | The speed modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Fly Speed Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's fly speed. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's fly speed the same.`, `set - Set the player's fly speed to the supplied number.`, `add - Add the supplied number to the player's fly speed.`, `subtract - Subtract the supplied number from the player's fly speed.`, `multiply - Multiply the supplied number with the player's fly speed.`, `divide - Divide the player's fly speed by the supplied number.`, `power - Raise the player's fly speed by the supplied number.` | `set` |
+| Attribute | Description                                            | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Default |
+| --------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's fly speed. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's fly speed the same.`, `set - Set the player's fly speed to the supplied number.`, `add - Add the supplied number to the player's fly speed.`, `subtract - Subtract the supplied number from the player's fly speed.`, `multiply - Multiply the supplied number with the player's fly speed.`, `divide - Divide the player's fly speed by the supplied number.`, `power - Raise the player's fly speed by the supplied number.` | `set`   |
 
 ### Food `<food-level>`
 
@@ -190,15 +190,15 @@ You can use this to set the player's food.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                          | Type                                                               |
+| ---------------------------------------------------- | ------------------------------------------------------------------ |
 | The food modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Food Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's food level. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's food level the same.`, `set - Set the player's food level to the supplied number.`, `add - Add the supplied number to the player's food level.`, `subtract - Subtract the supplied number from the player's food level.`, `multiply - Multiply the supplied number with the player's food level.`, `divide - Divide the player's food level by the supplied number.`, `power - Raise the player's food level by the supplied number.` | `set` |
+| Attribute | Description                                             | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Default |
+| --------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's food level. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's food level the same.`, `set - Set the player's food level to the supplied number.`, `add - Add the supplied number to the player's food level.`, `subtract - Subtract the supplied number from the player's food level.`, `multiply - Multiply the supplied number with the player's food level.`, `divide - Divide the player's food level by the supplied number.`, `power - Raise the player's food level by the supplied number.` | `set`   |
 
 ### Generic Items `<boots>``<chestplate>``<helmet>``<item>``<kit-menu>``<leggings>``<shop-opener>`
 
@@ -215,23 +215,23 @@ Items can have many attributes, and are the main element of loadouts.
 
 ##### Generic Items Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `slot` | Slot in the inventory where the item should be placed. (If no slot is specified, the item will be put in the first available slot) | <span class="badge badge--primary">Number (Without Decimal)</span> | |
-| `material` | The material of the item. | <span class="badge badge--primary">Material</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html) | |
-| `shop-id` | If a shop opener, which shop this item should open on right click. The id of the shop for reference. | <span class="badge badge--primary">Shop ID</span> | |
-| `damage` | The damage value of the item. (This can be used to color wool or to change the durability of a pickaxe.) | <span class="badge badge--primary">Number (Without Decimal)</span> | |
-| `amount` | The amount of the item to be given to the player. (Use -1 for infinite stacks) | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
-| `unbreakable` | If the item should never run out of durability. | <span class="badge badge--primary">True/False</span> | `false` |
-| `flags` | The flags that should be applied to the item. Separate each flag with a , | <span class="badge badge--primary">Text</span> | |
-| `color` | The color to be applied to the item. (This item must be a colorable item, or a parser error will be thrown) Colors can be defined in 2 different ways. If the color starts with a '#', the hex of the color will be parsed (use this for exact colors) If not, a generic color (red, green, blue, etc) should be used. | <span class="badge badge--primary">Color</span> | |
-| `team-color` | If the player's team color should be used to color the item. This will override the other color attribute. | <span class="badge badge--primary">True/False</span> | `false` |
-| `potion` | The type of the potion that will be displayed. (This will not override the effects added by the effects tag) | <span class="badge badge--primary">PotionType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionType.html) | |
-| `projectile` | The id of the projectile for reference. | <span class="badge badge--primary">Projectile ID</span> | |
-| `grenade` | If the item should behave like a grenade projectile, creating an explosion when landing. | <span class="badge badge--primary">True/False</span> | `false` |
-| `grenade-power` | The power of the grenade projectile (4.0 is equivalent to TNT). | <span class="badge badge--primary">Number</span> | `1.0` |
-| `grenade-fire` | Whether the grenade projectile should create fire on landing. | <span class="badge badge--primary">True/False</span> | `false` |
-| `grenade-destroy` | Whether the grenade projectile should damage blocks on landing. | <span class="badge badge--primary">True/False</span> | `false` |
+| Attribute         | Description                                                                                                                                                                                                                                                                                                            | Type                                                                                                                                                    | Default |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `slot`            | Slot in the inventory where the item should be placed. (If no slot is specified, the item will be put in the first available slot)                                                                                                                                                                                     | <span class="badge badge--primary">Number (Without Decimal)</span>                                                                                      |         |
+| `material`        | The material of the item.                                                                                                                                                                                                                                                                                              | <span class="badge badge--primary">Material</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html)            |         |
+| `shop-id`         | If a shop opener, which shop this item should open on right click. The id of the shop for reference.                                                                                                                                                                                                                   | <span class="badge badge--primary">Shop ID</span>                                                                                                       |         |
+| `damage`          | The damage value of the item. (This can be used to color wool or to change the durability of a pickaxe.)                                                                                                                                                                                                               | <span class="badge badge--primary">Number (Without Decimal)</span>                                                                                      |         |
+| `amount`          | The amount of the item to be given to the player. (Use -1 for infinite stacks)                                                                                                                                                                                                                                         | <span class="badge badge--primary">Number (Without Decimal)</span>                                                                                      | `1`     |
+| `unbreakable`     | If the item should never run out of durability.                                                                                                                                                                                                                                                                        | <span class="badge badge--primary">True/False</span>                                                                                                    | `false` |
+| `flags`           | The flags that should be applied to the item. Separate each flag with a ,                                                                                                                                                                                                                                              | <span class="badge badge--primary">Text</span>                                                                                                          |         |
+| `color`           | The color to be applied to the item. (This item must be a colorable item, or a parser error will be thrown) Colors can be defined in 2 different ways. If the color starts with a '#', the hex of the color will be parsed (use this for exact colors) If not, a generic color (red, green, blue, etc) should be used. | <span class="badge badge--primary">Color</span>                                                                                                         |         |
+| `team-color`      | If the player's team color should be used to color the item. This will override the other color attribute.                                                                                                                                                                                                             | <span class="badge badge--primary">True/False</span>                                                                                                    | `false` |
+| `potion`          | The type of the potion that will be displayed. (This will not override the effects added by the effects tag)                                                                                                                                                                                                           | <span class="badge badge--primary">PotionType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionType.html) |         |
+| `projectile`      | The id of the projectile for reference.                                                                                                                                                                                                                                                                                | <span class="badge badge--primary">Projectile ID</span>                                                                                                 |         |
+| `grenade`         | If the item should behave like a grenade projectile, creating an explosion when landing.                                                                                                                                                                                                                               | <span class="badge badge--primary">True/False</span>                                                                                                    | `false` |
+| `grenade-power`   | The power of the grenade projectile (4.0 is equivalent to TNT).                                                                                                                                                                                                                                                        | <span class="badge badge--primary">Number</span>                                                                                                        | `1.0`   |
+| `grenade-fire`    | Whether the grenade projectile should create fire on landing.                                                                                                                                                                                                                                                          | <span class="badge badge--primary">True/False</span>                                                                                                    | `false` |
+| `grenade-destroy` | Whether the grenade projectile should damage blocks on landing.                                                                                                                                                                                                                                                        | <span class="badge badge--primary">True/False</span>                                                                                                    | `false` |
 
 ### Banner Designs `<pattern>`
 
@@ -247,18 +247,18 @@ Banner designs can also be created via XML, and can be combined to create comple
 
 ##### Banner Designs Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `pattern` | The name of the type of pattern to be applied. | <span class="badge badge--primary">PatternType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/block/banner/PatternType.html) |
-| `color` | The color of the pattern. Colors can be defined in 2 different ways. If the color starts with a '#', the hex of the color will be parsed (use this for exact colors) If not, a generic color (red, green, blue, etc) should be used. | <span class="badge badge--primary">Color</span> |
+| Attribute | Description                                                                                                                                                                                                                          | Type                                                                                                                                                            |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pattern` | The name of the type of pattern to be applied.                                                                                                                                                                                       | <span class="badge badge--primary">PatternType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/block/banner/PatternType.html) |
+| `color`   | The color of the pattern. Colors can be defined in 2 different ways. If the color starts with a '#', the hex of the color will be parsed (use this for exact colors) If not, a generic color (red, green, blue, etc) should be used. | <span class="badge badge--primary">Color</span>                                                                                                                 |
 
 ### Effects `<effects>`
 
 This is used to apply potion effects to potions.
 
-| Specification | Changes |
-| --- | --- |
-| 1.0.4 | Item effects now must be wrapped in corresponding sub-tags. |
+| Specification | Changes                                                     |
+| ------------- | ----------------------------------------------------------- |
+| 1.0.4         | Item effects now must be wrapped in corresponding sub-tags. |
 
 ```xml
 
@@ -270,19 +270,19 @@ This is used to apply potion effects to potions.
 
 ##### Effects Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `type` | Type of the effect to be applied. | <span class="badge badge--primary">PotionEffectType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html) | |
-| `amplifier` | The amplifier of the potion effect. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
-| `duration` | The duration of the effect. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | `1` |
+| Attribute   | Description                                                                                                                                                                                                                                                   | Type                                                                                                                                                                | Default |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `type`      | Type of the effect to be applied.                                                                                                                                                                                                                             | <span class="badge badge--primary">PotionEffectType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html) |         |
+| `amplifier` | The amplifier of the potion effect.                                                                                                                                                                                                                           | <span class="badge badge--primary">Number (Without Decimal)</span>                                                                                                  | `1`     |
+| `duration`  | The duration of the effect. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows: d - days h - hours m - minutes s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span>                                                                                                                  | `1`     |
 
 ### Enchantments `<enchantments>`
 
 This is used to apply enchantments to items.
 
-| Specification | Changes |
-| --- | --- |
-| 1.0.4 | Item enchantments now must be wrapped in corresponding sub-tags. |
+| Specification | Changes                                                          |
+| ------------- | ---------------------------------------------------------------- |
+| 1.0.4         | Item enchantments now must be wrapped in corresponding sub-tags. |
 
 ```xml
 
@@ -298,18 +298,18 @@ This is used to apply enchantments to items.
 
 ##### Enchantments Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `type` | The type of enchantment to apply to the item. | <span class="badge badge--primary">Enchantment</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html) | |
-| `level` | The level of the enchantment to be applied to the item. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
+| Attribute | Description                                             | Type                                                                                                                                                            | Default |
+| --------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `type`    | The type of enchantment to apply to the item.           | <span class="badge badge--primary">Enchantment</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html) |         |
+| `level`   | The level of the enchantment to be applied to the item. | <span class="badge badge--primary">Number (Without Decimal)</span>                                                                                              | `1`     |
 
 ### Stored Enchantments `<stored-enchantments>`
 
 This is used to store enchantments inside of enchanted books.
 
 | Specification | Changes |
-| --- | --- |
-| 1.0.4 | ADDED |
+| ------------- | ------- |
+| 1.0.4         | ADDED   |
 
 ```xml
 
@@ -321,15 +321,15 @@ This is used to store enchantments inside of enchanted books.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description               | Type                                                                                                                                                            |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | The enchantment to store. | <span class="badge badge--primary">Enchantment</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html) |
 
 ##### Stored Enchantments Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `level` | The level of the enchantment. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
+| Attribute | Description                   | Type                                                               | Default |
+| --------- | ----------------------------- | ------------------------------------------------------------------ | ------- |
+| `level`   | The level of the enchantment. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1`     |
 
 ### Health `<health>`
 
@@ -346,15 +346,15 @@ You can use this to set the player's health.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                            | Type                                                               |
+| ------------------------------------------------------ | ------------------------------------------------------------------ |
 | The health modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Health Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's health. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's health the same.`, `set - Set the player's health to the supplied number.`, `add - Add the supplied number to the player's health.`, `subtract - Subtract the supplied number from the player's health.`, `multiply - Multiply the supplied number with the player's health.`, `divide - Divide the player's health by the supplied number.`, `power - Raise the player's health by the supplied number.` | `set` |
+| Attribute | Description                                         | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Default |
+| --------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's health. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's health the same.`, `set - Set the player's health to the supplied number.`, `add - Add the supplied number to the player's health.`, `subtract - Subtract the supplied number from the player's health.`, `multiply - Multiply the supplied number with the player's health.`, `divide - Divide the player's health by the supplied number.`, `power - Raise the player's health by the supplied number.` | `set`   |
 
 ### Health Scale `<health-scale>`
 
@@ -371,15 +371,15 @@ You can use this to set the player's health scale.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                            | Type                                                               |
+| ------------------------------------------------------ | ------------------------------------------------------------------ |
 | The health modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Health Scale Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's health scale. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's health scale the same.`, `set - Set the player's health scale to the supplied number.`, `add - Add the supplied number to the player's health scale.`, `subtract - Subtract the supplied number from the player's health scale.`, `multiply - Multiply the supplied number with the player's health scale.`, `divide - Divide the player's health scale by the supplied number.`, `power - Raise the player's health scale by the supplied number.` | `set` |
+| Attribute | Description                                               | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Default |
+| --------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's health scale. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's health scale the same.`, `set - Set the player's health scale to the supplied number.`, `add - Add the supplied number to the player's health scale.`, `subtract - Subtract the supplied number from the player's health scale.`, `multiply - Multiply the supplied number with the player's health scale.`, `divide - Divide the player's health scale by the supplied number.`, `power - Raise the player's health scale by the supplied number.` | `set`   |
 
 ### Max Health `<max-health>`
 
@@ -396,15 +396,15 @@ You can use this to set the player's max health.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                            | Type                                                               |
+| ------------------------------------------------------ | ------------------------------------------------------------------ |
 | The health modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Max Health Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's max health. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's max health the same.`, `set - Set the player's max health to the supplied number.`, `add - Add the supplied number to the player's max health.`, `subtract - Subtract the supplied number from the player's max health.`, `multiply - Multiply the supplied number with the player's max health.`, `divide - Divide the player's max health by the supplied number.`, `power - Raise the player's max health by the supplied number.` | `set` |
+| Attribute | Description                                             | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Default |
+| --------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's max health. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's max health the same.`, `set - Set the player's max health to the supplied number.`, `add - Add the supplied number to the player's max health.`, `subtract - Subtract the supplied number from the player's max health.`, `multiply - Multiply the supplied number with the player's max health.`, `divide - Divide the player's max health by the supplied number.`, `power - Raise the player's max health by the supplied number.` | `set`   |
 
 ### Player Heads `<player-head>`
 
@@ -418,18 +418,18 @@ You can use this tag to give player heads in loadouts.
 
 ##### Player Heads Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `slot` | Slot in the inventory where the item should be placed. (If no slot is specified, the item will be put in the first available slot) | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `uuid` | UUID of the owner of the head. | <span class="badge badge--primary">Minecraft UUID</span> |
+| Attribute | Description                                                                                                                        | Type                                                               |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `slot`    | Slot in the inventory where the item should be placed. (If no slot is specified, the item will be put in the first available slot) | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `uuid`    | UUID of the owner of the head.                                                                                                     | <span class="badge badge--primary">Minecraft UUID</span>           |
 
 ### Randomizer `<randomizer>`
 
 Randomizers are used to give random items in loadouts with a chance.
 
 | Specification | Changes |
-| --- | --- |
-| 1.0.4 | ADDED |
+| ------------- | ------- |
+| 1.0.4         | ADDED   |
 
 ```xml
 
@@ -441,10 +441,10 @@ Randomizers are used to give random items in loadouts with a chance.
 
 ##### Randomizer Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `min` | The minimum stack size for items. | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `max` | The maximum stack size for items. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| Attribute | Description                       | Type                                                               |
+| --------- | --------------------------------- | ------------------------------------------------------------------ |
+| `min`     | The minimum stack size for items. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `max`     | The maximum stack size for items. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ### Item Set `<items>`
 
@@ -469,11 +469,11 @@ Item sets are used to define sets of items that can be given with a weight.
 
 ##### Item Set Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `min` | Minimum item stack size. | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `max` | Maximum item stack size. | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `weight` | Weight of each item in set. | <span class="badge badge--primary">Number (With Decimal)</span> |
+| Attribute | Description                 | Type                                                               |
+| --------- | --------------------------- | ------------------------------------------------------------------ |
+| `min`     | Minimum item stack size.    | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `max`     | Maximum item stack size.    | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `weight`  | Weight of each item in set. | <span class="badge badge--primary">Number (With Decimal)</span>    |
 
 ### Saturation `<saturation>`
 
@@ -490,15 +490,15 @@ You can use this to set the player's saturation.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                                | Type                                                               |
+| ---------------------------------------------------------- | ------------------------------------------------------------------ |
 | The saturation modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Saturation Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's saturation level. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's saturation level the same.`, `set - Set the player's saturation level to the supplied number.`, `add - Add the supplied number to the player's saturation level.`, `subtract - Subtract the supplied number from the player's saturation level.`, `multiply - Multiply the supplied number with the player's saturation level.`, `divide - Divide the player's saturation level by the supplied number.`, `power - Raise the player's saturation level by the supplied number.` | `set` |
+| Attribute | Description                                                   | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
+| --------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's saturation level. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's saturation level the same.`, `set - Set the player's saturation level to the supplied number.`, `add - Add the supplied number to the player's saturation level.`, `subtract - Subtract the supplied number from the player's saturation level.`, `multiply - Multiply the supplied number with the player's saturation level.`, `divide - Divide the player's saturation level by the supplied number.`, `power - Raise the player's saturation level by the supplied number.` | `set`   |
 
 ### Time `<time>`
 
@@ -515,15 +515,15 @@ You can use this to set the player's personal time.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                          | Type                                                               |
+| ---------------------------------------------------- | ------------------------------------------------------------------ |
 | The time modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Time Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's local time. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's local time the same.`, `set - Set the player's local time to the supplied number.`, `add - Add the supplied number to the player's local time.`, `subtract - Subtract the supplied number from the player's local time.`, `multiply - Multiply the supplied number with the player's local time.`, `divide - Divide the player's local time by the supplied number.`, `power - Raise the player's local time by the supplied number.` | `set` |
+| Attribute | Description                                             | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Default |
+| --------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's local time. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's local time the same.`, `set - Set the player's local time to the supplied number.`, `add - Add the supplied number to the player's local time.`, `subtract - Subtract the supplied number from the player's local time.`, `multiply - Multiply the supplied number with the player's local time.`, `divide - Divide the player's local time by the supplied number.`, `power - Raise the player's local time by the supplied number.` | `set`   |
 
 ### Total Experience `<exp-total>`
 
@@ -540,23 +540,23 @@ Set the player's total experience level. (This will override both of the above v
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                        | Type                                                               |
+| -------------------------------------------------- | ------------------------------------------------------------------ |
 | The XP modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Total Experience Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's total XP. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's total XP the same.`, `set - Set the player's total XP to the supplied number.`, `add - Add the supplied number to the player's total XP.`, `subtract - Subtract the supplied number from the player's total XP.`, `multiply - Multiply the supplied number with the player's total XP.`, `divide - Divide the player's total XP by the supplied number.`, `power - Raise the player's total XP by the supplied number.` | `set` |
+| Attribute | Description                                           | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Default |
+| --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| `action`  | The action which is applied to the player's total XP. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's total XP the same.`, `set - Set the player's total XP to the supplied number.`, `add - Add the supplied number to the player's total XP.`, `subtract - Subtract the supplied number from the player's total XP.`, `multiply - Multiply the supplied number with the player's total XP.`, `divide - Divide the player's total XP by the supplied number.`, `power - Raise the player's total XP by the supplied number.` | `set`   |
 
 ### Vehicle `<vehicle>`
 
 Vehicles are used to mount players on entities when they receive the loadout.
 
 | Specification | Changes |
-| --- | --- |
-| 1.0.4 | ADDED |
+| ------------- | ------- |
+| 1.0.4         | ADDED   |
 
 ```xml
 
@@ -566,17 +566,17 @@ Vehicles are used to mount players on entities when they receive the loadout.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description          | Type                                                                                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | The type of vehicle. | <span class="badge badge--primary">EntityType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) |
 
 ##### Vehicle Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `sticky` | If the player should be unable to dismount from the entity. | <span class="badge badge--primary">True/False</span> | `false` |
-| `remove` | If the entity should be removed when the player dismounts. | <span class="badge badge--primary">True/False</span> | `false` |
-| `velocity` | The initial velocity of the entity. | <span class="badge badge--primary">X,Y,Z Vector</span> | `0, 0, 0` |
+| Attribute  | Description                                                 | Type                                                   | Default   |
+| ---------- | ----------------------------------------------------------- | ------------------------------------------------------ | --------- |
+| `sticky`   | If the player should be unable to dismount from the entity. | <span class="badge badge--primary">True/False</span>   | `false`   |
+| `remove`   | If the entity should be removed when the player dismounts.  | <span class="badge badge--primary">True/False</span>   | `false`   |
+| `velocity` | The initial velocity of the entity.                         | <span class="badge badge--primary">X,Y,Z Vector</span> | `0, 0, 0` |
 
 ### Walk Speed `<walk-speed>`
 
@@ -593,15 +593,15 @@ Set the player's walk speed.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                           | Type                                                               |
+| ----------------------------------------------------- | ------------------------------------------------------------------ |
 | The speed modifier that should be used by the action. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ##### Walk Speed Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `action` | The action which is applied to the player's walk speed. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's walk speed the same.`, `set - Set the player's walk speed to the supplied number.`, `add - Add the supplied number to the player's walk speed.`, `subtract - Subtract the supplied number from the player's walk speed.`, `multiply - Multiply the supplied number with the player's walk speed.`, `divide - Divide the player's walk speed by the supplied number.`, `power - Raise the player's walk speed by the supplied number.` | `set` |
+| Attribute | Description                                             | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Default |
+| --------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `action`  | The action which is applied to the player's walk speed. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's walk speed the same.`, `set - Set the player's walk speed to the supplied number.`, `add - Add the supplied number to the player's walk speed.`, `subtract - Subtract the supplied number from the player's walk speed.`, `multiply - Multiply the supplied number with the player's walk speed.`, `divide - Divide the player's walk speed by the supplied number.`, `power - Raise the player's walk speed by the supplied number.` | `set`   |
 
 ### Weather `<weather>`
 
@@ -618,7 +618,6 @@ Use this to set the player's personal weather state.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                | Type                                                                            |
+| ------------------------------------------ | ------------------------------------------------------------------------------- |
 | The type of weather the player should see. | <span class="badge badge--primary">Weather Type</span><br />`downfall`, `clear` |
-

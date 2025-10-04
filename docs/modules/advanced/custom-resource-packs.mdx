@@ -22,11 +22,11 @@ A pack represents a resource pack that can be requested for a player to use.
 
 ##### Pack Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> |
-| `name` | The name of the pack when used in UI. | <span class="badge badge--primary">Localized String</span> |
-| `url` | The direct URL to a zipped version of the resource pack. | <span class="badge badge--primary">URL</span> |
+| Attribute | Description                                                                                                     | Type                                                       |
+| --------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `id`      | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span>       |
+| `name`    | The name of the pack when used in UI.                                                                           | <span class="badge badge--primary">Localized String</span> |
+| `url`     | The direct URL to a zipped version of the resource pack.                                                        | <span class="badge badge--primary">URL</span>              |
 
 ## Resource Pack Request `<request-resource-pack>`
 
@@ -40,8 +40,7 @@ This represents a request that is sent to a player to use a resource pack.
 
 ##### Resource Pack Request Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `id` | The pack to be requested. The id of the resource pack for reference. | <span class="badge badge--primary">Resource Pack ID</span> | |
-| `force` | If the pack is required in order for the player to join teams. | <span class="badge badge--primary">True/False</span> | `false` |
-
+| Attribute | Description                                                          | Type                                                       | Default |
+| --------- | -------------------------------------------------------------------- | ---------------------------------------------------------- | ------- |
+| `id`      | The pack to be requested. The id of the resource pack for reference. | <span class="badge badge--primary">Resource Pack ID</span> |         |
+| `force`   | If the pack is required in order for the player to join teams.       | <span class="badge badge--primary">True/False</span>       | `false` |

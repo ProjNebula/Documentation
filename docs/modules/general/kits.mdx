@@ -4,7 +4,6 @@ title: Kits
 description: Kits are used to apply special abilities to players and let then choose special loadouts.
 ---
 
-
 # Kits `<kits>`
 
 Kits are used to apply special abilities to players and let then choose special loadouts.
@@ -23,10 +22,10 @@ This ability allows the player to jump higher than normal.
 
 ##### Double Jump Ability Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `push` | How far forward the player should go. | <span class="badge badge--primary">Number (With Decimal)</span> |
-| `icarus` | How high the player should go. | <span class="badge badge--primary">Number (With Decimal)</span> |
+| Attribute | Description                           | Type                                                            |
+| --------- | ------------------------------------- | --------------------------------------------------------------- |
+| `push`    | How far forward the player should go. | <span class="badge badge--primary">Number (With Decimal)</span> |
+| `icarus`  | How high the player should go.        | <span class="badge badge--primary">Number (With Decimal)</span> |
 
 ## Health Effect Ability `<health-effect>`
 
@@ -42,10 +41,10 @@ This ability applies a potion effect to a player when they reach a certain healt
 
 ##### Health Effect Ability Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `health` | Health level that will trigger the effect. | <span class="badge badge--primary">Integer Range</span><br />`0-20` |
-| `effect` | Effect to apply to the player. | <span class="badge badge--primary">PotionEffectType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html) |
+| Attribute | Description                                | Type                                                                                                                                                                |
+| --------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `health`  | Health level that will trigger the effect. | <span class="badge badge--primary">Integer Range</span><br />`0-20`                                                                                                 |
+| `effect`  | Effect to apply to the player.             | <span class="badge badge--primary">PotionEffectType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html) |
 
 ## Kit Permissions `<permissions>`
 
@@ -59,23 +58,23 @@ This is used to give minecraft permissions to players who currently have this ki
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                         | Type                                           |
+| ----------------------------------- | ---------------------------------------------- |
 | The permission to add to the player | <span class="badge badge--primary">Text</span> |
 
 ##### Kit Permissions Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `value` | The value of the permission. Setting this to false is the equivalent of adding a `-` before the permission when using permissions plugins. | <span class="badge badge--primary">True/False</span> | `true` |
+| Attribute | Description                                                                                                                                | Type                                                 | Default |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- | ------- |
+| `value`   | The value of the permission. Setting this to false is the equivalent of adding a `-` before the permission when using permissions plugins. | <span class="badge badge--primary">True/False</span> | `true`  |
 
 ## Kits `<kit>`
 
 Kits give players special abilities and allow them to choose loadouts based on checks.
 
-| Specification | Changes |
-| --- | --- |
-| 1.0.1 | Kit IDS are now required. |
+| Specification | Changes                   |
+| ------------- | ------------------------- |
+| 1.0.1         | Kit IDS are now required. |
 
 ```xml
 
@@ -92,13 +91,12 @@ Kits give players special abilities and allow them to choose loadouts based on c
 
 ##### Kits Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> | |
-| `name` | The name of the kit. | <span class="badge badge--primary">Localized String</span> | |
-| `description` | The description of the kit (for the menu). | <span class="badge badge--primary">Localized String</span> | |
-| `icon` | The icon of the kit for use in the menu. This should be written like item stack would be configured in a loadout. | <span class="badge badge--primary">Item Stack Loadout Tag</span> | |
-| `loadout` | The id of the loadout for reference. | <span class="badge badge--primary">Loadout ID</span> | |
-| `check` | Check that should be ran on the player before they can view or select the kit. If a player respawns with the kit and check fails, they will be given the default kit if there is one, or have no kit. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
-| `default` | If this kit should be the default kit which is applied to players who do not choose a kit. | <span class="badge badge--primary">True/False</span> | `true` |
-
+| Attribute     | Description                                                                                                                                                                                                                                                                           | Type                                                             | Default |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
+| `id`          | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML.                                                                                                                                                                       | <span class="badge badge--primary">Feature ID</span>             |         |
+| `name`        | The name of the kit.                                                                                                                                                                                                                                                                  | <span class="badge badge--primary">Localized String</span>       |         |
+| `description` | The description of the kit (for the menu).                                                                                                                                                                                                                                            | <span class="badge badge--primary">Localized String</span>       |         |
+| `icon`        | The icon of the kit for use in the menu. This should be written like item stack would be configured in a loadout.                                                                                                                                                                     | <span class="badge badge--primary">Item Stack Loadout Tag</span> |         |
+| `loadout`     | The id of the loadout for reference.                                                                                                                                                                                                                                                  | <span class="badge badge--primary">Loadout ID</span>             |         |
+| `check`       | Check that should be ran on the player before they can view or select the kit. If a player respawns with the kit and check fails, they will be given the default kit if there is one, or have no kit. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span>                  |         |
+| `default`     | If this kit should be the default kit which is applied to players who do not choose a kit.                                                                                                                                                                                            | <span class="badge badge--primary">True/False</span>             | `true`  |

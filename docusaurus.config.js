@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -47,8 +47,7 @@ const config = {
             ({
                 docs: {
                     sidebarPath: './sidebars.js',
-                    editUrl:
-                        'https://github.com/ProjNebula/Documentation/tree/main',
+                    editUrl: 'https://github.com/ProjNebula/Documentation/tree/main',
                     showLastUpdateTime: true,
                 },
                 theme: {
@@ -59,7 +58,7 @@ const config = {
     ],
 
     themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+        /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             // Replace with your project's social card
             image: 'img/logo.png',
@@ -73,13 +72,13 @@ const config = {
                     src: 'img/logo.png',
                 },
                 items: [
-                    {to: 'docs/modules/core/main', label: 'Modules', position: 'right'},
-                    {to: 'docs/references/inventory', label: 'References', position: 'right'},
-                    {to: 'docs/examples/map', label: 'Examples', position: 'right'},
+                    { to: 'docs/modules/core/main', label: 'Modules', position: 'right' },
+                    { to: 'docs/references/inventory', label: 'References', position: 'right' },
+                    { to: 'docs/examples/map', label: 'Examples', position: 'right' },
                     {
                         type: 'search',
                         position: 'right',
-                    }
+                    },
                 ],
             },
             footer: {

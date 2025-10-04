@@ -28,10 +28,10 @@ These represent areas of the map that the decay module should work inside of.
 
 ##### Decay Area Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `region` | The region that the block decay should act inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> | |
-| `fall-delay` | Time after the last phase completes before the blocks should turn into falling sand. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | `4` |
+| Attribute    | Description                                                                                                                                                                                                                                                                                                            | Type                                               | Default |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| `region`     | The region that the block decay should act inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region.                                                                                                                                                                                 | <span class="badge badge--primary">Region</span>   |         |
+| `fall-delay` | Time after the last phase completes before the blocks should turn into falling sand. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows: d - days h - hours m - minutes s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | `4`     |
 
 ### Decay Phase `<phase>`
 
@@ -53,13 +53,12 @@ These denote materials that the blocks will change into in order before falling.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                                                                                                                                                                           | Type                                                                |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | Material of the phase. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | <span class="badge badge--primary">Singular Material Matcher</span> |
 
 ##### Decay Phase Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `delay` | How long this phase should last before the next phase is applied. This attribute denotes a period of time and can either be in seconds or in a period format. | <span class="badge badge--primary">Duration</span> | `3` |
-
+| Attribute | Description                                                                                                                                                   | Type                                               | Default |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| `delay`   | How long this phase should last before the next phase is applied. This attribute denotes a period of time and can either be in seconds or in a period format. | <span class="badge badge--primary">Duration</span> | `3`     |

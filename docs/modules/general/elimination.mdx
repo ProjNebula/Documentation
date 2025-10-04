@@ -4,16 +4,15 @@ title: Elimination
 description: The elimination module is used to remove players from matches after a certain amount of deaths.
 ---
 
-
 # Elimination `<elimination>`
 
 The elimination module is used to remove players from matches after a certain amount of deaths.
 
 It should be noted that auto-respawn is automatically enabled on elimination maps to prevent players from prolonging the match.
 
-| Specification | Changes |
-| --- | --- |
-| 1.0.3 | Auto-respawn is automatically enabled on elimination maps to prevent players from prolonging the match |
+| Specification | Changes                                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------------------ |
+| 1.0.3         | Auto-respawn is automatically enabled on elimination maps to prevent players from prolonging the match |
 
 ## Configuration
 
@@ -27,10 +26,9 @@ The main configuration for the elimination module.
 
 ##### Configuration Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `lives` | The amount of deaths a player is allowed before they are eliminated. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
-| `enable-on-start` | If elimination should be enabled when the match starts. If this is false, the module will need to be enabled with an executor. | <span class="badge badge--primary">True/False</span> | `true` |
-| `strike-on-eliminate` | If lightning should strike at the location a player dies when they are eliminated. | <span class="badge badge--primary">True/False</span> | `false` |
-| `check` | Check that should be ran before a life is subtracted due to a death. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
-
+| Attribute             | Description                                                                                                                                          | Type                                                               | Default |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
+| `lives`               | The amount of deaths a player is allowed before they are eliminated.                                                                                 | <span class="badge badge--primary">Number (Without Decimal)</span> | `1`     |
+| `enable-on-start`     | If elimination should be enabled when the match starts. If this is false, the module will need to be enabled with an executor.                       | <span class="badge badge--primary">True/False</span>               | `true`  |
+| `strike-on-eliminate` | If lightning should strike at the location a player dies when they are eliminated.                                                                   | <span class="badge badge--primary">True/False</span>               | `false` |
+| `check`               | Check that should be ran before a life is subtracted due to a death. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span>                    |         |

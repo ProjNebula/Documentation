@@ -23,14 +23,14 @@ Use this to modify game rules for the match world.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                                                                                | Type                                           |
+| ------------------------------------------------------------------------------------------ | ---------------------------------------------- |
 | The value that the game rule should be set to. This directly mirrors the /gamerule command | <span class="badge badge--primary">Text</span> |
 
 ##### Game Rules Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
+| Attribute  | Description                  | Type                                                                                                                                                       |
+| ---------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `TAG NAME` | The game rule to be modified | <span class="badge badge--primary">Game Rule</span><br />`dofiretick`, `dotiledrops`, `domobloot`, `mobgriefing`, `naturalregeneration`, `dodaylightcycle` |
 
 ## Mob Control `<mobs>`
@@ -53,9 +53,9 @@ This is used to control which mobs spawn and how they can be spawned.
 
 ##### Mob Control Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `check` | Check that should be ran before a mob spawns. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
+| Attribute | Description                                                                                                                   | Type                                            |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `check`   | Check that should be ran before a mob spawns. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
 
 ## Storm Control `<storm>`
 
@@ -69,8 +69,8 @@ This is used to set the initial weather state to stormy or clear.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                               | Type                                                 |
+| ----------------------------------------- | ---------------------------------------------------- |
 | If the world should start raining/snowing | <span class="badge badge--primary">True/False</span> |
 
 ## Weather Control `<weather>`
@@ -85,9 +85,9 @@ This is used to control when the weather state of the world can change.
 
 ##### Weather Control Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `check` | Check that should be ran before the weather changes. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
+| Attribute | Description                                                                                                                          | Type                                            |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| `check`   | Check that should be ran before the weather changes. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
 
 ## World Difficulty `<difficulty>`
 
@@ -103,8 +103,8 @@ Difficulty affects hunger, mob damage, etc.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                        | Type                                                                                           |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------- |
 | The difficulty of the match world. | <span class="badge badge--primary">Difficulty</span><br />`peaceful`, `easy`, `normal`, `hard` |
 
 ## World Path
@@ -121,9 +121,9 @@ This is useful when combined with conditionals so that different worlds load bas
 
 ##### World Path Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `path` | The path to the level.dat and region files. | <span class="badge badge--primary">Text</span> |
+| Attribute | Description                                 | Type                                           |
+| --------- | ------------------------------------------- | ---------------------------------------------- |
+| `path`    | The path to the level.dat and region files. | <span class="badge badge--primary">Text</span> |
 
 ## World Type `<type>`
 
@@ -141,7 +141,6 @@ The advantage of using the flat world type is that there is no black horizon lin
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                  | Type                                                                                                                                 |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | The type of the match world. | <span class="badge badge--primary">World Type</span><br />`normal`, `flat`, `version 1 1`, `large biomes`, `amplified`, `customized` |
-

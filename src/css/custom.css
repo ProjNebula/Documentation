@@ -72,7 +72,8 @@ table td {
     background-color: rgb(72, 77, 91, 0);
 }
 
-table th, table td {
+table th,
+table td {
     border: none;
 }
 
@@ -85,7 +86,8 @@ table tr:nth-child(odd) td {
 }
 
 /* All code and label elements which have a td parent */
-table > tbody > tr > td > code,label {
+table > tbody > tr > td > code,
+label {
     display: block;
     background-color: transparent !important;
     unicode-bidi: embed;

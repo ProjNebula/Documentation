@@ -31,10 +31,10 @@ This is used to reward loadouts to players upon successful kills.
 
 ##### Kill Rewards Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `loadout` | Loadout that should be given to the player upon a kill. The id of the loadout for reference. | <span class="badge badge--primary">Loadout ID</span> |
-| `check` | Check that should be ran before the loadout is rewarded to the killer. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
+| Attribute | Description                                                                                                                                            | Type                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| `loadout` | Loadout that should be given to the player upon a kill. The id of the loadout for reference.                                                           | <span class="badge badge--primary">Loadout ID</span> |
+| `check`   | Check that should be ran before the loadout is rewarded to the killer. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span>      |
 
 ## Kill/Death Checks `<death-check>``<kill-check>`
 
@@ -56,8 +56,7 @@ Checks that should run before players can get a kills/deaths.
 
 ##### Kill/Death Checks Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `kill-check` | Check that should be ran before a player can get a kill. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
-| `death-check` | Check that should be ran before a player can die. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
-
+| Attribute     | Description                                                                                                                              | Type                                            |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `kill-check`  | Check that should be ran before a player can get a kill. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
+| `death-check` | Check that should be ran before a player can die. This can either be in ID form, or as a nested XML tag in the syntax of a check.        | <span class="badge badge--primary">Check</span> |

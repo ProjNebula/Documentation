@@ -24,10 +24,10 @@ Scenarios are what course Atlas will take to determine a winner of a match. Ther
 
 ##### Scenario Types
 
-| Name | Description |
-| --- | --- |
+| Name       | Description                                                                                                                         |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | objectives | The objectives result type will choose the winner based on which team has the most objectives. This can also result in a match tie. |
-| team | The team result type will reward the win to the team specified. |
+| team       | The team result type will reward the win to the team specified.                                                                     |
 
 ## Win Element `<win>`
 
@@ -46,9 +46,8 @@ The win element is used to specify when and how a competitor should win the matc
 
 ##### Win Element Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `scenario` | The scenario that should be executed if the check passes. | <span class="badge badge--primary">End Scenario</span><br />`team`, `objectives` | `objectives` |
-| `check` | Check that should be ran in order for the result to execute. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
-| `places` | This attribute determines how many win places will be displayed and how many places of winners will receive some type of reward. This only works with the objectives result type and it is possible for multiple teams to score in the same place. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
-
+| Attribute  | Description                                                                                                                                                                                                                                        | Type                                                                             | Default      |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------ |
+| `scenario` | The scenario that should be executed if the check passes.                                                                                                                                                                                          | <span class="badge badge--primary">End Scenario</span><br />`team`, `objectives` | `objectives` |
+| `check`    | Check that should be ran in order for the result to execute. This can either be in ID form, or as a nested XML tag in the syntax of a check.                                                                                                       | <span class="badge badge--primary">Check</span>                                  |              |
+| `places`   | This attribute determines how many win places will be displayed and how many places of winners will receive some type of reward. This only works with the objectives result type and it is possible for multiple teams to score in the same place. | <span class="badge badge--primary">Number (Without Decimal)</span>               | `1`          |

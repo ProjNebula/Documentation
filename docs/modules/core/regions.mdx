@@ -26,11 +26,11 @@ The above region select any coordinates above the supplied x, y, or z values.
 
 ##### Above Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `x` | The base block to select above on the X-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `y` | The base block to select above on the Y-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `z` | The base block to select above on the Z-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| Attribute | Description                                  | Type                                                               |
+| --------- | -------------------------------------------- | ------------------------------------------------------------------ |
+| `x`       | The base block to select above on the X-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `y`       | The base block to select above on the Y-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `z`       | The base block to select above on the Z-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ## Below `<below>`
 
@@ -46,11 +46,11 @@ The below region select any coordinates below the supplied x, y, or z values.
 
 ##### Below Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `x` | The base block to select below on the X-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `y` | The base block to select below on the Y-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `z` | The base block to select below on the Z-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| Attribute | Description                                  | Type                                                               |
+| --------- | -------------------------------------------- | ------------------------------------------------------------------ |
+| `x`       | The base block to select below on the X-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `y`       | The base block to select below on the Y-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `z`       | The base block to select below on the Z-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ## Block `<block>`
 
@@ -64,8 +64,8 @@ The block region represents a single block in the world.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description                | Type                                                   |
+| -------------------------- | ------------------------------------------------------ |
 | The location of the block. | <span class="badge badge--primary">X,Y,Z Vector</span> |
 
 ## Bounds `<bounds>`
@@ -84,12 +84,12 @@ The bounds region selects the area around the region specified. Similar to the W
 
 ##### Bounds Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `region` | The region that should be bounded This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> | |
-| `x-axis` | If the bounds on the X-axis should be selected. | <span class="badge badge--primary">True/False</span> | `true` |
-| `y-axis` | If the bounds on the Y-axis should be selected. | <span class="badge badge--primary">True/False</span> | `true` |
-| `z-axis` | If the bounds on the Z-axis should be selected. | <span class="badge badge--primary">True/False</span> | `true` |
+| Attribute | Description                                                                                                        | Type                                                 | Default |
+| --------- | ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- | ------- |
+| `region`  | The region that should be bounded This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span>     |         |
+| `x-axis`  | If the bounds on the X-axis should be selected.                                                                    | <span class="badge badge--primary">True/False</span> | `true`  |
+| `y-axis`  | If the bounds on the Y-axis should be selected.                                                                    | <span class="badge badge--primary">True/False</span> | `true`  |
+| `z-axis`  | If the bounds on the Z-axis should be selected.                                                                    | <span class="badge badge--primary">True/False</span> | `true`  |
 
 ## Box `<box>`
 
@@ -107,12 +107,12 @@ A box is a helper region that will return a cuboid region based on supplied coor
 
 ##### Box Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `center` | The center of the box. | <span class="badge badge--primary">X,Y,Z Vector</span> | |
-| `x` | Amount of blocks to expand the box on the X-axis | <span class="badge badge--primary">Number (Without Decimal)</span> | `0` |
-| `y` | Amount of blocks to expand the box on the Y-axis | <span class="badge badge--primary">Number (Without Decimal)</span> | `0` |
-| `z` | Amount of blocks to expand the box on the Z-axis | <span class="badge badge--primary">Number (Without Decimal)</span> | `0` |
+| Attribute | Description                                      | Type                                                               | Default |
+| --------- | ------------------------------------------------ | ------------------------------------------------------------------ | ------- |
+| `center`  | The center of the box.                           | <span class="badge badge--primary">X,Y,Z Vector</span>             |         |
+| `x`       | Amount of blocks to expand the box on the X-axis | <span class="badge badge--primary">Number (Without Decimal)</span> | `0`     |
+| `y`       | Amount of blocks to expand the box on the Y-axis | <span class="badge badge--primary">Number (Without Decimal)</span> | `0`     |
+| `z`       | Amount of blocks to expand the box on the Z-axis | <span class="badge badge--primary">Number (Without Decimal)</span> | `0`     |
 
 ## Cuboid `<cuboid>`
 
@@ -130,10 +130,10 @@ A cuboid is a three-dimensional box.
 
 ##### Cuboid Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `min` | The minimum location of the region. | <span class="badge badge--primary">X,Y,Z Vector</span> |
-| `max` | The maximum location of the region. | <span class="badge badge--primary">X,Y,Z Vector</span> |
+| Attribute | Description                         | Type                                                   |
+| --------- | ----------------------------------- | ------------------------------------------------------ |
+| `min`     | The minimum location of the region. | <span class="badge badge--primary">X,Y,Z Vector</span> |
+| `max`     | The maximum location of the region. | <span class="badge badge--primary">X,Y,Z Vector</span> |
 
 ## Cylinder `<cylinder>`
 
@@ -147,10 +147,10 @@ A cylinder is a 3-dimensional circle region.
 
 ##### Cylinder Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `base` | The base of the cylinder. | <span class="badge badge--primary">X,Y,Z Vector</span> |
-| `radius` | The height of the cylinder. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| Attribute | Description                 | Type                                                               |
+| --------- | --------------------------- | ------------------------------------------------------------------ |
+| `base`    | The base of the cylinder.   | <span class="badge badge--primary">X,Y,Z Vector</span>             |
+| `radius`  | The height of the cylinder. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ## Everywhere `<everywhere>`
 
@@ -168,9 +168,9 @@ This represents every coordinate in the world.
 
 The fill region represents the coordinates of each block matching the defined material within the bounds supplied.
 
-| Specification | Changes |
-| --- | --- |
-| 1.0.6 | Connected now defaults to false. |
+| Specification | Changes                          |
+| ------------- | -------------------------------- |
+| 1.0.6         | Connected now defaults to false. |
 
 ```xml
 
@@ -182,12 +182,12 @@ The fill region represents the coordinates of each block matching the defined ma
 
 ##### Fill Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `bounds` | The region that contains the blocks to search for. This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> | |
-| `materials` | The blocks to search for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | <span class="badge badge--primary">Multi Material Matcher</span> | |
-| `start` | Location to start the search from. (Defaults to center of boundary) | <span class="badge badge--primary">X,Y,Z Vector</span> | |
-| `connect` | If only connected blocks from the start should be matched. If false, all blocks, regardless of connection, inside of the region will be checked. | <span class="badge badge--primary">True/False</span> | `false` |
+| Attribute   | Description                                                                                                                                                                                                                                                                                     | Type                                                             | Default |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
+| `bounds`    | The region that contains the blocks to search for. This can either be in ID form, or as a nested XML tag in the syntax of a region.                                                                                                                                                             | <span class="badge badge--primary">Region</span>                 |         |
+| `materials` | The blocks to search for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | <span class="badge badge--primary">Multi Material Matcher</span> |         |
+| `start`     | Location to start the search from. (Defaults to center of boundary)                                                                                                                                                                                                                             | <span class="badge badge--primary">X,Y,Z Vector</span>           |         |
+| `connect`   | If only connected blocks from the start should be matched. If false, all blocks, regardless of connection, inside of the region will be checked.                                                                                                                                                | <span class="badge badge--primary">True/False</span>             | `false` |
 
 ## Intersect `<intersect>`
 
@@ -255,17 +255,17 @@ A point represents a location in the world.
 
 #### Element Text
 
-| Description | Type |
-| --- | --- |
+| Description   | Type                                                   |
+| ------------- | ------------------------------------------------------ |
 | The location. | <span class="badge badge--primary">X,Y,Z Vector</span> |
 
 ## Rectangle `<rectangle>`
 
 A rectangle is a cuboid region that encompasses all y coordinates.
 
-| Specification | Changes |
-| --- | --- |
-| 1.0.6 | Rectangles now require min/max values. |
+| Specification | Changes                                |
+| ------------- | -------------------------------------- |
+| 1.0.6         | Rectangles now require min/max values. |
 
 ```xml
 
@@ -275,18 +275,18 @@ A rectangle is a cuboid region that encompasses all y coordinates.
 
 ##### Rectangle Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `min` | Min location of the rectangle. | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `max` | Max location of the rectangle. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| Attribute | Description                    | Type                                                               |
+| --------- | ------------------------------ | ------------------------------------------------------------------ |
+| `min`     | Min location of the rectangle. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `max`     | Max location of the rectangle. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ## Region Reference `<region>`
 
 You may use the `<region>` type to reference regions that are listed in the `<regions>` element by their id.
 
-| Specification | Changes |
-| --- | --- |
-| 1.0.6 | All vectors now support decimals. |
+| Specification | Changes                           |
+| ------------- | --------------------------------- |
+| 1.0.6         | All vectors now support decimals. |
 
 ```xml
 
@@ -300,9 +300,9 @@ You may use the `<region>` type to reference regions that are listed in the `<re
 
 ##### Region Reference Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `id` | The id of the region for reference. | <span class="badge badge--primary">Region ID</span> |
+| Attribute | Description                         | Type                                                |
+| --------- | ----------------------------------- | --------------------------------------------------- |
+| `id`      | The id of the region for reference. | <span class="badge badge--primary">Region ID</span> |
 
 ## Sector `<sector>`
 
@@ -318,12 +318,12 @@ The sector region represents a sector of a circle that covers all Y values.
 
 ##### Sector Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `x` | The base of the circle on the X-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `z` | The base of the circle on the Z-axis | <span class="badge badge--primary">Number (Without Decimal)</span> |
-| `start` | The angle that the sector should begin. | <span class="badge badge--primary">Number (With Decimal)</span> |
-| `end` | The angle that the sector should end. | <span class="badge badge--primary">Number (With Decimal)</span> |
+| Attribute | Description                             | Type                                                               |
+| --------- | --------------------------------------- | ------------------------------------------------------------------ |
+| `x`       | The base of the circle on the X-axis    | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `z`       | The base of the circle on the Z-axis    | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `start`   | The angle that the sector should begin. | <span class="badge badge--primary">Number (With Decimal)</span>    |
+| `end`     | The angle that the sector should end.   | <span class="badge badge--primary">Number (With Decimal)</span>    |
 
 ## Sphere `<sphere>`
 
@@ -337,10 +337,10 @@ A sphere is a perfectly round geometrical object in three-dimensional space that
 
 ##### Sphere Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `origin` | The origin of the sphere. | <span class="badge badge--primary">X,Y,Z Vector</span> |
-| `radius` | The radius of the sphere. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| Attribute | Description               | Type                                                               |
+| --------- | ------------------------- | ------------------------------------------------------------------ |
+| `origin`  | The origin of the sphere. | <span class="badge badge--primary">X,Y,Z Vector</span>             |
+| `radius`  | The radius of the sphere. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ## Subtract `<subtract>`
 
@@ -371,17 +371,17 @@ This translates all the regions nested within it by an offset.
 
 ##### Translate Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `offset` | Amount of blocks to offset the nested regions by. | <span class="badge badge--primary">X,Y,Z Vector</span> |
+| Attribute | Description                                       | Type                                                   |
+| --------- | ------------------------------------------------- | ------------------------------------------------------ |
+| `offset`  | Amount of blocks to offset the nested regions by. | <span class="badge badge--primary">X,Y,Z Vector</span> |
 
 ## Void `<void>`
 
 The void region selects all blocks that have only air under it.
 
-| Specification | Changes |
-| --- | --- |
-| 1.0.4 | Void regions now have configurable min/max/ignored-blocks |
+| Specification | Changes                                                   |
+| ------------- | --------------------------------------------------------- |
+| 1.0.4         | Void regions now have configurable min/max/ignored-blocks |
 
 ```xml
 
@@ -393,11 +393,11 @@ The void region selects all blocks that have only air under it.
 
 ##### Void Attributes
 
-| Attribute | Description | Type | Default |
-| --- | --- | --- | --- |
-| `min` | The y-coordinate to start looking for air at | <span class="badge badge--primary">Number (Without Decimal)</span> | `0` |
-| `max` | The y-coordinate to stop looking for air at | <span class="badge badge--primary">Number (Without Decimal)</span> | `5` |
-| `ignored-blocks` | Blocks which should be counted as air. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | <span class="badge badge--primary">Multi Material Matcher</span> | |
+| Attribute        | Description                                                                                                                                                                                                                                                                                                  | Type                                                               | Default |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ------- |
+| `min`            | The y-coordinate to start looking for air at                                                                                                                                                                                                                                                                 | <span class="badge badge--primary">Number (Without Decimal)</span> | `0`     |
+| `max`            | The y-coordinate to stop looking for air at                                                                                                                                                                                                                                                                  | <span class="badge badge--primary">Number (Without Decimal)</span> | `5`     |
+| `ignored-blocks` | Blocks which should be counted as air. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | <span class="badge badge--primary">Multi Material Matcher</span>   |         |
 
 ## circle `<circle>`
 
@@ -411,8 +411,7 @@ A circle is essentially a cylinder with a height of 1.
 
 ##### circle Attributes
 
-| Attribute | Description | Type |
-| --- | --- | --- |
-| `center` | The center of the circle. | <span class="badge badge--primary">X,Y,Z Vector</span> |
-| `radius` | The radius of the circle. | <span class="badge badge--primary">Number (Without Decimal)</span> |
-
+| Attribute | Description               | Type                                                               |
+| --------- | ------------------------- | ------------------------------------------------------------------ |
+| `center`  | The center of the circle. | <span class="badge badge--primary">X,Y,Z Vector</span>             |
+| `radius`  | The radius of the circle. | <span class="badge badge--primary">Number (Without Decimal)</span> |
