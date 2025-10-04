@@ -22,11 +22,11 @@ All zones should be wrapped inside of this tag.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
-| `loadout` | The id of the loadout for reference. | `Loadout ID` |
-| `velocity` | Velocity that should be applied to the player when they enter the zone. | `X,Y,Z Vector` |
-| `push` | How far forward the player should go. | `Number (With Decimal)` |
-| `icarus` | How high the player should go. | `Number (With Decimal)` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> |
+| `loadout` | The id of the loadout for reference. | <span class="badge badge--primary">Loadout ID</span> |
+| `velocity` | Velocity that should be applied to the player when they enter the zone. | <span class="badge badge--primary">X,Y,Z Vector</span> |
+| `push` | How far forward the player should go. | <span class="badge badge--primary">Number (With Decimal)</span> |
+| `icarus` | How high the player should go. | <span class="badge badge--primary">Number (With Decimal)</span> |
 
 ### Checks `<break>``<enter>``<leave>``<modify>``<place>``<use>`
 
@@ -226,9 +226,9 @@ Nets are locations that flags can be captured at. A flag can have multiple net p
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
 | `owner` | The id of the flag owner for reference. | `Flag Owner ID` | |
-| `points` | Points to be rewarded to the player who captures the flag. | `Number` | |
-| `check` | Check that should be ran to determine if the player can capture the flag at this net. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
-| `respawn-together` | If all of the flags enclosed by the flags element should wait until all are captured to respawn, or respawn directly after capture. | `True/False` | `false` |
+| `points` | Points to be rewarded to the player who captures the flag. | <span class="badge badge--primary">Number</span> | |
+| `check` | Check that should be ran to determine if the player can capture the flag at this net. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
+| `respawn-together` | If all of the flags enclosed by the flags element should wait until all are captured to respawn, or respawn directly after capture. | <span class="badge badge--primary">True/False</span> | `false` |
 | `respawn-post` | The id of the flag post for reference. | `Flag Post ID` | |
 
 ### Flag Post `<post>`
@@ -247,8 +247,8 @@ These define where flags should be placed.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `yaw` | Yaw of the flag. | `Number (With Decimal)` |
-| `check` | Check that should be ran before a player can pick up the flag. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+| `yaw` | Yaw of the flag. | <span class="badge badge--primary">Number (With Decimal)</span> |
+| `check` | Check that should be ran before a player can pick up the flag. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
 
 ### Liquid Rules
 
@@ -326,15 +326,15 @@ Portals teleport players to locations on the map when they are entered.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `destination` | The destination of the portal. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
-| `check` | Check that should be ran to determine if the player should be teleported. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
-| `sound` | If the enderman teleport sound should be played on teleport. | `True/False` | `true` |
-| `reset-velocity` | If the player's velocity should be reset when they are teleported. | `True/False` | `true` |
-| `heal` | If the player should be healed to max health after they are teleported. | `True/False` | `false` |
-| `feed` | If the player should be fed after they are teleported. | `True/False` | `false` |
-| `look` | Location the player should be facing when they leave the portal. | `X,Y,Z Vector` | |
-| `yaw` | Yaw of the player when they are teleported. | `Number (With Decimal)` | |
-| `pitch` | Pitch of the player when they are teleported. | `Number (With Decimal)` | |
+| `destination` | The destination of the portal. This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> | |
+| `check` | Check that should be ran to determine if the player should be teleported. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
+| `sound` | If the enderman teleport sound should be played on teleport. | <span class="badge badge--primary">True/False</span> | `true` |
+| `reset-velocity` | If the player's velocity should be reset when they are teleported. | <span class="badge badge--primary">True/False</span> | `true` |
+| `heal` | If the player should be healed to max health after they are teleported. | <span class="badge badge--primary">True/False</span> | `false` |
+| `feed` | If the player should be fed after they are teleported. | <span class="badge badge--primary">True/False</span> | `false` |
+| `look` | Location the player should be facing when they leave the portal. | <span class="badge badge--primary">X,Y,Z Vector</span> | |
+| `yaw` | Yaw of the player when they are teleported. | <span class="badge badge--primary">Number (With Decimal)</span> | |
+| `pitch` | Pitch of the player when they are teleported. | <span class="badge badge--primary">Number (With Decimal)</span> | |
 
 ### Score Box `<scorebox>`
 
@@ -352,10 +352,10 @@ Score boxes are areas in which players enter to earn points.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `points` | The amount of points that this score box rewards. | `Number (Without Decimal)` | |
-| `action` | The action which is applied to the player's score. | `Number Action`<br />`none - Perform no action and keep the player's score the same.`, `set - Set the player's score to the supplied number.`, `add - Add the supplied number to the player's score.`, `subtract - Subtract the supplied number from the player's score.`, `multiply - Multiply the supplied number with the player's score.`, `divide - Divide the player's score by the supplied number.`, `power - Raise the player's score by the supplied number.` | `set` |
-| `points-growth` | The multiplier used for points each time this score box is entered. | `Number (With Decimal)` | |
-| `check` | Check that should be ran before points are rewarded. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `points` | The amount of points that this score box rewards. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `action` | The action which is applied to the player's score. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the player's score the same.`, `set - Set the player's score to the supplied number.`, `add - Add the supplied number to the player's score.`, `subtract - Subtract the supplied number from the player's score.`, `multiply - Multiply the supplied number with the player's score.`, `divide - Divide the player's score by the supplied number.`, `power - Raise the player's score by the supplied number.` | `set` |
+| `points-growth` | The multiplier used for points each time this score box is entered. | <span class="badge badge--primary">Number (With Decimal)</span> | |
+| `check` | Check that should be ran before points are rewarded. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
 
 ### Item Rewards `<item-rewards>`
 
@@ -373,13 +373,13 @@ Item rewards allow score boxes to be configured to reward more points based on i
 
 | Description | Type |
 | --- | --- |
-| The type of item that this matcher applies for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
+| The type of item that this matcher applies for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | <span class="badge badge--primary">Singular Material Matcher</span> |
 
 ##### Item Rewards Attributes
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `points` | The amount of points that should be rewarded for this item. | `Number (Without Decimal)` |
+| `points` | The amount of points that should be rewarded for this item. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ### TNT Customization `<tnt>`
 
@@ -417,8 +417,8 @@ Options for dispensers when they are blown up.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `nuke-limit` | Max amount of TNT a dispenser ignites when blown up. | `Number (Without Decimal)` |
-| `nuke-multiplier` | Multiplier for the amount of TNT ignited when a dispenser is blown up. | `Number` |
+| `nuke-limit` | Max amount of TNT a dispenser ignites when blown up. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `nuke-multiplier` | Multiplier for the amount of TNT ignited when a dispenser is blown up. | <span class="badge badge--primary">Number</span> |
 
 ### Instant Ignite `<instant-ignite>`
 
@@ -436,7 +436,7 @@ If tha when TNT is placed, that it should instantly become primed.
 
 | Description | Type | Default |
 | --- | --- | --- |
-| If instant ignite is enabled | `True/False` | `false` |
+| If instant ignite is enabled | <span class="badge badge--primary">True/False</span> | `false` |
 
 ### TNT Fuse `<fuse>`
 
@@ -454,7 +454,7 @@ Time until the TNT explodes once it is ignited.
 
 | Description | Type | Default |
 | --- | --- | --- |
-| fuse This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | `10s` |
+| fuse This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | `10s` |
 
 ### TNT Power `<power>`
 
@@ -472,7 +472,7 @@ Modify the explosion's block radius.
 
 | Description | Type | Default |
 | --- | --- | --- |
-| explosion's block radius | `Number (With Decimal)` | `The default minecraft logic` |
+| explosion's block radius | <span class="badge badge--primary">Number (With Decimal)</span> | `The default minecraft logic` |
 
 ### TNT Yield `<yield>`
 
@@ -490,5 +490,5 @@ The amount of items dropped by the explosion as a percentage
 
 | Description | Type | Default |
 | --- | --- | --- |
-| Yield of the TNT | `Number (With Decimal)` | `0.25` |
+| Yield of the TNT | <span class="badge badge--primary">Number (With Decimal)</span> | `0.25` |
 

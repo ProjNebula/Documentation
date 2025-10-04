@@ -74,7 +74,7 @@ const config = {
           src: 'img/logo.png',
         },
         items: [
-          {to: 'docs/modules/core/root-map-element', label: 'Modules', position: 'right'},
+          {to: 'docs/modules/core/main', label: 'Modules', position: 'right'},
           {to: 'docs/references/inventory', label: 'References', position: 'right'},
           {to: 'docs/examples/map', label: 'Examples', position: 'right'},
         ],

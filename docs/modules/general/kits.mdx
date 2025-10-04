@@ -24,8 +24,8 @@ This ability allows the player to jump higher than normal.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `push` | How far forward the player should go. | `Number (With Decimal)` |
-| `icarus` | How high the player should go. | `Number (With Decimal)` |
+| `push` | How far forward the player should go. | <span class="badge badge--primary">Number (With Decimal)</span> |
+| `icarus` | How high the player should go. | <span class="badge badge--primary">Number (With Decimal)</span> |
 
 ## Health Effect Ability `<health-effect>`
 
@@ -43,8 +43,8 @@ This ability applies a potion effect to a player when they reach a certain healt
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `health` | Health level that will trigger the effect. | `Integer Range`<br />`0-20` |
-| `effect` | Effect to apply to the player. | `PotionEffectType`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html) |
+| `health` | Health level that will trigger the effect. | <span class="badge badge--primary">Integer Range</span><br />`0-20` |
+| `effect` | Effect to apply to the player. | <span class="badge badge--primary">PotionEffectType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html) |
 
 ## Kit Permissions `<permissions>`
 
@@ -60,13 +60,13 @@ This is used to give minecraft permissions to players who currently have this ki
 
 | Description | Type |
 | --- | --- |
-| The permission to add to the player | `Text` |
+| The permission to add to the player | <span class="badge badge--primary">Text</span> |
 
 ##### Kit Permissions Attributes
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `value` | The value of the permission. Setting this to false is the equivalent of adding a `-` before the permission when using permissions plugins. | `True/False` | `true` |
+| `value` | The value of the permission. Setting this to false is the equivalent of adding a `-` before the permission when using permissions plugins. | <span class="badge badge--primary">True/False</span> | `true` |
 
 ## Kits `<kit>`
 
@@ -93,11 +93,11 @@ Kits give players special abilities and allow them to choose loadouts based on c
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
-| `name` | The name of the kit. | `Localized String` | |
-| `description` | The description of the kit (for the menu). | `Localized String` | |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> | |
+| `name` | The name of the kit. | <span class="badge badge--primary">Localized String</span> | |
+| `description` | The description of the kit (for the menu). | <span class="badge badge--primary">Localized String</span> | |
 | `icon` | The icon of the kit for use in the menu. This should be written like item stack would be configured in a loadout. | `Item Stack Loadout Tag` | |
-| `loadout` | The id of the loadout for reference. | `Loadout ID` | |
-| `check` | Check that should be ran on the player before they can view or select the kit. If a player respawns with the kit and check fails, they will be given the default kit if there is one, or have no kit. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
-| `default` | If this kit should be the default kit which is applied to players who do not choose a kit. | `True/False` | `true` |
+| `loadout` | The id of the loadout for reference. | <span class="badge badge--primary">Loadout ID</span> | |
+| `check` | Check that should be ran on the player before they can view or select the kit. If a player respawns with the kit and check fails, they will be given the default kit if there is one, or have no kit. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
+| `default` | If this kit should be the default kit which is applied to players who do not choose a kit. | <span class="badge badge--primary">True/False</span> | `true` |
 

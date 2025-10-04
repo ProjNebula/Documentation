@@ -25,15 +25,15 @@ A phase is a step in the progession of different materials for a destroyable obj
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
-| `name` | The name of the phase (for the UI). | `Localized String` | |
-| `countdown-message` | The message that is used for the countdown that is displayed in chat and on the boss bar.  FORMAT: {0} = the name of the phase, {1} = the amount of time until the phase will be applied. | `Localized String` | |
-| `success-message` | The message that is displayed when the phase is successfully applied. | `Localized String` | |
-| `fail-message` | The message that is displayed when the phase fails to be applied. | `Localized String` | |
-| `delay` | Delay before the phase is applied. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | |
-| `check` | Check that should be ran before the phase is applied.. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
-| `retry-attempts` | Number of times the phase should be attempted to be re-applied if the check fails. | `Number (Without Decimal)` | `0` |
-| `retry-delay` | Delay between retry attempts. This attribute denotes a period of time and can either be in seconds or in a period format. | `Duration` | |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> | |
+| `name` | The name of the phase (for the UI). | <span class="badge badge--primary">Localized String</span> | |
+| `countdown-message` | The message that is used for the countdown that is displayed in chat and on the boss bar.  FORMAT: {0} = the name of the phase, {1} = the amount of time until the phase will be applied. | <span class="badge badge--primary">Localized String</span> | |
+| `success-message` | The message that is displayed when the phase is successfully applied. | <span class="badge badge--primary">Localized String</span> | |
+| `fail-message` | The message that is displayed when the phase fails to be applied. | <span class="badge badge--primary">Localized String</span> | |
+| `delay` | Delay before the phase is applied. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | |
+| `check` | Check that should be ran before the phase is applied.. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
+| `retry-attempts` | Number of times the phase should be attempted to be re-applied if the check fails. | <span class="badge badge--primary">Number (Without Decimal)</span> | `0` |
+| `retry-delay` | Delay between retry attempts. This attribute denotes a period of time and can either be in seconds or in a period format. | <span class="badge badge--primary">Duration</span> | |
 | `pass-phase` | Phase that will be applied if the check passes. The id of the phase for reference. | `Phase ID` | |
 | `fail-phase` | Phase that will be applied if the check fails and there are no retry attempts remaining. The id of the phase for reference. | `Phase ID` | |
 
@@ -56,6 +56,6 @@ A phase is a step in the progession of different materials for a destroyable obj
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `find` | Materials to search for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` |
-| `replace` | Material to replace the found materials with. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
+| `find` | Materials to search for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | <span class="badge badge--primary">Multi Material Matcher</span> |
+| `replace` | Material to replace the found materials with. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | <span class="badge badge--primary">Singular Material Matcher</span> |
 

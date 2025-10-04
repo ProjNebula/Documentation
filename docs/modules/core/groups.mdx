@@ -1,10 +1,10 @@
 ---
-layout: module
+id: groups
 title: Groups
-permalink: /modules/groups
+description: This module is used to define how many and what attributes teams should possess in the match.
 ---
 
-# Groups `<ffa>``<teams>`
+# Groups `<ffa>` `<teams>`
 
 This module is used to define how many and what attributes teams should possess in the match.
 
@@ -24,12 +24,12 @@ When FFA is enabled, players are placed onto their own teams and optionally assi
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
-| `min` | The minimum number of players playing for the match to start. | `Number (Without Decimal)` | |
-| `max` | The soft maximum number of players allowed in the match. Premium users and staff are able to join beyond this value. | `Number (Without Decimal)` | |
-| `max-overfill` | The maximum number of players allowed in the match. | `Number (Without Decimal)` | `1.25 * max` |
-| `colorize` | If each player should be assigned their own color out of all of the possible team colors. | `True/False` | `true` |
-| `friendly-fire` | If players can hit each other. | `True/False` | `true` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> | |
+| `min` | The minimum number of players playing for the match to start. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `max` | The soft maximum number of players allowed in the match. Premium users and staff are able to join beyond this value. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `max-overfill` | The maximum number of players allowed in the match. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1.25 * max` |
+| `colorize` | If each player should be assigned their own color out of all of the possible team colors. | <span class="badge badge--primary">True/False</span> | `true` |
+| `friendly-fire` | If players can hit each other. | <span class="badge badge--primary">True/False</span> | `true` |
 
 ## Teams `<team>`
 
@@ -48,15 +48,15 @@ Teams represent groups of players in the match with a specific color.
 
 | Description | Type |
 | --- | --- |
-| The name of theam/ | `Localized String` |
+| The name of theam/ | <span class="badge badge--primary">Localized String</span> |
 
 ##### Teams Attributes
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` | |
-| `color` | The color of the team. | `Team Color`<br />`aqua`, `cyan`, `gray`, `dark gray`, `red`, `blue`, `green`, `lime`, `yellow`, `orange`, `purple`, `pink`, `black`, `white` | |
-| `min` | The minimum number of players on the team for the match to start. | `Number (Without Decimal)` | |
-| `max` | The soft maximum number of players allowed on the team. Premium users and staff are able to join beyond this value. | `Number (Without Decimal)` | |
-| `max-overfill` | The maximum number of players allowed on the team. | `Number (Without Decimal)` | `1.25 * max` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> | |
+| `color` | The color of the team. | <span class="badge badge--primary">Team Color</span><br />`aqua`, `cyan`, `gray`, `dark gray`, `red`, `blue`, `green`, `lime`, `yellow`, `orange`, `purple`, `pink`, `black`, `white` | |
+| `min` | The minimum number of players on the team for the match to start. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `max` | The soft maximum number of players allowed on the team. Premium users and staff are able to join beyond this value. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `max-overfill` | The maximum number of players allowed on the team. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1.25 * max` |
 

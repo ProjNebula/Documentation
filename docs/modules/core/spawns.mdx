@@ -1,8 +1,9 @@
 ---
-layout: module
+id: spawns
 title: Spawns
-permalink: /modules/spawns
+description: Spawns are regions where players spawn into the map upon joining or re-spawning after death.
 ---
+
 
 # Spawns `<spawns>`
 
@@ -33,10 +34,10 @@ These attributes contain basic configuration options for all spawns.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `respawn-delay` | The time it takes for a player to respawn. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | `2s` |
-| `auto-respawn` | If players should automatically respawn after the delay has elapsed. | `True/False` | `false` |
-| `respawn-freeze` | If players should be frozen in place while they are re-spawning. | `True/False` | `true` |
-| `respawn-blindness` | If players should be blinded while they are re-spawning. | `True/False` | `false` |
+| `respawn-delay` | The time it takes for a player to respawn. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | `2s` |
+| `auto-respawn` | If players should automatically respawn after the delay has elapsed. | <span class="badge badge--primary">True/False</span> | `false` |
+| `respawn-freeze` | If players should be frozen in place while they are re-spawning. | <span class="badge badge--primary">True/False</span> | `true` |
+| `respawn-blindness` | If players should be blinded while they are re-spawning. | <span class="badge badge--primary">True/False</span> | `false` |
 
 ## Spawn `<spawn>`
 
@@ -54,16 +55,16 @@ Spawns indicate locations where players should spawn with an option loadout.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `team` | Team that should spawn at this locaion. The id of the team for reference. | `Team ID` | |
-| `region` | The region that this spawn should place players in. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
-| `regions` | A collection of regions that this spawn should place players in. This creates a pseudo join region of all of the children. | `Region Group` | |
-| `look` | The location the player should be looking when they spawn. | `X,Y,Z Vector` | |
-| `pitch` | The player's head pitch when they spawn. | `Number (Without Decimal)` | |
-| `yaw` | The player's head yaw when they spawn. | `Number (Without Decimal)` | |
-| `loadout` | Loadout to give the player when they spawn. The id of the loadout for reference. | `Loadout ID` | |
-| `check` | Check that should be ran before a player is allowed to spawn here. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
-| `mode` | | `Selection Mode`<br />`random`, `safe`, `spread` | `RANDOM` |
-| `ensure-safe` | If each location of the region should be checked to see if it is safe to spawn in. | `True/False` | `false` |
+| `team` | Team that should spawn at this locaion. The id of the team for reference. | <span class="badge badge--primary">Team ID</span> | |
+| `region` | The region that this spawn should place players in. This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> | |
+| `regions` | A collection of regions that this spawn should place players in. This creates a pseudo join region of all of the children. | <span class="badge badge--primary">Region Group</span> | |
+| `look` | The location the player should be looking when they spawn. | <span class="badge badge--primary">X,Y,Z Vector</span> | |
+| `pitch` | The player's head pitch when they spawn. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `yaw` | The player's head yaw when they spawn. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `loadout` | Loadout to give the player when they spawn. The id of the loadout for reference. | <span class="badge badge--primary">Loadout ID</span> | |
+| `check` | Check that should be ran before a player is allowed to spawn here. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
+| `mode` | | <span class="badge badge--primary">Selection Mode</span><br />`random`, `safe`, `spread` | `RANDOM` |
+| `ensure-safe` | If each location of the region should be checked to see if it is safe to spawn in. | <span class="badge badge--primary">True/False</span> | `false` |
 
 ### Regions `<regions>`
 
@@ -88,7 +89,7 @@ Special attributes can be added to each top-level region to change behavious of 
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `look` | The location the player should be looking when they spawn. | `X,Y,Z Vector` |
-| `pitch` | The player's head pitch when they spawn. | `Number (Without Decimal)` |
-| `yaw` | The player's head yaw when they spawn. | `Number (Without Decimal)` |
+| `look` | The location the player should be looking when they spawn. | <span class="badge badge--primary">X,Y,Z Vector</span> |
+| `pitch` | The player's head pitch when they spawn. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `yaw` | The player's head yaw when they spawn. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 

@@ -22,14 +22,14 @@ This module is used to fill and refill chests on the map based on different cond
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `region` | The region to generator should search for chest in, This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
-| `clear` | If the chest should be cleared before items are added. | `True/False` | `false` |
-| `min` | Minimum item stack size. | `Number (Without Decimal)` | |
-| `max` | Maximum item stack size. | `Number (Without Decimal)` | |
-| `regenerate-count` | Number of times regeneration should occur per chest. | `Number (Without Decimal)` | `0` |
-| `regenerate-countdown` | Time between chest refills. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` | |
-| `allow-duplicates` | If duplicates should be allowed during generation. | `True/False` | `false` |
-| `check` | Check that should be ran before items are filled. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` | |
+| `region` | The region to generator should search for chest in, This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> | |
+| `clear` | If the chest should be cleared before items are added. | <span class="badge badge--primary">True/False</span> | `false` |
+| `min` | Minimum item stack size. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `max` | Maximum item stack size. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `regenerate-count` | Number of times regeneration should occur per chest. | <span class="badge badge--primary">Number (Without Decimal)</span> | `0` |
+| `regenerate-countdown` | Time between chest refills. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> | |
+| `allow-duplicates` | If duplicates should be allowed during generation. | <span class="badge badge--primary">True/False</span> | `false` |
+| `check` | Check that should be ran before items are filled. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> | |
 
 ### Item Set `<chest-items>`
 
@@ -53,7 +53,7 @@ Item sets are used to define sets of items that can be filled with a weight.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `min` | Minimum item stack size. | `Number (Without Decimal)` |
-| `max` | Maximum item stack size. | `Number (Without Decimal)` |
-| `weight` | Weight of each item in set. | `Number (With Decimal)` |
+| `min` | Minimum item stack size. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `max` | Maximum item stack size. | <span class="badge badge--primary">Number (Without Decimal)</span> |
+| `weight` | Weight of each item in set. | <span class="badge badge--primary">Number (With Decimal)</span> |
 

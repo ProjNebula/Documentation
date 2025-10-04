@@ -10,7 +10,7 @@ Executors are used to perform various actions during the match.
 
 ## Apply Loadout `<apply-loadout>`
 
-**REQUIREMENT:** This feature requires the [Items & Loadouts Component](/docs/modules/core/items---loadouts).
+**REQUIREMENT:** This feature requires the [Items & Loadouts Component](/docs/modules/core/items-loadouts).
 
 An executor that gives a loadout to a player.
 
@@ -28,7 +28,7 @@ An executor that gives a loadout to a player.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `loadout` | The id of the loadout for reference. | `Loadout ID` |
+| `loadout` | The id of the loadout for reference. | <span class="badge badge--primary">Loadout ID</span> |
 
 ## Change World Time `<change-world-time>`
 
@@ -48,8 +48,8 @@ This executor is used to change the time of match world.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `time` | Amount of time (in ticks) to change the time by. | `Number (Without Decimal)` | |
-| `action` | The action which is applied to the world time. | `Number Action`<br />`none - Perform no action and keep the world time the same.`, `set - Set the world time to the supplied number.`, `add - Add the supplied number to the world time.`, `subtract - Subtract the supplied number from the world time.`, `multiply - Multiply the supplied number with the world time.`, `divide - Divide the world time by the supplied number.`, `power - Raise the world time by the supplied number.` | `set` |
+| `time` | Amount of time (in ticks) to change the time by. | <span class="badge badge--primary">Number (Without Decimal)</span> | |
+| `action` | The action which is applied to the world time. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep the world time the same.`, `set - Set the world time to the supplied number.`, `add - Add the supplied number to the world time.`, `subtract - Subtract the supplied number from the world time.`, `multiply - Multiply the supplied number with the world time.`, `divide - Divide the world time by the supplied number.`, `power - Raise the world time by the supplied number.` | `set` |
 
 ## Enchant Item `<enchant-item>`
 
@@ -69,16 +69,16 @@ An executor that enchants items in player inventories based on various criteria.
 
 | Description | Type |
 | --- | --- |
-| Enchantment to be applied. | `Enchantment`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html) |
+| Enchantment to be applied. | <span class="badge badge--primary">Enchantment</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html) |
 
 ##### Enchant Item Attributes
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
 | `selector` | Part of inventory to look inside of. | `Enchantment Selector`<br />`inventory`, `hotbar`, `armor`, `hand` | |
-| `matcher` | Items to look for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` | |
-| `level` | Level of the enchantment. | `Number (Without Decimal)` | `1` |
-| `only-natural` | Only enchants items that can naturally be enchanted with this type of enchantment. | `True/False` | `false` |
+| `matcher` | Items to look for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | <span class="badge badge--primary">Multi Material Matcher</span> | |
+| `level` | Level of the enchantment. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
+| `only-natural` | Only enchants items that can naturally be enchanted with this type of enchantment. | <span class="badge badge--primary">True/False</span> | `false` |
 
 ## Modify Lives `<modify-lives>`
 
@@ -100,8 +100,8 @@ An executor that is used to modify the amount of lives a player has remaining.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `action` | The action which is applied to number of lives the player has. | `Number Action`<br />`none - Perform no action and keep number of lives the player has the same.`, `set - Set number of lives the player has to the supplied number.`, `add - Add the supplied number to number of lives the player has.`, `subtract - Subtract the supplied number from number of lives the player has.`, `multiply - Multiply the supplied number with number of lives the player has.`, `divide - Divide number of lives the player has by the supplied number.`, `power - Raise number of lives the player has by the supplied number.` | |
-| `amount` | Amount of lives to modify. | `Number (Without Decimal)` | `1` |
+| `action` | The action which is applied to number of lives the player has. | <span class="badge badge--primary">Number Action</span><br />`none - Perform no action and keep number of lives the player has the same.`, `set - Set number of lives the player has to the supplied number.`, `add - Add the supplied number to number of lives the player has.`, `subtract - Subtract the supplied number from number of lives the player has.`, `multiply - Multiply the supplied number with number of lives the player has.`, `divide - Divide number of lives the player has by the supplied number.`, `power - Raise number of lives the player has by the supplied number.` | |
+| `amount` | Amount of lives to modify. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
 
 ## Perform At Fixed Rate `<loop>`
 
@@ -122,9 +122,9 @@ An executor that is used to perform an executor at a fixed rate that can be dyna
 | Attribute | Description | Type |
 | --- | --- | --- |
 | `execute` | The id of the executor for reference. | `Executor ID` |
-| `stop` | Check that should be ran before the loop is halted. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
-| `interval` | Check that will run with each execution to see if it should be ended early. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | `Duration` |
-| `repetitions` | Number of times to execute. If this is not given, the executor will never stop. | `Number (Without Decimal)` |
+| `stop` | Check that should be ran before the loop is halted. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
+| `interval` | Check that will run with each execution to see if it should be ended early. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows:     d - days     h - hours     m - minutes     s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span> |
+| `repetitions` | Number of times to execute. If this is not given, the executor will never stop. | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
 ## Perform Executor(s) On All Players `<perform-on-everyone>`
 
@@ -193,9 +193,9 @@ An executor that plays a sound to a player.
 | Attribute | Description | Type |
 | --- | --- | --- |
 | `sound` | Type of sound to be played. | `Sound`<br />`ambience cave`, `ambience rain`, `ambience thunder`, `anvil break`, `anvil land`, `anvil use`, `arrow hit`, `burp`, `chest close`, `chest open`, `click`, `door close`, `door open`, `drink`, `eat`, `explode`, `fall big`, `fall small`, `fire`, `fire ignite`, `fizz`, `fuse`, `glass`, `hurt flesh`, `item break`, `item pickup`, `lava`, `lava pop`, `level up`, `minecart base`, `minecart inside`, `note bass`, `note piano`, `note bass drum`, `note sticks`, `note bass guitar`, `note snare drum`, `note pling`, `orb pickup`, `piston extend`, `piston retract`, `portal`, `portal travel`, `portal trigger`, `shoot arrow`, `splash`, `splash2`, `step grass`, `step gravel`, `step ladder`, `step sand`, `step snow`, `step stone`, `step wood`, `step wool`, `swim`, `water`, `wood click`, `bat death`, `bat hurt`, `bat idle`, `bat loop`, `bat takeoff`, `blaze breath`, `blaze death`, `blaze hit`, `cat hiss`, `cat hit`, `cat meow`, `cat purr`, `cat purreow`, `chicken idle`, `chicken hurt`, `chicken egg pop`, `chicken walk`, `cow idle`, `cow hurt`, `cow walk`, `creeper hiss`, `creeper death`, `enderdragon death`, `enderdragon growl`, `enderdragon hit`, `enderdragon wings`, `enderman death`, `enderman hit`, `enderman idle`, `enderman teleport`, `enderman scream`, `enderman stare`, `ghast scream`, `ghast scream2`, `ghast charge`, `ghast death`, `ghast fireball`, `ghast moan`, `irongolem death`, `irongolem hit`, `irongolem throw`, `irongolem walk`, `magmacube walk`, `magmacube walk2`, `magmacube jump`, `pig idle`, `pig death`, `pig walk`, `sheep idle`, `sheep shear`, `sheep walk`, `silverfish hit`, `silverfish kill`, `silverfish idle`, `silverfish walk`, `skeleton idle`, `skeleton death`, `skeleton hurt`, `skeleton walk`, `slime attack`, `slime walk`, `slime walk2`, `spider idle`, `spider death`, `spider walk`, `wither death`, `wither hurt`, `wither idle`, `wither shoot`, `wither spawn`, `wolf bark`, `wolf death`, `wolf growl`, `wolf howl`, `wolf hurt`, `wolf pant`, `wolf shake`, `wolf walk`, `wolf whine`, `zombie metal`, `zombie wood`, `zombie woodbreak`, `zombie idle`, `zombie death`, `zombie hurt`, `zombie infect`, `zombie unfect`, `zombie remedy`, `zombie walk`, `zombie pig idle`, `zombie pig angry`, `zombie pig death`, `zombie pig hurt`, `dig wool`, `dig grass`, `dig gravel`, `dig sand`, `dig snow`, `dig stone`, `dig wood`, `firework blast`, `firework blast2`, `firework large blast`, `firework large blast2`, `firework twinkle`, `firework twinkle2`, `firework launch`, `successful hit`, `horse angry`, `horse armor`, `horse breathe`, `horse death`, `horse gallop`, `horse hit`, `horse idle`, `horse jump`, `horse land`, `horse saddle`, `horse soft`, `horse wood`, `donkey angry`, `donkey death`, `donkey hit`, `donkey idle`, `horse skeleton death`, `horse skeleton hit`, `horse skeleton idle`, `horse zombie death`, `horse zombie hit`, `horse zombie idle`, `villager death`, `villager haggle`, `villager hit`, `villager idle`, `villager no`, `villager yes` |
-| `volume` | Volume of the sound. | `Integer Range`<br />`0-2.0` |
-| `pitch` | Pitch of the sound. | `Integer Range`<br />`0-2.0` |
-| `region` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` |
+| `volume` | Volume of the sound. | <span class="badge badge--primary">Integer Range</span><br />`0-2.0` |
+| `pitch` | Pitch of the sound. | <span class="badge badge--primary">Integer Range</span><br />`0-2.0` |
+| `region` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> |
 
 ## Replace Blocks `<replace-block>`
 
@@ -215,8 +215,8 @@ An executor that will rapidly replace blocks inside of a region.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `find` | Material to search for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
-| `replace` | Material to replace found blocks with. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | `Singular Material Matcher` |
+| `find` | Material to search for. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | <span class="badge badge--primary">Singular Material Matcher</span> |
+| `replace` | Material to replace found blocks with. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. | <span class="badge badge--primary">Singular Material Matcher</span> |
 
 ## Send Message `<send-message>`
 
@@ -239,10 +239,10 @@ The message supports contextual attributes based on the actor which are surround
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
 | `location` | Location on the screen to send the message. | `Message Location`<br />`chat`, `title`, `subtitle` | |
-| `message` | Message to send. | `Text` | |
-| `fade-in` | If the title location is used, The time if takes the title to fade in. | `Number (Without Decimal)` | `20` |
-| `hold` | If the title location is used, The time if takes the title to stay on screen. | `Number (Without Decimal)` | `40` |
-| `fade-out` | If the title location is used, The time if takes the title to fade out. | `Number (Without Decimal)` | `20` |
+| `message` | Message to send. | <span class="badge badge--primary">Text</span> | |
+| `fade-in` | If the title location is used, The time if takes the title to fade in. | <span class="badge badge--primary">Number (Without Decimal)</span> | `20` |
+| `hold` | If the title location is used, The time if takes the title to stay on screen. | <span class="badge badge--primary">Number (Without Decimal)</span> | `40` |
+| `fade-out` | If the title location is used, The time if takes the title to fade out. | <span class="badge badge--primary">Number (Without Decimal)</span> | `20` |
 
 ##### Attributes that apply to entities
 
@@ -347,8 +347,8 @@ These attributes are shared across all executors/
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | `Feature ID` |
-| `check` | Check that should be ran before the executor is executed. This can either be in ID form, or as a nested XML tag in the syntax of a check. | `Check` |
+| `id` | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> |
+| `check` | Check that should be ran before the executor is executed. This can either be in ID form, or as a nested XML tag in the syntax of a check. | <span class="badge badge--primary">Check</span> |
 
 ## Summon Entity `<summon-entity>`
 
@@ -371,11 +371,11 @@ An executor that summons entities into the world with specified attributes.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `type` | Type of entity to be spawned. | `EntityType`<br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) | |
-| `name` | Custom name for the entity. | `Text` | |
+| `type` | Type of entity to be spawned. | <span class="badge badge--primary">EntityType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) | |
+| `name` | Custom name for the entity. | <span class="badge badge--primary">Text</span> | |
 | `effects` | Potion effects to apply to the entity. This should be written like effects would be configured in a loadout. | `Effects Loadout Tag` | |
-| `count` | Number of entities that should be spawned. | `Number (Without Decimal)` | `1` |
-| `region` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` | |
+| `count` | Number of entities that should be spawned. | <span class="badge badge--primary">Number (Without Decimal)</span> | `1` |
+| `region` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> | |
 
 ### Equipment Attributes `<equipment>`
 
@@ -422,9 +422,9 @@ Attributes used to configure fireworks which are spawned.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `power` | The power of the firework. | `Number` | `1` |
-| `team-color` | If the team color (if it can be inferred) should be a part of the firework. | `True/False` | `false` |
-| `team-color-fade` | If the team color (if it can be inferred) should be a part of the firework's fade. | `True/False` | `false` |
+| `power` | The power of the firework. | <span class="badge badge--primary">Number</span> | `1` |
+| `team-color` | If the team color (if it can be inferred) should be a part of the firework. | <span class="badge badge--primary">True/False</span> | `false` |
+| `team-color-fade` | If the team color (if it can be inferred) should be a part of the firework's fade. | <span class="badge badge--primary">True/False</span> | `false` |
 
 ### Firework Effect Attributes `<effect>`
 
@@ -450,11 +450,11 @@ Attributes used to configure firework effects for fireworks which are spawned.
 
 | Attribute | Description | Type | Default |
 | --- | --- | --- | --- |
-| `effect` | Type of effect to be applied. | `Type`<br />`ball`, `ball large`, `star`, `burst`, `creeper` | |
-| `flicker` | If the effect should flicker. | `True/False` | `false` |
-| `trail` | If the effect should have a trail. | `True/False` | `false` |
-| `color` | The color of the effect. Colors can be defined in 2 different ways. If the color starts with a '#', the hex of the color will be parsed (use this for exact colors) If not, a generic color (red, green, blue, etc) should be used. | `Color` | |
-| `fade` | If the effect should fade. | `True/False` | `false` |
+| `effect` | Type of effect to be applied. | <span class="badge badge--primary">Type</span><br />`ball`, `ball large`, `star`, `burst`, `creeper` | |
+| `flicker` | If the effect should flicker. | <span class="badge badge--primary">True/False</span> | `false` |
+| `trail` | If the effect should have a trail. | <span class="badge badge--primary">True/False</span> | `false` |
+| `color` | The color of the effect. Colors can be defined in 2 different ways. If the color starts with a '#', the hex of the color will be parsed (use this for exact colors) If not, a generic color (red, green, blue, etc) should be used. | <span class="badge badge--primary">Color</span> | |
+| `fade` | If the effect should fade. | <span class="badge badge--primary">True/False</span> | `false` |
 
 ## Take Items `<take-item>`
 
@@ -474,7 +474,7 @@ An executor that takes items from player inventories based on criteria.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `take` | Items to take. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | `Multi Material Matcher` |
+| `take` | Items to take. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | <span class="badge badge--primary">Multi Material Matcher</span> |
 
 ## Teleport Player `<teleport-player>`
 
@@ -494,7 +494,7 @@ An executor that teleports a player to a location inside of a region.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `to` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | `Region` |
+| `to` | Region this executor acts inside of. This can either be in ID form, or as a nested XML tag in the syntax of a region. | <span class="badge badge--primary">Region</span> |
 
 ## Toggle Elimination `<toggle-elimination>`
 
@@ -516,7 +516,7 @@ An executor used to toggle elimination on/off for a match.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `toggle` | What elimination should be set to. If this is not specified, it will just be toggled. | `True/False` |
+| `toggle` | What elimination should be set to. If this is not specified, it will just be toggled. | <span class="badge badge--primary">True/False</span> |
 
 ## Triggers `<triggers>`
 
@@ -536,7 +536,7 @@ Below are a list of triggers that can be used to trigger executors.
 
 | Attribute | Description | Type |
 | --- | --- | --- |
-| `on` | ID of the event that should trigger this executor. | `Text` |
+| `on` | ID of the event that should trigger this executor. | <span class="badge badge--primary">Text</span> |
 | `execute` | The id of the executor for reference. | `Executor ID` |
 
 ##### Events

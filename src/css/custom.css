@@ -1,3 +1,4 @@
+/* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -6,25 +7,148 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-color-primary: #22c55e;
+    --ifm-color-primary-dark: #16a34a;
+    --ifm-color-primary-darker: #15803d;
+    --ifm-color-primary-darkest: #14532d;
+    --ifm-color-primary-light: #4ade80;
+    --ifm-color-primary-lighter: #86efac;
+    --ifm-color-primary-lightest: #bbf7d0;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-breadcrumb-border-radius: 0.4rem;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+.docusaurus-highlight-code-line {
+    background-color: rgb(72, 77, 91);
+    display: block;
+    margin: 0 calc(-1 * var(--ifm-pre-padding));
+    padding: 0 var(--ifm-pre-padding);
+}
+
+.DocSearch-Button {
+    border-radius: 4px !important;
+}
+
+.table-container {
+    display: block;
+    overflow-x: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-shadow: var(--ifm-global-shadow-lw) !important;
+    border-radius: 8px;
+}
+
+table {
+    display: table;
+    width: 100%;
+    overflow-wrap: break-word;
+    border-collapse: collapse;
+    border-style: hidden;
+    margin-bottom: 0px;
+}
+
+table span {
+    margin-right: 5px;
+}
+
+table tr {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+table th {
+    background-color: rgb(72, 77, 91, 0.1);
+    padding: 6px;
+}
+
+table tbody tr th {
+    padding: 6px;
+}
+
+table td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: rgb(72, 77, 91, 0);
+}
+
+table th, table td {
+    border: none;
+}
+
+table tr:nth-child(even) td {
+    border-color: rgb(72, 77, 91, 0.1);
+}
+
+table tr:nth-child(odd) td {
+    border-color: rgb(72, 77, 91, 0.1);
+}
+
+/* All code and label elements which have a td parent */
+table > tbody > tr > td > code,label {
+    display: block;
+    background-color: transparent !important;
+    unicode-bidi: embed;
+    font-family: monospace !important;
+    white-space: pre;
+    font-size: 120% !important;
+    color: #c7254e;
+    border-radius: 4px !important;
+    padding: 1px 4px;
+    display: inline-block;
+}
+
+code {
+    padding: 4px;
+    border: none;
+}
+
+.theme-doc-markdown {
+    padding: 16px;
+}
+
+.theme-doc-breadcrumbs {
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.icon-right {
+    float: right;
+    margin-left: 8px;
+    font-style: normal;
+}
+
+/* orange highlight bar on the navbar */
+.navbar--fixed-top {
+    border-bottom: 4px solid #14532d;
+}
+
+/* generally centres the navbar elements  */
+@media (min-width: 1440px) {
+    .navbar__inner {
+        max-width: var(--ifm-container-width-xl) !important;
+    }
+}
+
+.navbar__inner {
+    max-width: var(--ifm-container-width);
+    padding: 0 var(--ifm-spacing-horizontal);
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* draws line underneath footer titles */
+.footer__title {
+    border-bottom: 3px solid;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+:where(.button--white) {
+    --ifm-button-background-color: #ffffff;
+    --ifm-button-border-color: #ffffff;
+}
+
+.button--white:hover {
+    color: #000000 !important;
 }
