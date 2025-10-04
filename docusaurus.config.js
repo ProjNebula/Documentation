@@ -63,7 +63,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/logo.png',
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -75,22 +75,13 @@ const config = {
         },
         items: [
           {to: 'docs/modules/core/root-map-element', label: 'Modules', position: 'right'},
-          {to: 'docs/references', label: 'References', position: 'right'},
-          {to: 'doc/examples', label: 'Examples', position: 'right'},
+          {to: 'docs/references/inventory', label: 'References', position: 'right'},
+          {to: 'docs/examples/map', label: 'Examples', position: 'right'},
         ],
       },
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
           {
             title: 'More',
             items: [

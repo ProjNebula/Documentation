@@ -21,7 +21,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--primary button--lg"
-            to="/docs/intro">
+            to="/docs/modules/core/root-map-element">
             Get Started
           </Link>
         </div>
@@ -61,7 +61,7 @@ function WelcomeSection() {
           <p>
             This website primarily focuses on the latter, but a tutorial and guidelines for
             creating an Atlas map world can be{' '}
-            <Link to="/docs/intro">found too</Link>. We also do not provide instruction
+            <Link to="/docs/modules/core/root-map-element">found too</Link>. We also do not provide instruction
             on how extensible markup language (XML) files are written, instead you can{' '}
             <Link to="https://www.w3schools.com/xml/">look here</Link> for a basic introduction.
             We recommend you use your favorite application that helps you to write XML files.
