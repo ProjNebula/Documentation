@@ -74,7 +74,7 @@ const config = {
                 items: [
                     { to: 'docs/modules/core/main', label: 'Modules', position: 'right' },
                     { to: 'docs/references/inventory', label: 'References', position: 'right' },
-                    { to: 'docs/examples/map', label: 'Examples', position: 'right' },
+                    { to: 'docs/examples/rendezvous-ctw', label: 'Examples', position: 'right' },
                     {
                         type: 'search',
                         position: 'right',

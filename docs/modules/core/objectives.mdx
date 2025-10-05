@@ -95,7 +95,7 @@ Leakables count as any container of blocks that contain a liquid that must be le
 | --------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
 | `leak-distance` | The number of blocks below the objective region that the liquid must travel in order to complete this objective. | <span class="badge badge--primary">Number (Without Decimal)</span> | `7`     |
 
-### Monuments `<monument>``<monuments>`
+### Monuments `<monument>` `<monuments>`
 
 Monuments count as any objective that must be completed by breaking blocks in a specified region.
 
@@ -161,7 +161,7 @@ The entity objective is used to track the health of entities in a region and use
 | `region`                    | The region that contains all entities that should be counted as this objective. This can either be in ID form, or as a nested XML tag in the syntax of a region.                                          | <span class="badge badge--primary">Region</span>                                                                                                        |          |
 | `type`                      | The type of entity that this objective is.                                                                                                                                                                | <span class="badge badge--primary">EntityType</span><br />[Possible Values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) |          |
 
-## Flags `<flag>``<flags>`
+## Flags `<flag>` `<flags>`
 
 **REQUIREMENT:** This feature requires the [Zones Component](/docs/modules/general/zones).
 
@@ -218,7 +218,7 @@ Players must retrieve flags and return them to a net region.
 | `carrying-points-growth` | Delay before amount of points earned should be doubled. This attribute denotes a period of time and can either be in seconds or in a period format.                                                                                                                                                              | <span class="badge badge--primary">Duration</span>                                                                                           |          |
 | `pickup-method`          | Method that can be used to pickup the flag.                                                                                                                                                                                                                                                                      | <span class="badge badge--primary">Flag Pickup Method</span><br />`any`, `move`, `interact`                                                  | `ANY`    |
 
-## Hill `<hill>``<hills>`
+## Hill `<hill>` `<hills>`
 
 Hills are areas that teams fight over for control.
 
@@ -301,7 +301,7 @@ These should be declared for every team if every team is allowed to win.
 | `id`      | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML. | <span class="badge badge--primary">Feature ID</span> |
 | `team`    | Team that would win if all others are empty. The id of the team for reference.                                  | <span class="badge badge--primary">Team ID</span>    |
 
-## Score `<score>``<scores>`
+## Score `<score>` `<scores>`
 
 The score objective requires a team to reach a certain amount of points in order to be marked as completed.
 
@@ -323,7 +323,7 @@ The score objective requires a team to reach a certain amount of points in order
 | `kills`   | The amount of points that should be rewarded for a kill.                                                                                                                                                  | <span class="badge badge--primary">Number (Without Decimal)</span> |
 | `deaths`  | The amount of points that should be deducted for a death.                                                                                                                                                 | <span class="badge badge--primary">Number (Without Decimal)</span> |
 
-## Wool `<wool>``<wools>`
+## Wool `<wool>` `<wools>`
 
 Players must retrieve wool blocks and place them within a region.
 
