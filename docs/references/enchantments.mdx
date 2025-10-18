@@ -1,0 +1,76 @@
+---
+id: enchantments
+title: Enchantments
+description: A reference for valid enchantment names in reference to loadouts and kits
+sidebar_position: 4
+---
+
+# Enchantments
+
+Enchantments are applied to an item using the `<enchantment>` tag, or nested under a parent `<enchantments>` tag.
+
+```
+      <item amount="1" material="iron pickaxe" slot="0">
+        <enchantments>
+          <enchantment level="1">dig speed</enchantment> <!-- Efficiency I applied to Iron Pickaxe -->
+        </enchantments>
+      </item>
+ ```
+
+ Atlas allows enchantments to be applied to any item regardless if the enchant was intended for it or not.
+
+## Armor Enchantments
+
+| ID | Bukkit Name | Minecraft Name | Description |
+|----|--------------|----------------|--------------|
+| 0  | PROTECTION_ENVIRONMENTAL | protection | Provides protection against environmental damage. |
+| 1  | PROTECTION_FIRE | fire_protection | Provides protection against fire damage. |
+| 2  | PROTECTION_FALL | feather_falling | Provides protection against fall damage. |
+| 3  | PROTECTION_EXPLOSIONS | blast_protection | Provides protection against explosive damage. |
+| 4  | PROTECTION_PROJECTILE | projectile_protection | Provides protection against projectile damage. |
+| 5  | OXYGEN | respiration | Decreases the rate of air loss whilst underwater. |
+| 6  | WATER_WORKER | aqua_affinity | Increases the speed at which a player may mine underwater. |
+| 7  | THORNS | thorns | Damages the attacker. |
+| 8  | DEPTH_STRIDER | depth_strider | Increases the speed at which a player may move underwater. |
+| 9  | FROST_WALKER | frost_walker | Create frost blocks when walking over water. |
+
+## Tool Enchantments
+
+| ID | Bukkit Name | Minecraft Name | Description |
+|----|--------------|----------------|--------------|
+| 16 | DAMAGE_ALL | sharpness | Increases damage against all targets. |
+| 17 | DAMAGE_UNDEAD | smite | Increases damage against undead targets. |
+| 18 | DAMAGE_ARTHROPODS | bane_of_arthropods | Increases damage against arthropod targets. |
+| 19 | KNOCKBACK | knockback | All damage to other targets will knock them back when hit. |
+| 20 | FIRE_ASPECT | fire_aspect | When attacking a target, has a chance to set them on fire. |
+| 21 | LOOT_BONUS_MOBS | looting | Provides a chance of gaining extra loot when killing monsters. |
+| 32 | DIG_SPEED | efficiency | Increases the rate at which you mine/dig. |
+| 33 | SILK_TOUCH | silk_touch | Allows blocks to drop themselves instead of fragments (e.g., stone instead of cobblestone). |
+| 34 | DURABILITY | unbreaking | Decreases the rate at which a tool loses durability. |
+| 35 | LOOT_BONUS_BLOCKS | fortune | Provides a chance of gaining extra loot when destroying blocks. |
+
+## Bow Enchantments
+
+| ID | Bukkit Name | Minecraft Name | Description |
+|----|--------------|----------------|--------------|
+| 48 | ARROW_DAMAGE | power | Provides extra damage when shooting arrows from bows. |
+| 49 | ARROW_KNOCKBACK | punch | Provides a knockback when an entity is hit by an arrow from a bow. |
+| 50 | ARROW_FIRE | flame | Sets entities on fire when hit by arrows shot from a bow. |
+| 51 | ARROW_INFINITE | infinity | Provides infinite arrows when shooting a bow. |
+
+## Fishing Enchantments
+
+| ID | Bukkit Name | Minecraft Name | Description |
+|----|--------------|----------------|--------------|
+| 61 | LUCK | luck_of_the_sea | Decreases odds of catching worthless junk. |
+| 62 | LURE | lure | Increases rate of fish biting your hook. |
+
+## Item Enchantments
+
+| ID | Bukkit Name | Minecraft Name | Description |
+|----|--------------|----------------|--------------|
+| 70 | MENDING | mending | Repair the item using experience orbs. |
+
+
+ ``Source Credit:`` [Spigot Enchantments](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/enchantments/Enchantment.html)
+ 
