@@ -1,0 +1,24 @@
+---
+id: cth-countdown
+title: CTH Countdowns
+description: CTH Countdowns are used to determine when points are awarded for hill(s).
+---
+
+# CTH Countdowns
+
+CTH Countdowns are used to determine when points are awarded for hill(s).
+
+## Countdown
+
+```xml
+
+<cth-countdown id="main-countdown" point-award-interval="60s" />
+
+```
+
+##### CTH Countdown Attributes
+
+| Attribute              | Description                                                                                                                                                                                                                                                              | Type                                                 | Default |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- | ------- |
+| `id`                   | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML.                                                                                                                                                          | <span class="badge badge--primary">Feature ID</span> |         |
+| `point-award-interval` | The time between points being awarded. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows: d - days h - hours m - minutes s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span>   |         |

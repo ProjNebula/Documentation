@@ -267,6 +267,49 @@ Hills are areas that teams fight over for control.
 | `ignored-blocks` | Specific types of blocks that should be ignored during progress indication. A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material. A damage value is not required. Multiple materials can be defined by adding a ';' between each individual declaration. | <span class="badge badge--primary">Multi Material Matcher</span>                                       |               |
 | `earn-points`    | Rule used to determine when teams should earn points from owning hills.                                                                                                                                                                                                                                                                           | <span class="badge badge--primary">Point Earn Rule</span><br />`always`, `standing on`, `standing off` | `STANDING_ON` |
 
+## CTH Hill `<cth-hill>` `<cth-hills>`
+
+**INFO:** This feature can use the [CTH Countdown Component](/docs/modules/general/cth-countdown).
+
+Hills are areas that award points to a team on an interval for each player standing on it.
+
+```xml
+
+<objectives>
+  <cth-hills countdown-id="main-countdown" points="10">
+    <cth-hill name="Left">
+      <capture>
+        <cuboid min="50, 23, 50" max="75, 40, 75" />
+      </capture>
+    </cth-hill>
+    <cth-hill name="Right">
+      <capture>
+        <cuboid min="27, 23, 77" max="50, 40, 100" />
+      </capture>
+    </cth-hill>
+  </cth-hills>
+  <cth-hill id="hill-middle" name="Center" points="20" point-award-interval="60s" fireworks="false" lightning="false" >
+    <capture>
+      <cylinder base="0, 63, 0" height="3" radius="9"/>
+    </capture>
+  </cth-hill>
+</objectives>
+
+```
+
+##### CTH Hill Attributes
+
+| Attribute              | Description                                                                                                                                                                                                                                                              | Type                                                               | Default |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ------- |
+| `id`                   | The globally unique ID of this feature. This can be used to reference this feature from other parts of the XML.                                                                                                                                                          | <span class="badge badge--primary">Feature ID</span>               |         |
+| `countdown-id`         | ID of the cth-countdown this hill should use. If this is set, the point-award-interval attribute on this cth-hill will be ignored.                                                                                                                                       | <span class="badge badge--primary">String</span>                   |         |
+| `name`                 | The name of the objective (for the UI).                                                                                                                                                                                                                                  | <span class="badge badge--primary">Localized String</span>         |         |
+| `capture`              | The region that contains the area that must be controlled. This can either be in ID form, or as a nested XML tag in the syntax of a region.                                                                                                                              | <span class="badge badge--primary">Region</span>                   |         |
+| `points`               | Number of points that should be awarded to the team per player on the objective.                                                                                                                                                                                         | <span class="badge badge--primary">Number (Without Decimal)</span> | `10`    |
+| `point-award-interval` | The time between points being awarded. This attribute denotes a period of time and can either be in seconds or in a period format. Formats are as follows: d - days h - hours m - minutes s - seconds These can be combined to create any period. No spaces are allowed. | <span class="badge badge--primary">Duration</span>                 | `60s`   |
+| `fireworks`            | If fireworks should shoot off of the objective when points are awarded.                                                                                                                                                                                                  | <span class="badge badge--primary">True/False</span>               | `true`  |
+| `lightning`            | If lightning should strike the objective when points are awarded.                                                                                                                                                                                                        | <span class="badge badge--primary">True/False</span>               | `true`  |
+
 ## Last Competitor Standing `<last-competitor-standing>`
 
 The last competitor standing objective is used to mark the winner of the match as the competitor (team for normal, player for FFA) with any players on it after all others are empty.
